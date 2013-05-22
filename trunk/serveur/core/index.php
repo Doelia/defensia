@@ -30,3 +30,5 @@ print("Préparation de l'inclusion des classes...\n");
 spl_autoload_register('chargerClasse');
 
 print("Moteur chargé !\n");
+
+require('inc/init.php');
