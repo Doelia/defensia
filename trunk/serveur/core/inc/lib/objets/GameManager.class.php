@@ -21,7 +21,7 @@ class GameManager
 		$this->_games = array();
 	}
 
-	public function getGame()
+	public function getGames()
 	{
 		return $this->_games;
 	}
