@@ -3,7 +3,8 @@
 class GameManager
 {
 	private $_instance;
-	public static getInstance()
+
+	public static function getInstance()
 	{
 		if ($this->_instance == null)
 			$this->_instance = new GameManager();
