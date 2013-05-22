@@ -1,0 +1,2 @@
+[22-May-2013 17:02:06 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/doelia/Documents/defensia/serveur/core/inc/lib/objets/GameManager.class.php on line 6
+[22-May-2013 17:02:07 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/doelia/Documents/defensia/serveur/core/inc/lib/objets/GameManager.class.php on line 6
