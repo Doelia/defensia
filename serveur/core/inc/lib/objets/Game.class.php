@@ -10,7 +10,7 @@ class Game
 
 	public function __construct($id)
 	{
-		Logger::logGame("Game.construct($id)");
+		Logger::logGame("Game.construct(id=$id)");
 		$this->_ID = $id;
 		$this->_players = array();
 	}
