@@ -16,6 +16,7 @@ class GameManager
 
 	private function __constuct()
 	{
+		Logger::logGame("GameManager.construct()");
 		$_AI = 0;
 		$this->_games = array();
 	}
@@ -37,7 +38,9 @@ class GameManager
 
 	public function createGame()
 	{
+		Logger::logGame("GameManager.createGame()");
 		$g = $this->_games[] = new Game($this->_AI++);
+		Logger::logGame("GameManager : Définition state game : salon");
 		$g->setState(new SalonState($g));
 		$g->boucleUpdate();
 	}

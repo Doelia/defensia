@@ -4,7 +4,7 @@ class Logger
 {
 	private static $log = true;
 	
-	public static display($m)
+	public static function display($m)
 	{
 		if (self::$log)
 			print "$m\n";

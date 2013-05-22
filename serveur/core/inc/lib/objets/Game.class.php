@@ -10,18 +10,21 @@ class Game
 
 	public function __construct($id)
 	{
+		Logger::logGame("Game.construct($id)");
 		$this->_ID = $id;
 		$this->_players = array();
 	}
 
 	public function setState($state)
 	{
+		Logger::logGame("Game.setState(?)");
 		$this->_currentState = $state;
 		$state->show();
 	}
 
 	public function boucleUpdate()
 	{
+		Logger::logGame("Game.boucleUpdate()");
 		while(true)
 		{
 			usleep(self::$SLEEPTIME);
@@ -41,6 +44,7 @@ class Game
 
 	public function createPlayer(WebSocketUser $u)
 	{
+		Logger::logGame("Game.createPlayer(WebSocketUser u)");
 		$this->_players[] = new Player($u);
 	}
 
