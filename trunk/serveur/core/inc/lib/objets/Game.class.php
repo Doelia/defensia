@@ -3,7 +3,7 @@
 class Game
 {
 	private $_currentState;
-	const SLEEPTIME = 10 * 1000;
+	const SLEEPTIME = '100000';
 
 	private $_ID; // Généré par le gamemanager
 	private $_players; // Array
@@ -17,7 +17,7 @@ class Game
 	public function setState($state)
 	{
 		$this->_currentState = $state;
-		$state->state();
+		$state->show();
 	}
 
 	public function boucleUpdate()
