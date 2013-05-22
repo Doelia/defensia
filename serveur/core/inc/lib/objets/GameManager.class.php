@@ -2,13 +2,13 @@
 
 class GameManager
 {
-	private static $_instance;
+	private static $instance;
 
 	public static function getInstance()
 	{
-		if ($this->_instance == null)
-			$this->_instance = new GameManager();
-		return $this->_instance;
+		if (self::$instance == null)
+			self::$instance = new GameManager();
+		return self::$instance;
 	}
 
 	private $_games; // Array
