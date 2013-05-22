@@ -11,9 +11,11 @@ class GameManager
 	}
 
 	private $_games; // Array
+	private $_AI; // Auto incrément de l'id du jeu
 
 	private function __constuct()
 	{
+		$_AI = 0;
 		$this->_games = array();
 	}
 
@@ -34,9 +36,10 @@ class GameManager
 
 	public function createGame()
 	{
-		$g = $this->_games[] = new Game();
+		$g = $this->_games[] = new Game($this->_AI++);
 		$g->setState(new SalonState($g));
 		$g->boucleUpdate();
 	}
+
 
 }
