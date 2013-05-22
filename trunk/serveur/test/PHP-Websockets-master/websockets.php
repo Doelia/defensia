@@ -85,7 +85,7 @@ abstract class WebSocketServer {
   }
   
   protected function send($user,$message) {
-		//$this->stdout("> $message");
+		$this->stdout("> $message");
 		$message = $this->frame($message,$user);
 		socket_write($user->socket,$message,strlen($message));
 	}

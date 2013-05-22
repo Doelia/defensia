@@ -7,6 +7,7 @@ class echoServer extends WebSocketServer {
 	//protected $maxBufferSize = 1048576; //1MB... overkill for an echo server, but potentially plausible for other applications.
 	
 	protected function process ($user, $message) {
+		print "message : ".$message;
 		$this->send($user,$message);
 	}
 	
@@ -21,6 +22,9 @@ class echoServer extends WebSocketServer {
 		// open files or other objects associated with them.  This runs after the socket 
 		// has been closed, so there is no need to clean up the socket itself here.
 	}
+
 }
 
+print "avant \n";
 $echo = new echoServer("localhost","8080");
+print "apres \n";

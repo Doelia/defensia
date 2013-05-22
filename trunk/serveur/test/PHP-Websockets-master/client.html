@@ -17,7 +17,7 @@ html,body {
 var socket;
 
 function init() {
-	var host = "ws://example.com:9000/echobot"; // SET THIS TO YOUR SERVER
+	var host = "ws://localhost:8080"; // SET THIS TO YOUR SERVER
 	try {
 		socket = new WebSocket(host);
 		log('WebSocket - status '+socket.readyState);
