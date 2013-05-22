@@ -22,7 +22,7 @@ class WebSocketUser {
 
 	public function equals(WebSocketUser $s)
 	{
-		return ($this->id == $s->id):
+		return ($this->id == $s->id);
 	}
 
 }
