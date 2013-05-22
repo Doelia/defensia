@@ -2,24 +2,31 @@
 
 class Game
 {
-	$_players; // Array
-	
-	public function __construct()
-	{
-		$this->_players = new array();
-	}
-	
-	public function update($detla)
-	{
-		
-	}
-	
-	public function show()
-	{
-		
-		$thread = new Thread('thread');
-		$thread->start();
+	private $_currentState;
+	const SLEEPTIME = 100000;
+	private $_ID;
 
+
+
+	public function setState($state)
+	{
+		$this->_currentGame = $state;
+		$state->state();
+
+		while(true)
+		{
+			usleep(self::SLEEPTIME);
+			$_currentGame->update(SLEEPTIME);
+		}
 	}
 
+	public function getGame()
+	{
+		return $this->_currentGame;
+	}
+
+	public function getID()
+	{
+		return $_this->_ID;
+	}
 }
