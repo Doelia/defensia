@@ -2,10 +2,11 @@
 
 class GameManager
 {
-	private static $instance;
+	private static $instance = null;
 
 	public static function getInstance()
 	{
+		echo "getInstance";
 		if (self::$instance == null)
 			self::$instance = new GameManager();
 		return self::$instance;
@@ -28,8 +29,9 @@ class GameManager
 
 	public function getGameById($id)
 	{
+		print_r($this->getGames());
 		foreach ($this->getGames() as $g) {
-
+			if ($g->getId() == $id) {
 				return $g;
 			}
 		}
@@ -39,7 +41,7 @@ class GameManager
 	public function createGame()
 	{
 		Logger::logGame("GameManager.createGame()");
-		$g = $this->_games[] = new Game(1);
+		$this->_games[] = $g = new Game(1);
 		Logger::logGame("GameManager : Définition state game : salon");
 		$g->setState(new SalonState($g));
 		$g->boucleUpdate();
