@@ -16,7 +16,7 @@ class Game
 
 	public function setState($state)
 	{
-		$this->_currentGame = $state;
+		$this->_currentState = $state;
 		$state->state();
 	}
 
@@ -29,7 +29,7 @@ class Game
 		}
 	}
 
-	public function getGame()
+	public function getState()
 	{
 		return $this->_currentGame;
 	}
