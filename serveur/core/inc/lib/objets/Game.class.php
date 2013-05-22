@@ -3,7 +3,7 @@
 class Game
 {
 	private $_currentState;
-	const SLEEPTIME = 100000;
+	const SLEEPTIME = 10 * 1000;
 	private $_ID;
 
 
@@ -12,11 +12,14 @@ class Game
 	{
 		$this->_currentGame = $state;
 		$state->state();
+	}
 
+	public function boucleUpdate()
+	{
 		while(true)
 		{
 			usleep(self::SLEEPTIME);
-			$_currentGame->update(SLEEPTIME);
+			$_currentState->update(SLEEPTIME);
 		}
 	}
 

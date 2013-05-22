@@ -34,7 +34,9 @@ class GameManager
 
 	public function createGame()
 	{
-		return $this->_games[] = new Game();
+		$g = $this->_games[] = new Game();
+		$g->setState(new SalonState($g));
+		$g->boucleUpdate();
 	}
 
 }

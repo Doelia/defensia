@@ -2,10 +2,13 @@
 
 // Ouverture du serveur
 
-function thread() {
+function thread_server() {
 
    
 }
+
+
+
 
 GameManager::getInstance()->createGame();
 
