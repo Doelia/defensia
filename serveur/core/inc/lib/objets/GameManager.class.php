@@ -2,7 +2,7 @@
 
 class GameManager
 {
-	private $_instance;
+	private static $_instance;
 
 	public static function getInstance()
 	{
