@@ -1,0 +1,73 @@
+#!/usr/local/bin/php -q
+<?php
+error_reporting(E_ALL);
+
+/* Autorise l'exécution infinie du script, en attente de connexion. */
+set_time_limit(0);
+
+/* Active le vidage implicite des buffers de sortie, pour que nous
+ * puissions voir ce que nous lisons au fur et à mesure. */
+ob_implicit_flush();
+
+$address = 'localhost';
+$port = 8080;
+
+if (($sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)) === false) {
+    echo "socket_create() a échoué : raison : " . socket_strerror(socket_last_error()) . "\n";
+    exit();
+}
+print "création pas échouée \n";
+
+if (socket_bind($sock, $address, $port) === false) {
+    echo "socket_bind() a échoué : raison : " . socket_strerror(socket_last_error($sock)) . "\n";
+    exit();
+}
+print "bind pas échoué \n";
+
+if (socket_listen($sock, 5) === false) {
+    echo "socket_listen() a échoué : raison : " . socket_strerror(socket_last_error($sock)) . "\n";
+    exit();
+}
+print "listen pas échoué \n";
+
+do {
+    print "en écoute \n";
+    print "Serveur pret \n";
+
+    if (($msgsock = socket_accept($sock)) === false) {
+        echo "socket_accept() a échoué : raison : " . socket_strerror(socket_last_error($sock)) . "\n";
+        break;
+    }
+    print "accept pas échoué \n";
+    /* Send instructions. */
+    $msg = "\Bienvenue sur le serveur de test PHP.\n" .
+        "Pour quitter, tapez 'quit'. Pour éteindre le serveur, tapez 'shutdown'.\n";
+
+    print "tentative d'envoi \n";
+    socket_write($msgsock, $msg, strlen($msg));
+    print "envoi réussi ! \n";
+
+    do {
+        if (false === ($buf = socket_read($msgsock, 2048, PHP_NORMAL_READ))) {
+            echo "socket_read() a échoué : raison : " . socket_strerror(socket_last_error($msgsock)) . "\n";
+            break 2;
+        }
+        if (!$buf = trim($buf)) {
+            continue;
+        }
+        if ($buf == 'quit') {
+            break;
+        }
+        if ($buf == 'shutdown') {
+            socket_close($msgsock);
+            break 2;
+        }
+        $talkback = "PHP: You said '$buf'.\n";
+        socket_write($msgsock, $talkback, strlen($talkback));
+        echo "recu du client : $buf\n";
+    } while (true);
+    socket_close($msgsock);
+} while (true);
+
+socket_close($sock);
+?>
