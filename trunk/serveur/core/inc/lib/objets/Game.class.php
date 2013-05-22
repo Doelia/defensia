@@ -25,7 +25,7 @@ class Game
 		while(true)
 		{
 			usleep(self::$SLEEPTIME);
-			$this->_currentState->update($SLEEPTIME);
+			$this->_currentState->update(self::$SLEEPTIME);
 		}
 	}
 
