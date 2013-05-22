@@ -13,6 +13,8 @@ class Server extends WebSocketServer
 	
 	protected function process ($socket, $message) 
 	{
+		Logger::logSocket($socket->id . " : " . $message);
+
 		$player = GameManager::getInstance()->getGameById(1)->getPlayerFromSocket($socket);
 		$message = explode(":", $message);
 
@@ -26,16 +28,17 @@ class Server extends WebSocketServer
 				break;
 		}
 
-		print "message : ".$message;
 		$this->send($socket,$message);
 	}
 	
 	protected function connected ($socket) 
 	{
+		Logger::logSocket("new client connected");
 		GameManager::getInstance()->getGameById(1)->createPlayer($socket);
 	}
 	
 	protected function closed ($socket) {
+		Logger::logSocket("lost connection to : " . $socket->id);
 		// Do nothing: This is where cleanup would go, in case the socket had any sort of
 		// open files or other objects associated with them.  This runs after the socket 
 		// has been closed, so there is no need to clean up the socket itself here.
