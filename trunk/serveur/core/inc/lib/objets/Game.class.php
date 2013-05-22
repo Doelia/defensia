@@ -4,9 +4,15 @@ class Game
 {
 	private $_currentState;
 	const SLEEPTIME = 10 * 1000;
-	private $_ID;
 
+	private $_ID; // Généré par le gamemanager
+	private $_players; // Array
 
+	public function __construct($id)
+	{
+		$this->_ID = $id;
+		$this->_players = array();
+	}
 
 	public function setState($state)
 	{
@@ -31,5 +37,25 @@ class Game
 	public function getID()
 	{
 		return $_this->_ID;
+	}
+
+	public function createPlayer(WebSocketUser $u)
+	{
+		$this->_players[] = new Player($u);
+	}
+
+	private function getPlayers()
+	{
+		return $this->_players;
+	}
+
+	public function getPlayerFromSocket(WebSocketUser $u)
+	{
+		foreach ($this->getPlayers as $p)
+		{
+			if ($p->getSocket()->equals($u))
+				return true;
+		}
+		return false;
 	}
 }
