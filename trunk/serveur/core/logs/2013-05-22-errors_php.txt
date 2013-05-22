@@ -1,8 +1,0 @@
-[22-May-2013 17:02:06 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/doelia/Documents/defensia/serveur/core/inc/lib/objets/GameManager.class.php on line 6
-[22-May-2013 17:02:07 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting T_VARIABLE in /home/doelia/Documents/defensia/serveur/core/inc/lib/objets/GameManager.class.php on line 6
-[22-May-2013 15:03:12 UTC] PHP Fatal error:  Using $this when not in object context in /home/noe/defensia/serveur/core/inc/lib/objets/GameManager.class.php on line 9
-[22-May-2013 15:03:12 UTC] PHP Warning:  require(inc/lib/objets/hg/Server.class.php): failed to open stream: No such file or directory in /home/noe/defensia/serveur/core/inc/lib/fc/others/chargerClasse.php on line 10
-[22-May-2013 15:03:12 UTC] PHP Fatal error:  require(): Failed opening required 'inc/lib/objets/hg/Server.class.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/noe/defensia/serveur/core/inc/lib/fc/others/chargerClasse.php on line 10
-[22-May-2013 15:03:15 UTC] PHP Fatal error:  Using $this when not in object context in /home/noe/defensia/serveur/core/inc/lib/objets/GameManager.class.php on line 9
-[22-May-2013 15:03:15 UTC] PHP Warning:  require(inc/lib/objets/hg/Server.class.php): failed to open stream: No such file or directory in /home/noe/defensia/serveur/core/inc/lib/fc/others/chargerClasse.php on line 10
-[22-May-2013 15:03:15 UTC] PHP Fatal error:  require(): Failed opening required 'inc/lib/objets/hg/Server.class.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/noe/defensia/serveur/core/inc/lib/fc/others/chargerClasse.php on line 10

@@ -2,12 +2,12 @@
 
 class Server extends WebSocketServer
 {
-	private $_instance;
-	public static getInstance()
+	private static $instance;
+	public static function getInstance()
 	{
-		if ($this->_instance == null)
-			$this->_instance = new Server("localhost", "8080");
-		return $this->_instance;
+		if (self::$instance == null)
+			self::$instance = new Server("localhost", "8080");
+		return self::$instance;
 	}
 	//protected $maxBufferSize = 1048576; //1MB... overkill for an echo server, but potentially plausible for other applications.
 	
