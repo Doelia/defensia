@@ -3,7 +3,7 @@
 class Game
 {
 	private $_currentState;
-	const SLEEPTIME = '100000';
+	private static $SLEEPTIME = 100000;
 
 	private $_ID; // Généré par le gamemanager
 	private $_players; // Array
@@ -24,8 +24,8 @@ class Game
 	{
 		while(true)
 		{
-			usleep(self::SLEEPTIME);
-			$_currentState->update(SLEEPTIME);
+			usleep(self::$SLEEPTIME);
+			$_currentState->update($SLEEPTIME);
 		}
 	}
 
