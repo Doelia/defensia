@@ -4,18 +4,19 @@ class Logger
 {
 	private static $log = true;
 	
-	public static setLog($boolean)
+	public static display($m)
 	{
-		$log = $boolean;
+		if (self::$log)
+			print "$m\n";
 	}
 
-	public static function logGame ($message)
+	public static function logGame($message)
 	{
-		print "Game : ". $message;
+		self::display("[GAME] : ". $message);
 	}
 
-	public static logSocket ($message)
+	public static function logSocket($message)
 	{
-		print "Socket : ". $message;
+		self::display("[SOCKET] : ". $message);
 	}
 }
