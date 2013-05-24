@@ -67,4 +67,7 @@ class Game
 	}
 
 	public function addAction()
+	{
+		
+	}
 }
