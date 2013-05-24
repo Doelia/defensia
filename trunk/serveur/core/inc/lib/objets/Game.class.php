@@ -29,6 +29,7 @@ class Game
 		Logger::logGame("Game.boucleUpdate()");
 		while(true)
 		{
+			while (GameManager::getInstance()->balSend()->read()) { }
 			usleep(self::$SLEEPTIME);
 			$this->_currentState->update(self::$SLEEPTIME);
 		}
