@@ -39,7 +39,7 @@ class BalEnvoi extends Bal
 			if($msg[0] == "LOGIN")
 			{
 				Logger::logBal("new player added : ".$msg[1]);
-				GameManager::getInstance()->getLastGame()->createPlayer($socket);
+				GameManager::getInstance()->getLastGame()->createPlayer($msg[1], $socket);
 			}
 
 			else
@@ -52,15 +52,6 @@ class BalEnvoi extends Bal
 			}
 
 			return true;	
-		}
-	}
-
-	public function readLoop()
-	{	
-		$read = true;
-		while ($read == true)
-		{
-			$read = $this->read();
 		}
 	}
 

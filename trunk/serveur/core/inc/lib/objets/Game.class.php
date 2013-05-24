@@ -45,10 +45,10 @@ class Game
 		return $_this->_ID;
 	}
 
-	public function createPlayer($u)
+	public function createPlayer($pseudo, $u)
 	{
 		Logger::logGame("Game.createPlayer($u)");
-		$this->_players[] = new Player($u);
+		$this->_players[] = new Player($pseudo, $u);
 	}
 
 	public function getPlayers()
