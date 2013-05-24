@@ -21,8 +21,8 @@ class GameManager
 
 	private $_games; // Array
 	private $_AI; // Auto incrément de l'id du jeu
-	public $balReiv;
-	public $balSend;
+	public $balReiv; // 
+	public $balSend; // 
 
 	private function __construct($idBalReiv, $idBalSend)
 	{

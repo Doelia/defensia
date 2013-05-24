@@ -18,11 +18,6 @@ class Player
 		return false;
 	}
 
-	public function send($message)
-	{
-		Server::getInstance()->send($this->_sock, $message);
-	}
-
 	public function getSocket()
 	{
 		return $this->_sock;
