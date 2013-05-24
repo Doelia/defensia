@@ -23,7 +23,6 @@ class BalEnvoi extends Bal
 	{
 		$msg = parent::read();
 
-		Logger::logBal("BalEnvoi.read() : $msg");
 
 		if($msg == null)
 		{
@@ -31,6 +30,7 @@ class BalEnvoi extends Bal
 		}
 		else
 		{
+			Logger::logBal("BalEnvoi.read() : $msg");
 			$msg = explode("-", $msg);
 			$socket = $msg[0];
 			$msg = explode(":", $msg[1]);
