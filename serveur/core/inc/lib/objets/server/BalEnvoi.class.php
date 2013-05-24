@@ -42,7 +42,7 @@ class BalEnvoi extends Bal
 				GameManager::getInstance()->getLastGame()->createPlayer($msg[1], $socket);
 			}
 
-			else
+			else if($msg[0] == "AT" || $msg[0] == "RT")
 			{	
 				Logger::logBal("new action added : ".$msg[1]);
 
