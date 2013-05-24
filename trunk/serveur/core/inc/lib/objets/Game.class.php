@@ -51,7 +51,7 @@ class Game
 		$this->_players[] = new Player($u);
 	}
 
-	private function getPlayers()
+	public function getPlayers()
 	{
 		return $this->_players;
 	}
