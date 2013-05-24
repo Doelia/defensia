@@ -490,4 +490,13 @@ abstract class WebSocketServer {
 		}
 		echo ")\n";
 	}
+
+	public function getUserById($id)
+	{
+		foreach ($this->users as $u)
+			if ($u->id == $id)
+				return $u;
+		return null;
+	}
 }
+

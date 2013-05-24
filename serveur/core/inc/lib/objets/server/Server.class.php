@@ -28,13 +28,15 @@ class Server extends WebSocketServer
 		Logger::logsocket("Server.traiterBalReiv()");
 		while ($msg = $this->balReiv->read())
 		{
+			Logger::logsocket("Server.traiterBalReiv() : Message trouvé : $msg");
+
 			$tab = explode('-', $msg);
-			if ($tab && $tab[0] && $tab[1] && is_numeric($tab[0]))
+			if ($tab && $tab[0] && $tab[1])
 			{
-				$socketUser = $this->getSocketFromId($tab[0]);
-				$this->send($socketUser, $tab[1]);
+				$this->send($tab[0], $tab[1]);
 			}
 		}
+		Logger::logsocket("FIN Server.traiterBalReiv()");
 	}
 	
 	protected function process ($socket, $message) 
@@ -56,10 +58,12 @@ class Server extends WebSocketServer
 		// has been closed, so there is no need to clean up the socket itself here.
 	}
 
-	protected function send ($socket, $message)
+	protected function send ($numSocket, $message)
 	{
-		Logger::logSocket("[WS] Envoyé : $message a ".$socket->id);
-		$this->send($socket,$message);
+		$user = $this->getUserById($numSocket);
+		Logger::logSocket("[WS] User  : ".$user->id);
+		parent::send($user,$message);
+		Logger::logSocket("[WS] Envoyé : $message a ".$numSocket);
 	}
 
 	protected function getSocketFromId($idNeed)
