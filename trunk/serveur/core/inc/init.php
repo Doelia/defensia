@@ -8,7 +8,7 @@ function thread_server($res) {
 }
 
 $thread_server = new Thread('thread_server');
-$thread_server->start(1);
+//$thread_server->start(1);
 
 GameManager::getInstance()->createGame();
 
