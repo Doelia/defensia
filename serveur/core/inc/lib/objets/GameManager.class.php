@@ -74,7 +74,8 @@ class GameManager
 
 	public function getLastGame()
 	{
-		return $this->_games[count($this->getGames()-1)];
+		$nbrGames = count($this->getGames());
+		return $this->_games[$nbrGames-1];
 	}
 
 
