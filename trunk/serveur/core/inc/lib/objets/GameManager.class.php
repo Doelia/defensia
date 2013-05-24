@@ -47,5 +47,18 @@ class GameManager
 		$g->boucleUpdate();
 	}
 
+	public function getGameBySocket($IDsocket)
+	{	
+		foreach ($this->getGames() as $g) {
+			foreach ($g->getPlayers() as $p) {
+				if($p->getSocket()->_id == $IDsocket)
+				{
+					return $g;
+				}
+			}
+		}
+		return null;
+	}
+
 
 }
