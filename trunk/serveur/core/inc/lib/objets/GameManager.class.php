@@ -54,7 +54,7 @@ class GameManager
 	{
 		Logger::logGame("GameManager.createGame()");
 		$this->_games[] = $g = new Game(1);
-		Logger::logGame("GameManager : Définition state game : salon");
+		Logger::logGame("GameManager : Définition first state game : salon");
 		$g->setState(new SalonState($g));
 		$g->boucleUpdate();
 	}
