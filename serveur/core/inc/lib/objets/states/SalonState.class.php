@@ -10,7 +10,8 @@ class SalonState implements State
 	}
 	public function update($detla)
 	{
-		
+		if($this->_game->getNumberOfPlayers() > 0)
+			$this->_game->setState(new GameState($_game))
 	}
 	
 	public function show()

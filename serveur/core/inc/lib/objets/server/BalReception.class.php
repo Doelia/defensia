@@ -72,4 +72,13 @@ class BalReception extends Bal
 	{
 		$this->write("$socket-RT:$x:$y");
 	}
+
+	/**
+	  * IDaction : CS
+	  * param1 : state
+	***/
+	public function changeState($state, $socket)
+	{
+		$this->write("$socket-CS:$state");
+	}
 }
