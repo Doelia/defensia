@@ -45,9 +45,9 @@ class Game
 		return $_this->_ID;
 	}
 
-	public function createPlayer(WebSocketUser $u)
+	public function createPlayer($u)
 	{
-		Logger::logGame("Game.createPlayer(WebSocketUser u)");
+		Logger::logGame("Game.createPlayer($u)");
 		$this->_players[] = new Player($u);
 	}
 
@@ -65,4 +65,6 @@ class Game
 		}
 		return false;
 	}
+
+	public function addAction()
 }

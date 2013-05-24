@@ -11,7 +11,7 @@ class BalEnvoi extends Bal
 	public function writeWithNumSocket($msg, $numSocket)
 	{
 		parent::write($msg.$numSocket);
-		Logger::logSocket($msg);
+		Logger::logBal("BalEnvoi.writeWithNumSocket($msg, $numSocket)");
 	}
 
 	/**
@@ -31,12 +31,20 @@ class BalEnvoi extends Bal
 		{
 			$msg = explode("-", $msg);
 
-			$g = GameManager::getInstance()->getGameBySocketId($msg[0]);
+			if($msg[0] == "LOGIN")
+			{
 
-			$msg = explode(":", $msg[1]);
+			}
 
-			$g->addAction($msg);
-			
+			else
+			{
+				$g = GameManager::getInstance()->getGameBySocketId($msg[0]);
+
+				$msg = explode(":", $msg[1]);
+
+				$g->addAction($msg);
+			}
+
 			return true;	
 		}
 	}
