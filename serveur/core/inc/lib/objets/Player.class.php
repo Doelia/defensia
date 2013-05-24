@@ -2,25 +2,23 @@
 
 class Player
 {
-	private $_sock; // Users
+	private $_numSocket; // Id socket
 	private $_username;
 
-	public function setUsername($s)
+	public function __construct($pseudo, $numSocket)
 	{
-		$this->_username = $s;
+		$this->_username = $pseudo;
+		$this->_numSocket = $numSocket;
 	}
 
-	public function isFullyDefined()
+	public function getNumSocket()
 	{
-		if ($this->_username)
-			return true;
-
-		return false;
+		return $this->_numSocket;
 	}
 
-	public function getSocket()
+	public function getUsername()
 	{
-		return $this->_sock;
+		return $this->_username;
 	}
 
 }
