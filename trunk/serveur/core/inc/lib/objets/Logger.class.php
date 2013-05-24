@@ -24,4 +24,9 @@ class Logger
 	{
 		self::display("[BAL] : ". $message);
 	}
+
+	public static function logState($message)
+	{
+		self::display("[State] : ". $message);
+	}
 }
