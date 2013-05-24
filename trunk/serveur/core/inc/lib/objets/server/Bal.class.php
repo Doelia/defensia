@@ -6,8 +6,7 @@ class Bal
 	
 	public static function create()
 	{
-		Sql::query("INSERT INTO df_bal");
-		Sql::
+		
 		return self::get($id);		
 	}
 
@@ -28,12 +27,9 @@ class Bal
 
 	public function write($msg)
 	{
-		Sql::query("INSERT INTO df_bal_msg (idBal, msg) VALUES (".$this->getId().")");
+		
 	}
 
-	/*
-		
-	*/
 	public function read()
 	{
 		$q = Sql::query("SELECT msg, ID FROM df_bal_msg WHERE idBal='".$this->getId()."' LIMIT 1 ORDER BY ID");
