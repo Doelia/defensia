@@ -16,6 +16,11 @@ class Bal
 
  		closedir($dir_handle);
 
+ 		$b = self::get($id);
+ 		$b->createFile();
+
+ 		Logger::logBal("Création BAL $id");
+
 		return self::get($id);
 	}
 
@@ -34,9 +39,16 @@ class Bal
 		return $this->_ID;
 	}
 
+	public function createFile()
+	{
+		$fp = fopen("bal/".$this->getId().".bal", "a");
+		fclose($fp);
+	}
+
 	public function clean()
 	{
-		fopen("bal/".$this->getId().".bal", "w");
+		$fp = fopen("bal/".$this->getId().".bal", "w");
+		fclose($fp);
 	}
 
 	public function write($msg)

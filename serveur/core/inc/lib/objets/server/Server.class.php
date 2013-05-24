@@ -18,8 +18,8 @@ class Server extends WebSocketServer
 
 	public function __construct($server, $port, $idBalReiv, $idBalSend)
 	{
-		$balReiv = Bal::get($idBalReiv);
-		$balSend = Bal::get($idBalSend);
+		$this->balReiv = Bal::get($idBalReiv);
+		$this->balSend = Bal::get($idBalSend);
 		parent::__construct($server, $port);
 	}
 

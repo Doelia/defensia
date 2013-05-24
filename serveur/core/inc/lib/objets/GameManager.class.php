@@ -14,12 +14,17 @@ class GameManager
 
 	private $_games; // Array
 	private $_AI; // Auto incrément de l'id du jeu
+	public $balReiv;
+	public $balSend;
 
-	private function __construct()
+	private function __construct($idBalReiv, $idBalSend)
 	{
 		Logger::logGame("GameManager.construct()");
 		$this->_AI = 0;
 		$this->_games = array();
+
+		$this->balReiv = new BalRecepetion($idBalReiv);
+		$this->balSend = new BalEnvoi($idBalSend);
 	}
 
 	public function getGames()

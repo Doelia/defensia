@@ -19,4 +19,9 @@ class Logger
 	{
 		self::display("[SOCKET] : ". $message);
 	}
+
+	public static function logBal($message)
+	{
+		self::display("[BAL] : ". $message);
+	}
 }

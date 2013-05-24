@@ -2,8 +2,9 @@
 
 // Ouverture du serveur
 
-
-Server::getInstance(1, 2);
+$b1 = Bal::create();
+$b2 = Bal::create();
+Server::getInstance($b1->getId(), $b2->getId());
 
 /*
 function thread_server($res) {
