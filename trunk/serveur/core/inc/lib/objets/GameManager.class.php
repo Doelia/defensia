@@ -63,7 +63,7 @@ class GameManager
 	{	
 		foreach ($this->getGames() as $g) {
 			foreach ($g->getPlayers() as $p) {
-				if($p->getSocket()->_id == $IDsocket)
+				if ($p->getNumSocket() == $IDsocket)
 				{
 					return $g;
 				}
