@@ -6,8 +6,17 @@ class Bal
 	
 	public static function create()
 	{
-		
-		return self::get($id);		
+		$id = 1;
+
+ 		$dir_handle = opendir('bal');
+
+ 		while($entry = readdir($dir_handle))
+		 	if(is_file('bal/'.$entry))
+ 				$id++;
+
+ 		closedir($dir_handle);
+
+		return self::get($id);
 	}
 
 	public static function get($id)
@@ -25,22 +34,53 @@ class Bal
 		return $this->_ID;
 	}
 
+	public function clean()
+	{
+		fopen("bal/".$this->getId().".bal", "w");
+	}
+
 	public function write($msg)
 	{
-		
+		if (!$msg)
+			return;
+
+		$fp = fopen("bal/".$this->getId().".bal", "a");
+		fputs($fp, $msg."\n");
+		fclose($fp);
 	}
 
 	public function read()
 	{
-		$q = Sql::query("SELECT msg, ID FROM df_bal_msg WHERE idBal='".$this->getId()."' LIMIT 1 ORDER BY ID");
-		if ($q->rowCount())
-		{
-			$l = $q->fetch();
-			Sql::query("DELETE FROM df_bal_msg WHERE ID=".$l['ID']);
-			return $l['msg'];
-		}
+		$fp = fopen ("bal/".$this->getId().".bal", "r");
 
-		return '';
+		$cpt = 0;
+		$msg = '';
+		$total = array();
+
+		while (!feof($fp))
+		{
+			$ligne = trim(fgets($fp, 4096));
+
+			if ($cpt == 0)
+				$msg = $ligne;
+			else
+				$total[] = $ligne;
+
+			$cpt++;
+ 		}
+
+ 		fclose($fp);
+
+ 		$this->clean();
+
+ 		foreach ($total as $l)
+ 		{
+ 			$this->write($l);
+ 		}
+
+ 		return $msg;
+
+
 	}
 }
 

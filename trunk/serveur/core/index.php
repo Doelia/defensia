@@ -29,9 +29,6 @@ require('inc/lib/fc/index.php');	// Ensemble des fichiers du dossier "fc"
 print("Préparation de l'inclusion des classes...\n");
 spl_autoload_register('chargerClasse');
 
-print("Connexion SQL...\n");
-Sql::connect();
-
 print("Moteur chargé !\n");
 
 require('inc/init.php');
