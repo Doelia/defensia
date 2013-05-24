@@ -4,11 +4,18 @@ class GameManager
 {
 	private static $instance = null;
 
+	public static function init($idBalReiv, $idBalSend)
+	{
+		self::$instance = new GameManager($idBalReiv, $idBalSend);
+	}
+
 	public static function getInstance()
 	{
-		echo "getInstance";
 		if (self::$instance == null)
-			self::$instance = new GameManager();
+		{
+			echo "Instance GameManager non initalisée";
+			exit();
+		}
 		return self::$instance;
 	}
 
@@ -23,7 +30,7 @@ class GameManager
 		$this->_AI = 0;
 		$this->_games = array();
 
-		$this->balReiv = new BalRecepetion($idBalReiv);
+		$this->balReiv = new BalReception($idBalReiv);
 		$this->balSend = new BalEnvoi($idBalSend);
 	}
 
