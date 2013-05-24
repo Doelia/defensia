@@ -10,19 +10,8 @@ define('MDPSCRIPT',		true);
 define('MAINTENANCE',	false); // Place le site en maintenance
 
 
-/*
-define('SQL_SERVER',	"localhost");
-define('SQL_LOGIN',		"root");
-//define('SQL_PASS', 		"");
-define('SQL_PASS', 	"wugaxu");
-define('SQL_DB',		"survivia");
+define('SQL_SERVER',	"infolimon.iutmontp.univ-montp2.fr");
+define('SQL_LOGIN',		"chataignerm");
+define('SQL_PASS', 		"classement");
+define('SQL_DB',		"chataignerm");
 define('SQL_PORT',		3306);
-*/
-
-
-/*
-define("WEB", "pc.doelia.fr");		// Host
-define('BASE', '/survivia/');	// Repertoire du moteur
-define('SUBDOMAIN', 	false); // Utilisation des sous domaine hg, fun, backend, 
-define("RESALL", BASE.""); // Emplacement du repertoire "res" commun
-*/
