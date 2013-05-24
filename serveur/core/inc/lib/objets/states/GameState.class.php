@@ -17,8 +17,8 @@ class GameState implements State
 	
 	public function show()
 	{
-		foreach ($this->_game()->getPlayers() as $p) {
-			GameManager::getInstance()->$balReiv->changeState("GameState", $p->getNumSocket());
+		foreach ($this->_game->getPlayers() as $p) {
+			GameManager::getInstance()->balReiv->changeState("GameState", $p->getNumSocket());
 		}
 	}
 }
