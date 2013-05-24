@@ -8,6 +8,8 @@ class Game
 	private $_ID; // Généré par le gamemanager
 	private $_players; // Array
 
+	private $_actions; //Array
+
 	public function __construct($id)
 	{
 		Logger::logGame("Game.construct(id=$id)");
