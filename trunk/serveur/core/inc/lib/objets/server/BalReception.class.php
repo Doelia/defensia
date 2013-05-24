@@ -14,7 +14,7 @@ class BalReception extends Bal
 	***/
 	public function write ($msg)
 	{
-		Logger::logSocket($msg);
+		Logger::logSocket("BalRecepetion.write($msg");
 		parent::write($msg);
 	}
 
