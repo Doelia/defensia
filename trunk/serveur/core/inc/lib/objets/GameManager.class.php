@@ -59,7 +59,7 @@ class GameManager
 		$g->boucleUpdate();
 	}
 
-	public function getGameBySocket($IDsocket)
+	public function getGameBySocketId($IDsocket)
 	{	
 		foreach ($this->getGames() as $g) {
 			foreach ($g->getPlayers() as $p) {
