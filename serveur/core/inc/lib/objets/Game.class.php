@@ -66,8 +66,8 @@ class Game
 		return false;
 	}
 
-	public function addAction()
+	public function addAction($msg)
 	{
-		
+		$this->_actions[] = $msg;
 	}
 }
