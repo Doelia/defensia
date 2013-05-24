@@ -3,32 +3,43 @@
 class Server extends WebSocketServer
 {
 	private static $instance;
-	public static function getInstance()
+
+	public static function getInstance($idBalReiv, $idBalSend)
 	{
 		if (self::$instance == null)
-			self::$instance = new Server("localhost", "8080");
+			self::$instance = new Server("localhost", "8080", $idBalReiv, $idBalSend);
+
+		echo "test";
 		return self::$instance;
 	}
-	//protected $maxBufferSize = 1048576; //1MB... overkill for an echo server, but potentially plausible for other applications.
+
+	private $balReiv;
+	private $balSend;
+
+	public function __construct($server, $port, $idBalReiv, $idBalSend)
+	{
+		$balReiv = Bal::get($idBalReiv);
+		$balSend = Bal::get($idBalSend);
+		parent::__construct($server, $port);
+	}
+
+	protected function traiterBalReiv()
+	{
+		while ($msg = $balReiv->read())
+		{
+			$tab = explode('-', $msg);
+			if ($tab && $tab[0] && $tab[1] && is_numeric($tab[0]))
+			{
+				$socketUser = $this->getSocketFromId($tab[0]);
+				$this->send($socketUser, $tab[1]);
+			}
+		}
+	}
 	
 	protected function process ($socket, $message) 
 	{
-		Logger::logSocket($socket->id . " : " . $message);
-
-		$player = GameManager::getInstance()->getGameById(1)->getPlayerFromSocket($socket);
-		$message = explode(":", $message);
-
-		switch ($message[0]) {
-			case "LOGIN":
-				$player->setUsername($message[1]);
-				break;
-			
-			default:
-				# code...
-				break;
-		}
-
-		$this->send($socket,$message);
+		Logger::logSocket("[WS] recu : $message par ".$socket->id);
+		$this->traiterBalReiv();
 	}
 	
 	protected function connected ($socket) 
@@ -46,7 +57,17 @@ class Server extends WebSocketServer
 
 	protected function send ($socket, $message)
 	{
+		Logger::logSocket("[WS] Envoyé : $message a ".$socket->id);
 		$this->send($socket,$message);
+	}
+
+	protected function getSocketFromId($idNeed)
+	{
+		foreach ($users as $u)
+		{
+			if ($u->id == $idNeed)
+				return $u;
+		}
 	}
 
 }

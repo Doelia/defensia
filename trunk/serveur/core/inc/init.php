@@ -2,8 +2,12 @@
 
 // Ouverture du serveur
 
+
+Server::getInstance(1, 2);
+
+/*
 function thread_server($res) {
-	Server::getInstance();
+	
 	exit($res);
 }
 
@@ -18,3 +22,4 @@ $b->write("Packet2");
 echo $b->read();
 
 //while ($thread_server->isAlive(1));
+*/
