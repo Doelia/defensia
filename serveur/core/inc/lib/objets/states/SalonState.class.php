@@ -10,7 +10,7 @@ class SalonState implements State
 	}
 	public function update($detla)
 	{
-		$this->_game->setState(new GameState($game));
+		
 	}
 	
 	public function show()

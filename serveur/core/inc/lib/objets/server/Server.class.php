@@ -45,7 +45,6 @@ class Server extends WebSocketServer
 	protected function connected ($socket) 
 	{
 		Logger::logSocket("new client connected");
-		GameManager::getInstance()->getGameById(1)->createPlayer($socket);
 	}
 	
 	protected function closed ($socket) {
