@@ -70,4 +70,9 @@ class Game
 	{
 		$this->_actions[] = $msg;
 	}
+
+	public function getNumberPlayerOfPlayers()
+	{
+		return count($this->getPlayers());
+	}
 }
