@@ -24,7 +24,7 @@ class Bal
 		return new Bal($id);
 	}
 
-	public function __construct($id)
+	private function __construct($id)
 	{
 		$this->_ID = $id;
 	}
