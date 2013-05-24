@@ -71,7 +71,7 @@ class Game
 		$this->_actions[] = $msg;
 	}
 
-	public function getNumberPlayerOfPlayers()
+	public function getNumberOfPlayers()
 	{
 		return count($this->getPlayers());
 	}
