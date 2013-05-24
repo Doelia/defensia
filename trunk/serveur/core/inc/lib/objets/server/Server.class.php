@@ -18,14 +18,14 @@ class Server extends WebSocketServer
 
 	public function __construct($server, $port, $idBalReiv, $idBalSend)
 	{
-		$this->balReiv = Bal::get($idBalReiv);
-		$this->balSend = Bal::get($idBalSend);
+		$this->balReiv = new BalReception($idBalReiv);
+		$this->balSend = new BalEnvoi($idBalSend);
 		parent::__construct($server, $port);
 	}
 
 	protected function traiterBalReiv()
 	{
-		while ($msg = $balReiv->read())
+		while ($msg = $this->balReiv->read())
 		{
 			$tab = explode('-', $msg);
 			if ($tab && $tab[0] && $tab[1] && is_numeric($tab[0]))
@@ -39,6 +39,7 @@ class Server extends WebSocketServer
 	protected function process ($socket, $message) 
 	{
 		Logger::logSocket("[WS] recu : $message par ".$socket->id);
+		$this->balSend->writeWithNumSocket($message, $socket->id);
 		$this->traiterBalReiv();
 	}
 	
