@@ -25,6 +25,7 @@ class Server extends WebSocketServer
 
 	protected function traiterBalReiv()
 	{
+		Logger::logsocket("Server.traiterBalReiv()");
 		while ($msg = $this->balReiv->read())
 		{
 			$tab = explode('-', $msg);
