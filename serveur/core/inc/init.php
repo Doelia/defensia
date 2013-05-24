@@ -7,9 +7,14 @@ function thread_server($res) {
 	exit($res);
 }
 
-$thread_server = new Thread('thread_server');
+//$thread_server = new Thread('thread_server');
 //$thread_server->start(1);
 
-GameManager::getInstance()->createGame();
+//GameManager::getInstance()->createGame();
 
-while ($thread_server->isAlive(1));
+$b = Bal::create(1);
+$b->write("Packet1");
+$b->write("Packet2");
+echo $b->read();
+
+//while ($thread_server->isAlive(1));
