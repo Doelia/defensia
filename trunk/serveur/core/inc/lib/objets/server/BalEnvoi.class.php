@@ -8,7 +8,7 @@ class BalEnvoi extends Bal
 	c'est ici que sont traités les paquets pour le Game
 	*/
 
-	public function write($msg, $numSocket)
+	public function writeWithNumSocket($msg, $numSocket)
 	{
 		parent::write($msg.$numSocket);
 		Logger::logSocket($msg);
