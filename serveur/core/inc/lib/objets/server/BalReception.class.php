@@ -81,10 +81,22 @@ class BalReception extends Bal
 	/**
 	  * IDaction : CS
 	  * param1 : state
+	  * param : socket du joueur
 	***/
 	public function changeState($state, $socket)
 	{	
 		Logger::logBal("BalRecepetion.changeState($state, $socket)");
 		$this->write("$socket-CS:$state");
+	}
+
+	/**
+	  * IDaction : SM
+	  * param1 : map en xml
+	  * param2 : socket du joueur
+	***/ 
+	public function sendMap($map, $socket)
+	{
+		Logger::logBal("BalRecepetion.sendMap(map en xml, $socket)");
+		$this->write("$socket-SM:$map");
 	}
 }
