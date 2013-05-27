@@ -1,13 +1,13 @@
 <?php
 
-class TowerSocketCase extends Case
+class TowerSocketCase extends ACase
 {	
 
 	public $_tower;
 
 	public function __construct($x, $y)
 	{
-		parent::__construct($x, $y, Case::$TOWERSOCKET_CASE_TYPE);
+		parent::__construct($x, $y, ACase::$TOWERSOCKET_CASE_TYPE);
 
 		$this->_tower = null;
 	}

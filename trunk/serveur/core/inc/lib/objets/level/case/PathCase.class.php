@@ -1,6 +1,6 @@
 <?php
 
-class PathCase extends Case
+class PathCase extends ACase
 {	
 
 	public static $NORTH = "N";
@@ -12,7 +12,7 @@ class PathCase extends Case
 
 	public function __construct($x, $y, $direction)
 	{
-		parent::__construct($x, $y, Case::$PATH_CASE_TYPE);
+		parent::__construct($x, $y, ACase::$PATH_CASE_TYPE);
 		$this->_direction = $direction;
 	}
 

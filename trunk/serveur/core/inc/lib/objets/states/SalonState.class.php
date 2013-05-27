@@ -20,6 +20,6 @@ class SalonState implements State
 	public function show()
 	{
 		$tower = new Tower(TowerTemplate::$FAST_TOWER_TYPE);
-		$case = new PathCase(1, 1, PathCase::$NORTH);
+		$case = new TowerSocketCase(1, 1);
 	}
 }
