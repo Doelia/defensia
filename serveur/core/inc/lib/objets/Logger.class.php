@@ -29,4 +29,14 @@ class Logger
 	{
 		self::display("[State] : ". $message);
 	}
+
+	public static function logTower($message)
+	{
+		self::display("[Tower] : ". $message);
+	}
+
+	public static function logCase($message)
+	{
+		self::display("[Case] : ". $message);
+	}
 }

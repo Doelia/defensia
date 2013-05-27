@@ -1,4 +1,4 @@
-<?php
+$<?php
 
 function chargerClasse($classe)
 {
@@ -8,6 +8,12 @@ function chargerClasse($classe)
 		require("inc/lib/objets/states/$classe.class.php");
 	else if (file_exists("inc/lib/objets/server/$classe.class.php"))
 		require("inc/lib/objets/server/$classe.class.php");
+	else if (file_exists("inc/lib/objets/level/$classe.class.php"))
+		require("inc/lib/objets/level/$classe.class.php");
+	else if (file_exists("inc/lib/objets/level/case/$classe.class.php"))
+		require("inc/lib/objets/level/case/$classe.class.php");
+	else if (file_exists("inc/lib/objets/level/tower/$classe.class.php"))
+		require("inc/lib/objets/level/tower/$classe.class.php");
 	else
 	{
 		$fichier = debug_backtrace();
