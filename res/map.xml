@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="map.xsd" numero="1">
+	
+	<placement>
+		
+		<case x="1" y="2"/>
+		<case x="3" y="5"/>
+		
+	</placement>
+	
+	<chemin>
+		
+		<case x="2" y="5" direction="N"/>
+		<case x="3" y="5" direction="S"/>
+		
+	</chemin>
+	
+	
+	<centre>
+		
+		<case x="1" y="2" life="200"/>
+		
+	</centre>
+	
+</map>

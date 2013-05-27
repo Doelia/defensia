@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  	<xs:element name="level">
+      <xs:complexType>
+        <xs:sequence>
+        
+          <xs:element name="vague">
+          	<xs:complexType>
+       			<xs:sequence>
+       				
+       				<xs:element name="monstre">
+          				<xs:complexType>
+          				
+       							<xs:attribute name="type" type="xs:integer"/>
+       							<xs:attribute name="time" type="xs:integer"/>
+       							<xs:attribute name="x" type="xs:integer"/>
+       							<xs:attribute name="y" type="xs:integer"/>
+       							
+      						</xs:complexType>
+      				</xs:element>
+       			
+       			</xs:sequence>
+       			<xs:attribute name="numero" type="xs:integer"/>
+      		</xs:complexType>
+       	  </xs:element>
+       		
+       		
+          
+        </xs:sequence>
+        <xs:attribute name="numero" type="xs:integer"/>
+      </xs:complexType>
+    </xs:element>
+    
+  </xs:schema>

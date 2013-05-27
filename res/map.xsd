@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  	<xs:element name="map">
+      <xs:complexType>
+        <xs:sequence>
+        
+        
+          <xs:element name="placement">
+          	<xs:complexType>
+       				<xs:sequence>
+       				
+       					<xs:element name="case">
+          				<xs:complexType>
+		        				<xs:attribute name="x" type="xs:integer"/>
+		        				<xs:attribute name="y" type="xs:integer"/>
+      						</xs:complexType>
+       					</xs:element>
+       				
+       			 	</xs:sequence>
+      			</xs:complexType>
+       		</xs:element>
+       		
+       		
+       		<xs:element name="chemin">
+          	<xs:complexType>
+       				<xs:sequence>
+       				
+       					<xs:element name="case">
+          				<xs:complexType>
+		        				<xs:attribute name="x" type="xs:integer"/>
+		        				<xs:attribute name="y" type="xs:integer"/>
+		        				<xs:attribute name="direction" type="xs:string"/>	
+      						</xs:complexType>
+       					</xs:element>
+       			
+       			 	</xs:sequence>
+      			</xs:complexType>
+       		</xs:element>
+       		
+       		
+       		<xs:element name="centre">
+          	<xs:complexType>
+       				<xs:sequence>
+       				
+		     					<xs:element name="case">
+		        				<xs:complexType>
+				      				<xs:attribute name="x" type="xs:integer"/>
+				      				<xs:attribute name="y" type="xs:integer"/>
+				      				<xs:attribute name="life" type="xs:integer"/>
+		    						</xs:complexType>
+		     					</xs:element>
+       			
+       			 	</xs:sequence>
+      			</xs:complexType>
+       		</xs:element>
+       		
+          
+        </xs:sequence>
+        <xs:attribute name="numero" type="xs:integer"/>
+      </xs:complexType>
+    </xs:element>
+    
+  </xs:schema>

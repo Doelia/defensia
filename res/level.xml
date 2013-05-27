@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="level.xsd" numero="1">
+	
+	<vague numero="1">
+	
+		<monstre type="1" time="20" x="1" y="2"/>
+		<monstre type="2" time="25" x="2" y="3"/>
+	
+	</vague>
+	
+	
+	<vague numero="2">
+	
+		<monstre type="1" time="20" x="1" y="2"/>
+		<monstre type="2" time="25" x="2" y="3"/>
+	
+	</vague>
+	
+</level>
+
