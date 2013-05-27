@@ -12,7 +12,7 @@ class GameState implements State
 
 	public function update($detla)
 	{
-
+		
 	}
 	
 	public function show()
@@ -20,5 +20,7 @@ class GameState implements State
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->changeState("GameState", $p->getNumSocket());
 		}
+
+		$tower = new Tower(TowerTemplate::$FAST_TOWER_TYPE);
 	}
 }
