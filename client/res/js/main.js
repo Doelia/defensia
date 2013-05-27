@@ -23,3 +23,14 @@ socket.onerror = function(e){
 
 } 
 
+
+function createGrille() {
+
+	var i;
+	for(i = 0; i < 20; i++)
+		$('table').append("<tr></tr>");
+		
+	for(i = 0; i < 20; i++)
+		$('tr').append("<td></td>");
+} 
+
