@@ -21,6 +21,5 @@ class GameState implements State
 			GameManager::getInstance()->balReiv->changeState("GameState", $p->getNumSocket());
 		}
 
-		$tower = new Tower(TowerTemplate::$FAST_TOWER_TYPE);
 	}
 }
