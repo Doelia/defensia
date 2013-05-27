@@ -1,13 +1,13 @@
 <?php
 
-class CenterCase extends Case
+class CenterCase extends ACase
 {	
 
 	private $_life;
 
 	public function __construct($x, $y, $life)
 	{
-		parent::__construct($x, $y, Case::$CENTER_CASE_TYPE);
+		parent::__construct($x, $y, ACase::$CENTER_CASE_TYPE);
 		$this->_life = $life;
 	}
 
