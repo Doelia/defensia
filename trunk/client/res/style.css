@@ -1,3 +1,78 @@
-body {
-	background: black;
+.game {
+	width: 970px;
+	height: 690px;
+	position: absolute;
 }
+
+.map {
+	width: 690px;
+	height: 690px;
+	background-color: black;
+	float:left;
+}
+
+.infos {
+	width: 280px;
+	height: 690px;
+	background-color: rgb(193, 0, 0);
+	float:right;
+}
+
+.name {
+	font-size: 25px;
+	margin-left: 20px;
+}
+
+.money {
+	font-size: 20px;
+	color: rgb(244, 199, 15);
+	float: right;
+	margin-top: 5px;
+	margin-right: 20px;
+}
+
+.playerNames {
+	
+	font-size: 20px;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: rgb(0, 0, 0);
+}
+
+.playerMoney {
+	
+	font-size: 18px;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: rgb(137, 156, 160);
+}
+
+.j2 {
+	float: left;
+}
+
+.j3 {
+	margin-left: 70px;
+}
+
+.j4 {
+	float: right;
+}
+
+.level {
+	font-size: 25px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+td {
+	width: 23px;
+	height: 23px;
+}
+
+table {
+	border-color: green;
+}
+
