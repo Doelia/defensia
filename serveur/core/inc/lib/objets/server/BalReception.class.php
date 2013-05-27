@@ -14,7 +14,7 @@ class BalReception extends Bal
 	***/
 	public function write ($msg)
 	{
-		Logger::logSocket("BalRecepetion.write($msg)");
+		Logger::logBal("BalRecepetion.write($msg)");
 		parent::write($msg);
 	}
 
@@ -26,7 +26,8 @@ class BalReception extends Bal
 	  * param4 : socket du joueur
 	***/
 	public function addTower($type, $x, $y, $socket)
-	{
+	{	
+		Logger::logBal("BalRecepetion.addTower($type, $x, $y, $socket)");
 		$this->write("$socket-AT:$type:$x:$y");
 	}
 
@@ -38,7 +39,8 @@ class BalReception extends Bal
 	  * param4 : socket du joueur
 	***/
 	public function moveMonster($monster, $x, $y, $socket)
-	{
+	{	
+		Logger::logBal("BalRecepetion.moveMonster($monster, $x, $y, $socket)");
 		$this->write("$socket-MM:$monster,$x:$y");
 	}
 
@@ -48,7 +50,8 @@ class BalReception extends Bal
 	  * param2 : socket du joueur
 	***/
 	public function updateMoney($user, $amount, $socket)
-	{
+	{	
+		Logger::logBal("BalRecepetion.updateMoney($user, $amount, $socket)");
 		$this->write("$socket-UM:$user:$amount");
 	}
 
@@ -58,7 +61,8 @@ class BalReception extends Bal
 	  * param2 : socket du joueur
 	***/
 	public function updateCenterLife($amount, $socket)
-	{
+	{	
+		Logger::logBal("BalRecepetion.updateCenterLife($amount, $socket)");
 		$this->write("$socket-UCL:$amount");
 	}
 
@@ -70,6 +74,7 @@ class BalReception extends Bal
 	***/
 	public function removeTower($x, $y, $socket)
 	{
+		Logger::logBal("BalRecepetion.removeTower($x, $y, $socket)");
 		$this->write("$socket-RT:$x:$y");
 	}
 
@@ -78,7 +83,8 @@ class BalReception extends Bal
 	  * param1 : state
 	***/
 	public function changeState($state, $socket)
-	{
+	{	
+		Logger::logBal("BalRecepetion.changeState($state, $socket)");
 		$this->write("$socket-CS:$state");
 	}
 }
