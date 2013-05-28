@@ -1,6 +1,6 @@
 <?php
 
-class PathCase extends ACase
+class PathCase extends AbstractCase
 {	
 
 	public static $NORTH = "N";

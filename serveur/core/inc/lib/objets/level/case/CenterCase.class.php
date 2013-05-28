@@ -1,6 +1,6 @@
 <?php
 
-class CenterCase extends ACase
+class CenterCase extends AbstractCase
 {	
 
 	private $_life;
