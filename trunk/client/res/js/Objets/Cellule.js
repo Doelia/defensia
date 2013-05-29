@@ -9,9 +9,22 @@ function Cellule(x, y)
 	this.y = y;
 	this.objectOn = null; // Objet jquery placé sur la case
 
+	this.isRoute = false; // false par defaut
+	this.isSocket = false; // false par défauat
+
 	this.onconstruct = function()
 	{
 		
+	}
+
+	this.setIsRoute = function()
+	{
+		this.isRoute = true;
+	}
+
+	this.setIsSocket = function()
+	{
+		this.isSocket = true;
 	}
 
 	/*
@@ -30,6 +43,21 @@ function Cellule(x, y)
 	{
 		
 	}
+
+	/*
+		Retourne true si l'élement sur la case est une tour
+		Stratégie : Utilisation du nom de la balise
+	*/
+	this.haveTower = function()
+	{
+
+	}
+
+	this.playAnimation = function()
+	{
+		// TODO : Jouer une animation sur la case
+	}
+
 
 
 	this.onconstruct();
