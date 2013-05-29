@@ -201,3 +201,55 @@ monstre[type="1"] {
 .vieCenterBlock {
 	
 }
+
+animation {
+	position: absolute;
+	left: 330px;
+	top: 330px;
+	height: 33px;
+	width: 33px;
+}
+
+animation c {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 33px;
+	width: 33px;
+}
+
+animation step {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 33px;
+	width: 33px;
+}
+
+animation step.s1 {
+	background-image: url('img/anim/1.png');
+}
+
+animation step.s2 {
+	background-image: url('img/anim/1.png');
+}
+
+animation step.s3 {
+	background-image: url('img/anim/3.png');
+}
+
+animation step.s4 {
+	background-image: url('img/anim/4.png');
+}
+
+animation step.s5 {
+	background-image: url('img/anim/5.png');
+}
+
+animation step.s6 {
+	background-image: url('img/anim/6.png');
+}
+
+animation step.s7 {
+	background-image: url('img/anim/7.png');
+}
