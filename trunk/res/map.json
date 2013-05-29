@@ -1,0 +1,18 @@
+
+var Map = { "map": {
+		    "placement": [
+		    		{ "x": 1, "y": 2 },
+		            { "x": 2, "y": 3 }
+		    	],
+		    	
+		   "chemin": [
+		    		{ "x": 1, "y": 2, "texture": "gd" },
+		            { "x": 2, "y": 3, "texture": "gh" }
+		    	],
+		    	
+
+		   "centre": [
+		    		{ "x": 1, "y": 2, "life": 200 }
+		    	]
+		    }
+		}

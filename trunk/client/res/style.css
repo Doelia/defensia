@@ -19,13 +19,6 @@ html, body, p, h1, table, tr, td {
 	height: 660px;
 }
 
-.game .map bg img {
-	position: absolute;
-	width: 33px;
-	height: 33px;
-	display: block;
-}
-
 .game .infos {
 	width: 280px;
 	height: 660px;
@@ -102,5 +95,31 @@ table {
 body {
 	margin-top: 20px;
 }
+
+
+.game .map bg texture {
+	position: absolute;
+	width: 33px;
+	height: 33px;
+	display: block;
+	
+}
+
+.game .map bg texture[type="gd"]
+{
+	background-image: url('img/textures/gauche-droite.jpg');
+}
+
+.game .map bg texture[type="gh"]
+{
+	background-image: url('img/textures/gauche-haut.jpg');
+}
+
+.game .map bg texture[type="gb"]
+{
+	background-image: url('img/textures/gauche-bas.jpg');
+}
+
+
 
 
