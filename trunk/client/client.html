@@ -5,9 +5,18 @@
 		<title>Defensia</title>
 		<link rel="stylesheet" type="text/css" href="./res/style.css">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 		<script type="text/javascript" src="./res/js/main.js"></script>
 		<script type="text/javascript" src="./res/js/canvas.js"></script>
 		<script type="text/javascript" src="./res/js/testdoelia.js"></script>
+
+		<!-- Objets JS -->
+		<script type="text/javascript" src="./res/js/Objects/Cellule.js"></script>
+		<script type="text/javascript" src="./res/js/Objects/Game.js"></script>
+		<script type="text/javascript" src="./res/js/Objects/Infos.js"></script>
+		<script type="text/javascript" src="./res/js/Objects/Plateau.js"></script>
+		<!-- /Objets JS -->
+
 	</head>
 	<body>
 	
@@ -17,7 +26,10 @@
 					<!-- Background fixe du jeu (terrain) -->
 				</bg> 		
 				<elements>
-					<!-- Elements posés sur le plateau (<tours>, <monstres>) -->
+					<!--
+						Elements posés sur le plateau (<tour>, <monstre>) 
+						Exemple : <monstre type="idMonstre" id="idMonstre" style="left: 33px; top: 33px;"></monstre>
+					-->
 				</elements>	  
 			</div>
 			<div class="infos">

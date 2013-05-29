@@ -20,10 +20,15 @@ function Plateau()
 		this.drawBackground(xml);
 	}
 
+
+	/************** GETTERS **************************/
 	this.getCelluleFromMonster = function(idMonster)
 	{
 		// TODO : Boucler sur les divs
 	}
+
+
+	/************** FONCTION AFFICHAGE ***************/
 
 	/*
 	* Dessine le terrain en background en partir du XML (ou du JSON ? A décider)
@@ -46,7 +51,6 @@ function Plateau()
 	this.deplaceMonstre = function(x, y, idMonster)
 	{
 		// TODO : Changer le left et le right du <monster id="idmonstre">
-		// TODO : Déplacer au niveau des cellules
 		this.getCelulleFromMonster(idMonster).setObjectOn(null);
 		this.cellule[x][y].setObjectOn($('monstre#'+idMonstre));
 	}
