@@ -20,7 +20,6 @@ function Plateau()
 		this.drawBackground(xml);
 	}
 
-
 	/************** GETTERS **************************/
 	this.getCelluleFromMonster = function(idMonster)
 	{
@@ -31,11 +30,19 @@ function Plateau()
 	/************** FONCTION AFFICHAGE ***************/
 
 	/*
-	* Dessine le terrain en background en partir du XML (ou du JSON ? A décider)
+	* Dessine la carte de base (static)
+	* TODO : Définir en même temps la nature des cellules avec cellule.setIsRoute et cellule.setIsSocket
 	*/
-	this.drawBackground = function(xml)
+	this.drawBackground = function(json)
 	{
 		console.log("plateau.drawnBackground");
+
+		// Création des routes
+		
+		// Placement du centre
+
+		// Placement des sockets
+
 	}
 
 	/*
@@ -53,6 +60,12 @@ function Plateau()
 		// TODO : Changer le left et le right du <monster id="idmonstre">
 		this.getCelulleFromMonster(idMonster).setObjectOn(null);
 		this.cellule[x][y].setObjectOn($('monstre#'+idMonstre));
+	}
+
+	this.poserTower = function(x, y, idTypeTower)
+	{
+		// TODO : Poser la balice dans la socket correspondante, dans le bon sens
+		// TODO : Définir l'objet sur la cellule
 	}
 
 }
