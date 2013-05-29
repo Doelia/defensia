@@ -59,6 +59,8 @@ function Plateau()
 			$('sockets socket:last-child')
 					.css("top", obj.y * 33)
 					.css("left", obj.x * 33)
+					.attr("x", obj.x)
+					.attr("y", obj.y)
 					.attr("direction", obj.direction);
 		});
 
@@ -95,10 +97,15 @@ function Plateau()
 		this.cellule[x][y].setObjectOn($('monstre#'+idMonstre));
 	}
 
-	this.poserTower = function(x, y, idTypeTower)
+	this.poserTower = function(x, y, idTower, idTypeTower, idPlayer)
 	{
-		// TODO : Poser la balice dans la socket correspondante, dans le bon sens
-		// TODO : Définir l'objet sur la cellule
+		$('socket[x='+x+'][y='+y+']').append('<tour></tour>');
+		$('socket[x='+x+'][y='+y+'] tour:last-child')
+					.attr("id", idTower)
+					.attr("type", idTypeTower)
+					.attr("placedby", idPlayer);
+					
+		g.plateau.cellule[x][y].setObjectOn($('tower#'+idTower));
 	}
 
 }
