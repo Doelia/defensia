@@ -185,3 +185,13 @@ socket[direction="W"] tour {
 socket[direction="E"] tour {
 	-webkit-transform:rotate(0deg);
 }
+
+monstre {
+	position: absolute;
+	width: 33px;
+	height: 33px;
+}
+
+monstre[type="1"] {
+	background-image: url('img/monstres/1.png');
+}
