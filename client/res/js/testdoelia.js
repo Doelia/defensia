@@ -1,6 +1,6 @@
 $(function() {
   
-  drawTerrain();
+	console.log("doelia.test");
   
 });
 
