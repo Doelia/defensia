@@ -137,11 +137,14 @@ body {
 
 .game .map sockets socket {
 	position: absolute;
-	width: 33px;
-	height: 33px;
-	display: block;
-	background-color: red;
+	position: absolute;
+	height: 29px;
+	width: 29px;
+	top: 2px;
+	left: 2px;
+	border-radius: 3px;
 	opacity: 0.5;
+	background: white;
 }
 
 
@@ -149,8 +152,8 @@ socket tour {
 	position: absolute;
 	height: 33px;
 	width: 33px;
-	top: 0px;
-	left: 0px;
+	top: -2px;
+	left: -2px;
 }
 
 socket tour[type="1"] {
