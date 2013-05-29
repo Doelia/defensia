@@ -9,18 +9,23 @@ function createGrille() {
 } 
 
 
-function drawTerrain() {
+function loadXml() {
 
-	var i, j;
 	
-	for(i = 0; i < 20; i++)
+}
+
+
+function drawTerrain() {
+	
+	for(var i = 0; i < 20; i++)
 	{
-		for(j = 0; j < 20; j++)
+		for(var j = 0; j < 20; j++)
 		{
-			$('canvas').drawImage( {
-				source: "res/img/textures/gauche-droite.jpg",
-				x: j * 33, y: i * 33
-			});	
+			$('bg').append('<img></img>');
+			$('bg img:last-child')
+				.css("top", i*33)
+				.css("left", j*33)
+				.attr("src", "res/img/textures/gauche-droite.jpg");
 		}
 	}
 }
