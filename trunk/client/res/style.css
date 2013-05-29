@@ -105,6 +105,21 @@ body {
 	
 }
 
+.game .map bg texture[type="bd"]
+{
+	background-image: url('img/textures/bas-droite.jpg');
+}
+
+.game .map bg texture[type="bh"]
+{
+	background-image: url('img/textures/bas-haut.jpg');
+}
+
+.game .map bg texture[type="gb"]
+{
+	background-image: url('img/textures/gauche-bas.jpg');
+}
+
 .game .map bg texture[type="gd"]
 {
 	background-image: url('img/textures/gauche-droite.jpg');
@@ -115,10 +130,12 @@ body {
 	background-image: url('img/textures/gauche-haut.jpg');
 }
 
-.game .map bg texture[type="gb"]
+.game .map bg texture[type="hd"]
 {
-	background-image: url('img/textures/gauche-bas.jpg');
+	background-image: url('img/textures/haut-droite.jpg');
 }
+
+
 
 
 
