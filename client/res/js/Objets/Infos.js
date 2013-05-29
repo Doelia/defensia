@@ -3,7 +3,6 @@ function Infos()
 	this.setUserName = function(username)
 	{
 		$('.infos .name').html(username);
-
 	}
 
 	this.setmoney = function(money)
