@@ -99,7 +99,7 @@ function Plateau()
 
 	this.poserTower = function(x, y, idTower, idTypeTower, idPlayer)
 	{
-		$('socket[x='+x+'][y='+y+']').append('<tour></tour>');
+		$('socket[x='+x+'][y='+y+']').html('<tour></tour>');
 		$('socket[x='+x+'][y='+y+'] tour:last-child')
 					.attr("id", idTower)
 					.attr("type", idTypeTower)
