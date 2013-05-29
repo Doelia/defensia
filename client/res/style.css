@@ -147,6 +147,15 @@ body {
 	background: white;
 }
 
+.game .map centre {
+	position: absolute;
+	width: 33px;
+	height: 33px;
+	display: block;
+	background: green;
+}
+}
+
 
 socket tour {
 	position: absolute;

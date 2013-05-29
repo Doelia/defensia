@@ -1,8 +1,8 @@
 
 	var Map = { "map": {
 		    "sockets": [
-		    		{ "x": 1, "y": 2, "direction": 1 },
-		            { "x": 2, "y": 3, "direction": 2 }
+		    		{ "x": 2, "y": 2, "direction": 1 },
+		    		{ "x": 2, "y": 4, "direction": 1 }
 		    	],
 		    	
 		   "routes": [
@@ -17,8 +17,6 @@
 		    	],
 		    	
 
-		   "centre": [
-		    		{ "x": 1, "y": 2, "life": 200 }
-		    	]
+		   "centre": { "x": 1, "y": 2, "life": 200 }
 		    }
 		}

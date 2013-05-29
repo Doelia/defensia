@@ -19,9 +19,7 @@ function loadMap() {
 		    	],
 		    	
 
-		   "centre": [
-		    		{ "x": 1, "y": 2, "life": 200 }
-		    	]
+		   "centre": { "x": 5, "y": 5, "life": 200 }
 		    }
 		}
 		
@@ -51,4 +49,9 @@ function drawTerrain() {
 				.css("left", obj.x * 33)
 				.attr("type", obj.direction);
 	});
+	
+	$('.map').append('<centre></centre>');
+	$('centre:last-child').css("top", Map.map.centre.y * 33)
+				.css("left", Map.map.centre.x * 33);
+
 }

@@ -4,20 +4,21 @@ function Plateau()
 	this.cellules = new Array();
 	console.log("Plateau.construct()");
 
-	this.preparePlateau = function(xml)
+	this.preparePlateau = function(json)
 	{
 		/* Création des celulles */
-		for (var i = 0; i < 33; i++)
+		for (var i = 0; i < 20; i++)
 		{
 			this.cellules.push(new Array());
-			for (var j=0; j < 33; j++)
+			for (var j=0; j < 20; j++)
 			{
 				this.cellules[i].push(new Array());
 				this.cellules[i][j] = new Cellule(i, j);
+				console.log(i + "-" + j);
 			}
 		}
 
-		this.drawBackground(xml);
+		this.drawBackground(json);
 	}
 
 	/************** GETTERS **************************/
@@ -31,15 +32,18 @@ function Plateau()
 
 	/*
 	* Dessine la carte de base (static)
-	* TODO : Définir en même temps la nature des cellules avec cellule.setIsRoute et cellule.setIsSocket
 	*/
 	this.drawBackground = function(json)
 	{
 		console.log("plateau.drawnBackground");
 		
 		
-		$.each(Map.map.routes, function(id, obj) { 
+		// Création routes
+		$.each(json.map.routes, function(id, obj) { 
 	
+			console.log(obj.y + " - " + obj.x);
+			this.cellules[obj.y][obj.x].setIsRoute();
+			
 			$('routes').append('<route></route>');
 			$('routes route:last-child')
 					.css("top", obj.y * 33)
@@ -48,8 +52,11 @@ function Plateau()
 		});
 	
 	
-		$.each(Map.map.sockets, function(id, obj) { 
+		// Création sockets
+		$.each(json.map.sockets, function(id, obj) { 
 	
+			this.cellules[obj.y][obj.x].setIsSocket();
+			
 			$('sockets').append('<socket></socket>');
 			$('sockets socket:last-child')
 					.css("top", obj.y * 33)
@@ -57,11 +64,12 @@ function Plateau()
 					.attr("type", obj.direction);
 		});
 
-		// Création des routes
 		
 		// Placement du centre
-
-		// Placement des sockets
+		$('.map').append('<centre></centre>');
+		$('centre:last-child')
+					.css("top", json.map.centre.y * 33)
+					.css("left", json.map.centre.x * 33);
 
 	}
 
