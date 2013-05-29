@@ -1,4 +1,5 @@
 var g;
+
 $(function() {
   
 	console.log("doelia.test");
@@ -31,6 +32,56 @@ $(function() {
   
 });
 
+function animate()
+{
+	for (var i=1; i<=7; i++)
+	{
+		$('animation')
+			.queue(
+				( function(i) {
+					return function() {
+
+						$('animation c')
+							.append('<step></step>')
+						;
+
+						/*
+						$('animation c')
+							.animate({
+								'left': i*3
+							}, 50)
+						;
+						*/
+
+						$('animation c :last-child')
+							.hide()
+							.attr('class', 's'+i)
+							.fadeIn(100)
+						;
+
+						$('animation c step')
+							.fadeOut(100);
+
+						$('animation')
+							.dequeue();
+					};
+				} ) (i)
+			)
+			.delay(100)
+	    
+	}
+
+	$('animation')
+		.delay(100)
+		.queue(
+			function() {
+				$('animation c step').remove();
+			}
+		)
+
+	$('animation')
+		.dequeue();
+}
 
 
 
