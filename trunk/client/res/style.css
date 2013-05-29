@@ -91,3 +91,10 @@ table {
 	
 }
 
+body {
+	margin-top: 20px;
+}
+
+canvas {
+	background: orange;
+}
