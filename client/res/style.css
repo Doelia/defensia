@@ -13,7 +13,7 @@ html, body, p, h1, table, tr, td {
 .game .map {
 	width: 660px;
 	height: 660px;
-	background-color: black;
+	background-color: white;
 	float:left;
 }
 
