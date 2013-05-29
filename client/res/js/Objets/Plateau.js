@@ -36,6 +36,26 @@ function Plateau()
 	this.drawBackground = function(json)
 	{
 		console.log("plateau.drawnBackground");
+		
+		
+		$.each(Map.map.routes, function(id, obj) { 
+	
+			$('routes').append('<route></route>');
+			$('routes route:last-child')
+					.css("top", obj.y * 33)
+					.css("left", obj.x * 33)
+					.attr("type", obj.texture);
+		});
+	
+	
+		$.each(Map.map.sockets, function(id, obj) { 
+	
+			$('sockets').append('<socket></socket>');
+			$('sockets socket:last-child')
+					.css("top", obj.y * 33)
+					.css("left", obj.x * 33)
+					.attr("type", obj.direction);
+		});
 
 		// Création des routes
 		
