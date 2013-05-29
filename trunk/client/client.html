@@ -7,7 +7,7 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 		<script type="text/javascript" src="./res/js/main.js"></script>
-		<script type="text/javascript" src="./res/js/map.js"></script>
+		<script type="text/javascript" src="./res/js/canvas.js"></script>
 		<script type="text/javascript" src="./res/js/testdoelia.js"></script>
 
 		<!-- Objets JS -->
@@ -22,15 +22,28 @@
 	
 		<div class="game">
 			<div class="map">
-				<bg>
-					<!-- Background fixe du jeu (terrain) -->
-				</bg> 		
-				<elements>
+				<routes>
 					<!--
-						Elements posés sur le plateau (<tour>, <monstre>) 
+					Background fixe du jeu (terrain)
+					<route texture="bas-droite" style="left top"></route>
+					-->
+				</routes>
+
+				<!-- <centre style="left top"></centre> -->
+
+				<sockets>
+					<!-- Cases plaçables
+					<socket style="left: 0px; top: 0px;" direction="1">
+						<tour type="1" id="3" placedby="2"></tour>
+					</socket>
+					 -->
+				</sockets>	
+				<monstres>
+					<!--
+						Monstres posés sur le plateau
 						Exemple : <monstre type="idMonstre" id="idMonstre" style="left: 33px; top: 33px;"></monstre>
 					-->
-				</elements>	  
+				</monstres>	  
 			</div>
 			<div class="infos">
 				<div>
