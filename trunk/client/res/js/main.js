@@ -27,6 +27,6 @@ socket.onerror = function(e){
 
 $(function() {
 
-  drawTerrain();
+  //drawTerrain();
   
 });
