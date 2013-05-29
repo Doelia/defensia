@@ -42,7 +42,7 @@ function Plateau()
 		$.each(json.map.routes, function(id, obj) { 
 	
 			console.log(obj.y + " - " + obj.x);
-			this.cellules[obj.y][obj.x].setIsRoute();
+			g.plateau.cellules[obj.y][obj.x].setIsRoute();
 			
 			$('routes').append('<route></route>');
 			$('routes route:last-child')
@@ -55,7 +55,7 @@ function Plateau()
 		// Création sockets
 		$.each(json.map.sockets, function(id, obj) { 
 	
-			this.cellules[obj.y][obj.x].setIsSocket();
+			g.plateau.cellules[obj.y][obj.x].setIsSocket();
 			
 			$('sockets').append('<socket></socket>');
 			$('sockets socket:last-child')
