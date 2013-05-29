@@ -14,7 +14,6 @@ function Plateau()
 			{
 				this.cellules[i].push(new Array());
 				this.cellules[i][j] = new Cellule(i, j);
-				console.log(i + "-" + j);
 			}
 		}
 
@@ -41,7 +40,6 @@ function Plateau()
 		// Création routes
 		$.each(json.map.routes, function(id, obj) { 
 	
-			console.log(obj.y + " - " + obj.x);
 			g.plateau.cellules[obj.y][obj.x].setIsRoute();
 			
 			$('routes').append('<route></route>');
@@ -61,7 +59,7 @@ function Plateau()
 			$('sockets socket:last-child')
 					.css("top", obj.y * 33)
 					.css("left", obj.x * 33)
-					.attr("type", obj.direction);
+					.attr("direction", obj.direction);
 		});
 
 		
@@ -69,7 +67,8 @@ function Plateau()
 		$('.map').append('<centre></centre>');
 		$('centre:last-child')
 					.css("top", json.map.centre.y * 33)
-					.css("left", json.map.centre.x * 33);
+					.css("left", json.map.centre.x * 33)
+					.attr("life", json.map.centre.life);
 
 	}
 
@@ -79,7 +78,13 @@ function Plateau()
 	*/
 	this.spawnMonstre = function(x, y, idMonstre, idTypeMonstre)
 	{
-		// TODO : Afficher l'image demandée <monster id="idMonstre" type="idMonstre" style="left: X: right: X" />
+		$('monstres').append('<monstre></monstre>');
+		$('monstres monstre:last-child')
+					.css("top", y * 33)
+					.css("left", x * 33)
+					.attr("id", idMonstre)
+					.attr("type", idTypeMonstre);
+					
 		this.cellule[x][y].setObjectOn($('monstre#'+idMonstre));
 	}
 
