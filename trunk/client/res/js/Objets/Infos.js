@@ -1,6 +1,15 @@
 function Infos()
 {
-	this.vieCenter;
+	this.addPlayer = function(num, username)
+	{
+		$('<div class="cadrePlayer cadre"></div>').appendTo('div[class="listPlayers"]')
+			.append('<div class="avatar'+num+' avatar"></div>')
+			.append('<div class="pseudo">'+username+'</div>')
+			.append('<div class="money">$0</div>');
+	}	
+
+	
+
 
 	this.setUserName = function(username)
 	{

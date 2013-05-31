@@ -76,16 +76,20 @@
 	margin-left: 10px;
 }
 
-.game .infos .details .cadrePlayer .avatarRed {
+.game .infos .details .cadrePlayer .avatar1 {
 	background-image: url('img/interface/avatar-red.png');
 }
 
-.game .infos .details .cadrePlayer .avatarBlue {
+.game .infos .details .cadrePlayer .avatar2 {
 	background-image: url('img/interface/avatar-blue.png');
 }
 
-.game .infos .details .cadrePlayer .avatarGreen {
+.game .infos .details .cadrePlayer .avatar3 {
 	background-image: url('img/interface/avatar-green.png');
+}
+
+.game .infos .details .cadrePlayer .avatar4 {
+	background-image: url('img/interface/avatar-orange.png');
 }
 
 
