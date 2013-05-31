@@ -62,7 +62,8 @@
 	width: 33px;
 	height: 33px;
 	display: block;
-	background: green;
+	background-image: url('img/centre.png');
+}
 }
 
 socket tour {

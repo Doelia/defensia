@@ -66,13 +66,14 @@ function Plateau()
 		// Création du centre
 		$.each(json.map.centre, function(id, obj) { 
 	
+			console.log("test");
 			//g.plateau.cellules[obj.y][obj.x].setIsCenter();
 			
-			$('map').append('<centre></centre>');
-			$('map centre:last-child')
-					.css("top", json.map.centre.y * 33)
-					.css("left", json.map.centre.x * 33)
-					.attr("life", json.map.centre.life);
+			$('.map').append('<centre></centre>');
+			$('.map centre:last-child')
+					.css("top", obj.y * 33)
+					.css("left", obj.x * 33)
+					.attr("life", obj.life);
 		});
 		
 	}
