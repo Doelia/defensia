@@ -1,17 +1,17 @@
 @font-face
 			{
 			    font-family: "harabara";
-			    src: url("res/fonts/Harabara.ttf") format("TrueType");
+			    src: url("fonts/Harabara.ttf") format("TrueType");
 			}
 			@font-face
 			{
 			    font-family: "Eras";
-			    src: url("res/fonts/eras.ttf") format("TrueType");
+			    src: url("fonts/eras.ttf") format("TrueType");
 			}
 			@font-face
 			{
 			    font-family: "Caviar";
-			    src: url("res/fonts/CaviarDreams.ttf") format("TrueType");
+			    src: url("fonts/CaviarDreams.ttf") format("TrueType");
 			}
 
 html, body, p, h1, table, tr, td {
