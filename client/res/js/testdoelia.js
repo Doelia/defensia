@@ -40,7 +40,6 @@ function animate()
 				} ) (i)
 			)
 			.delay(100)
-	    
 	}
 
 	$('animation')
