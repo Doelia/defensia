@@ -39,8 +39,12 @@ function onCenterAttacked(idMonster, damage)
 
 }
 
+function onMapRecu(json)
+{
+	g.plateau.preparePlateau(json);
+}
 
-function onPseudoChange(idJoueur, pseudo)
+function onAddPlayer(idJoueur, pseudo)
 {
 
 }

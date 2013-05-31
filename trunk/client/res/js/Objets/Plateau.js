@@ -144,7 +144,7 @@ function Plateau()
 				.delay(100)
 		}
 
-		$('animations')
+		$('animations animation:last-child c')
 			.delay(100)
 			.queue(
 				( function(elem) {
