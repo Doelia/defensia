@@ -14,21 +14,7 @@ class GameState implements State
 
 	public function update($detla)
 	{
-		foreach ($this->_map->getMap() as $i => $val )
-		{
-			foreach ($val as $j => $cell)
-			{
-				if ($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
-				{
-					$this->_map->moveMonsters($j, $i);					
-				}
-				
-				if($cell->getType() == AbstractCase::$TOWERSOCKET_CASE_TYPE)
-				{
-// 					$this->hitMonsters();
-				}
-			}
-		}
+		$this->_map->moveMonsters();					
 	}
 
 	public function show()
@@ -45,9 +31,8 @@ class GameState implements State
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->sendMap($jsonString, $p->getNumSocket());
 		}
-// 		print_r($this->_map);
 		
-		$this->_map->getCell(10, 0)->setMonster(new Monster(MonsterTemplate::$FAST_MONSTER_TYPE));
+		$this->_map->addMonster(new Monster(MonsterTemplate::$FAST_MONSTER_TYPE, 0, 9));
 		
 	}
 	
