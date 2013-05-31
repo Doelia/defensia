@@ -24,8 +24,6 @@
 	left: 20px;
 }
 
-
-
 .game .infos .details .title {
 	width: 251px;
 	height: 12px;
@@ -38,8 +36,6 @@
 	position: relative;
 	margin-left: -8px;
 }
-
-
 
 .game .infos .details .titlePlayer {
 	background-image: url('img/interface/title-players.png');
@@ -54,9 +50,6 @@
 	margin-top: 20px;
 	background-image: url('img/interface/title-infos.png');
 }
-
-
-
 
 .game .infos .details .cadrePlayer {
 	height: 49px;
@@ -73,11 +66,7 @@
 	background-image: url('img/interface/sous-cadre.png');
 }
 
-
-
-
 /* Players */
-
 
 .game .infos .details .cadrePlayer .avatar {
 	width: 32px;

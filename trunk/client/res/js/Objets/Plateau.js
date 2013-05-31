@@ -112,5 +112,50 @@ function Plateau()
 		g.plateau.cellule[x][y].setObjectOn($('tower#'+idTower));
 	}
 
+	this.playAnimatationFire = function(x, y)
+	{
+		$('animations').append('<animation></animation>');
+		$('animations :last-child').append('<c></c>')
+
+		for (var i=1; i<=7; i++)
+		{
+			$('animations')
+				.queue(
+					( function(i, elem) {
+						return function() {
+
+							$(elem).children().last()
+								.append('<step></step>')
+							;
+
+							$(elem).children().last().children().last()
+								.hide()
+								.attr('class', 's'+i)
+								.fadeIn(100)
+							;
+
+							$(elem).children().last().children()
+								.fadeOut(100);
+
+							$('animations')
+								.dequeue();
+						};
+					} ) (i, $('animations :last-child'))
+				)
+				.delay(100)
+		}
+
+		$('animation')
+			.delay(100)
+			.queue(
+				function() {
+					$('animation c step').remove();
+				}
+			)
+
+		$('animation')
+			.dequeue();
+	}
+
 }
 
