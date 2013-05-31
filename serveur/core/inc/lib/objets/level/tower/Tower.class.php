@@ -10,8 +10,9 @@ class Tower
 	private $_range;
 	private $_attackRadius;
 	private $_type;
+	private $_player;
 
-	public function __construct($type)
+	public function __construct($type, $player)
 	{	
 		Logger::logTower("new $type");
 		switch ($type) {
@@ -32,6 +33,7 @@ class Tower
 		$this->_range = $array["range"];
 		$this->_attackRadius = $array["radius"];
 		$this->_type = $type;
+		$this->_player = $player;
 	}
 
 	public function getDamage()

@@ -23,42 +23,22 @@ class Map
 	
 	public function addMonster($monster)
 	{
-		$_monsters[] = $monster;
+		$this->_monsters[] = $monster;
 	}
 	
-// 	public function moveMonsters($x, $y)
-// 	{
-// 		$cell = $this->getCell($x, $y);
-		
-// 		if ($cell->hasMonster())
-// 		{
-// 			if($cell->getMonster()->moved())
-// 			{
-// 				print ("current x : ".$cell->getX()."\ncurrent y : ".$cell->getY()."\n");
-// 				print $cell->getDirection()."\n";
-// 				$this->getCell($x + $cell->getXModifier(), $y + $cell->getYModifier())->setMonster($cell->removeMonster());
-// 			}
-// 		}
-// 	}
-	
-	public function hitMonsters($x, $y)
+	public function moveMonsters()
 	{
-		$cell = $this->getCell($x, $y);
-		
-		for ($i = $x - $cell->getRange(), $i <= $x + $cell->getRange(); $i++;)
+		foreach ($this->_monsters as $monster)
 		{
-			for ($j = $y - $cell->getRange(), $j <= $y + $cell->getRange(); $j++;)
+			if($monster->moved())
 			{
-					$target = $this->getCell($i, $j);
-					
-					if(isset($target))
-					{
-						if($target->getType() == AbstractCase::$PATH_CASE_TYPE)
-						{
-							
-						}
-					}
+				$monster->updatePosition($this->getCell($monster->getX(), $monster->getY())->getDirection());
 			}
 		}
+	}
+	
+	public function hitMonsters()
+	{
+		
 	}
 }
