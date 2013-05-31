@@ -19,6 +19,6 @@ class SalonState implements State
 	
 	public function show()
 	{
-		$monster = new Monster(MonsterTemplate::$FAST_MONSTER_TYPE);	
+		
 	}
 }
