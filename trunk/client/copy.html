@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-15">
+		<title>Defensia</title>
+		<link rel="stylesheet" type="text/css" href="./res/style.css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+		<script type="text/javascript" src="./res/js/main.js"></script>
+		<script type="text/javascript" src="./res/js/map.js"></script>
+		<script type="text/javascript" src="./res/js/testdoelia.js"></script>
+
+		<style>
+			@font-face
+			{
+			    font-family: "HittheRoad";
+			    src: url("HITROAD.ttf") format("TrueType");
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<div class="game">
+			<div class="map">
+				<routes>
+					<!--
+					Background fixe du jeu (terrain)
+					<route texture="bas-droite" style="left top"></route>
+					-->
+				</routes>
+
+				<!-- <centre style="left top"></centre> -->
+
+				<sockets>
+					<!--
+						<socket style="left: 33px; top: 33px;" direction="S">
+							<tour type="4" id="3" placedby="2"></tour>
+						</socket>
+					-->
+				</sockets>	
+				<monstres>
+					<!--
+						Monstres posés sur le plateau
+						Exemple : <monstre type="idMonstre" id="idMonstre" style="left: 33px; top: 33px;"></monstre>
+					-->
+				</monstres>	  
+
+				<animation><c></c></animation>
+			</div>
+			<div class="infos">
+				<div>
+					<span class="name">Nom</span>
+					<span class="money">xxx $</span>
+				</div>
+				<div class="playerNames">
+					<span class="j2">J2</span>
+					<span class="j3">J3</span>
+					<span class="j4">J4</span>
+				</div>
+				<div class="playerMoney">
+					<span class="j2">xxx $</span>
+					<span class="j3">xxx $</span>
+					<span class="j4">xxx $</span>
+				</div>
+				
+				<div class="level"> Level x </div>
+				<div class="level"> Vague x / xx </div>
+				
+				<div class="achats"> Achats </div>
+			</div>
+		</div>
+		
+	</body>
+</html>
