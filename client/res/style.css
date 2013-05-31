@@ -106,31 +106,31 @@ body {
 	
 }
 
-.game .map routes route[type="bd"]
+.game .map routes route[type="bas-droite"]
 {
 	background-image: url('img/textures/bas-droite.jpg');
 }
 
-.game .map routes route[type="bh"]
+.game .map routes route[type="bas-haut"]
 {
 	background-image: url('img/textures/bas-haut.jpg');
 }
 
-.game .map routes route[type="gb"]
+.game .map routes route[type="gauche-bas"]
 {
 	background-image: url('img/textures/gauche-bas.jpg');
 }
 
-.game .map routes route[type="gd"]
+.game .map routes route[type="gauche-droite"]
 {
 	background-image: url('img/textures/gauche-droite.jpg');
 }
 
-.game .map routes route[type="gh"]
+.game .map routes route[type="gauche-haut"]
 {
 	background-image: url('img/textures/gauche-haut.jpg');
 }
-.game .map routes route[type="hd"]
+.game .map routes route[type="haut-droite"]
 {
 	background-image: url('img/textures/haut-droite.jpg');
 }

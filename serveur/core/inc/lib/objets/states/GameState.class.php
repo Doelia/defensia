@@ -29,10 +29,9 @@ class GameState implements State
 			GameManager::getInstance()->balReiv->changeState("GameState", $p->getNumSocket());
 		}
 
-		$jsonString = file_get_contents("/home/noe/defensia/res/maptest.json");
+		$jsonString = file_get_contents("../../res/level1_server");
 		$map = new Map(MapBuilder::build($jsonString));
 
-		// 		print trim($jsonString);
 
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->sendMap($jsonString, $p->getNumSocket());
