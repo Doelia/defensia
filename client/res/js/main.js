@@ -1,6 +1,7 @@
 console.log("Connexion...");
 
 var g;
+var socket;
 
 $(function() {
 
