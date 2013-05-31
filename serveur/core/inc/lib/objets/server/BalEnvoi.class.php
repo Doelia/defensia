@@ -36,6 +36,11 @@ class BalEnvoi extends Bal
 			$msg = explode(":", $msg[1]);
 			
 
+			if($msg[0] == ".")
+			{
+				Logger::logBal("acknowledge");
+			}
+			
 			if($msg[0] == "LOGIN")
 			{
 				Logger::logBal("new player added : ".$msg[1]);

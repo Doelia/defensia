@@ -51,7 +51,9 @@ class Game
 		$this->_players[] = new Player($pseudo, $u);
 		
 		foreach ($this->getPlayers() as $p) {
-			GameManager::getInstance()->balReiv->sendPlayer(count($this->_players), $pseudo, $p->getNumSocket());
+			foreach ($this->getPlayers() as $d) {
+				GameManager::getInstance()->balReiv->sendPlayer(count($this->_players),$d->getUsername(), $p->getNumSocket());
+			}
 		}
 	}
 
