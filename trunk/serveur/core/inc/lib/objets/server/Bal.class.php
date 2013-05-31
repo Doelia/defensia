@@ -71,7 +71,7 @@ class Bal
 
 		while (!feof($fp))
 		{
-			$ligne = trim(fgets($fp, 4096));
+			$ligne = trim(fgets($fp, 16384));
 			
 			if ($cpt == 0)
 				$msg = $ligne;
