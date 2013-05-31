@@ -65,4 +65,89 @@
 
 
 
+/* Players */
+
+
+.game .infos .details .cadrePlayer .avatar {
+	width: 32px;
+	height: 33px;
+	position: absolute;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.game .infos .details .cadrePlayer .avatarRed {
+	background-image: url('img/interface/avatar-red.png');
+}
+
+.game .infos .details .cadrePlayer .avatarBlue {
+	background-image: url('img/interface/avatar-blue.png');
+}
+
+.game .infos .details .cadrePlayer .avatarGreen {
+	background-image: url('img/interface/avatar-green.png');
+}
+
+
+
+/* Tourelles */
+
+.game .infos .details .cadreShop .tour {
+	width: 37px;
+	height: 44px;
+	position: absolute;
+	opacity: 0.5;
+}
+
+.game .infos .details .cadreShop .tour.dispo {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.game .infos .details .cadreShop .tour1 {
+	margin-top: 6px;
+	margin-left: 12px;
+	background-image: url('img/interface/tour1.png');
+}
+
+.game .infos .details .cadreShop .tour2 {
+	margin-top: 6px;
+	margin-left: 66px;
+	background-image: url('img/interface/tour2.png');
+}
+
+.game .infos .details .cadreShop .tour3 {
+	margin-top: 6px;
+	margin-left: 120px;
+	background-image: url('img/interface/tour3.png');
+}
+
+.game .infos .details .cadreShop .tour4 {
+	margin-top: 6px;
+	margin-left: 171px;
+	background-image: url('img/interface/tour4.png');
+}
+
+.game .infos .details .cadreShop .tour5 {
+	margin-top: 6px;
+	margin-left: 220px;
+	background-image: url('img/interface/tour5.png');
+}
+
+.game .infos .details .cadreShop .tour6 {
+	margin-top: 59px;
+	margin-left: 12px;
+	background-image: url('img/interface/tour6.png');
+}
+
+.game .infos .details .cadreShop .tour7 {
+	margin-top: 59px;
+	margin-left: 66px;
+	background-image: url('img/interface/tour7.png');
+}
+
+
+
+
+
 
