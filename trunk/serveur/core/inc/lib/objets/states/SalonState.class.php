@@ -10,7 +10,7 @@ class SalonState implements State
 	}
 	public function update($detla)
 	{
-		if($this->_game->getNumberOfPlayers() >= 2)
+		if($this->_game->getNumberOfPlayers() >= 1)
 		{	
 			Logger::logState("changing SalonState to GameState");
 			$this->_game->setState(new GameState($this->_game));
@@ -19,7 +19,6 @@ class SalonState implements State
 	
 	public function show()
 	{
-		$tower = new Tower(TowerTemplate::$FAST_TOWER_TYPE);
-		$case = new TowerSocketCase(1, 1);
+		$monster = new Monster(MonsterTemplate::$FAST_MONSTER_TYPE);	
 	}
 }

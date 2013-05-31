@@ -14,6 +14,8 @@ function chargerClasse($classe)
 		require("inc/lib/objets/level/case/$classe.class.php");
 	else if (file_exists("inc/lib/objets/level/tower/$classe.class.php"))
 		require("inc/lib/objets/level/tower/$classe.class.php");
+	else if (file_exists("inc/lib/objets/level/monster/$classe.class.php"))
+		require("inc/lib/objets/level/monster/$classe.class.php");
 	else
 	{
 		$fichier = debug_backtrace();

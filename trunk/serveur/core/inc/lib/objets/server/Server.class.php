@@ -30,7 +30,7 @@ class Server extends WebSocketServer
 		{
 			Logger::logsocket("Server.traiterBalReiv() : Message trouvé : $msg");
 
-			$tab = explode('-', $msg);
+			$tab = explode('-', $msg, 2);
 			if ($tab && $tab[0] && $tab[1])
 			{
 				$this->send($tab[0], $tab[1]);
@@ -38,23 +38,23 @@ class Server extends WebSocketServer
 		}
 		Logger::logsocket("FIN Server.traiterBalReiv()");
 	}
-	
-	protected function process ($socket, $message) 
+
+	protected function process ($socket, $message)
 	{
 		Logger::logSocket("[WS] recu : $message par ".$socket->id);
 		$this->balSend->writeWithNumSocket($message, $socket->id);
 		$this->traiterBalReiv();
 	}
-	
-	protected function connected ($socket) 
+
+	protected function connected ($socket)
 	{
 		Logger::logSocket("new client connected");
 	}
-	
+
 	protected function closed ($socket) {
 		Logger::logSocket("lost connection to : " . $socket->id);
 		// Do nothing: This is where cleanup would go, in case the socket had any sort of
-		// open files or other objects associated with them.  This runs after the socket 
+		// open files or other objects associated with them.  This runs after the socket
 		// has been closed, so there is no need to clean up the socket itself here.
 	}
 

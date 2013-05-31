@@ -3,7 +3,7 @@
 abstract class WebSocketServer {
 
 	protected $userClass = 'WebSocketUser'; // redefine this if you want a custom user class.  The custom user class should inherit from WebSocketUser.
-	protected $maxBufferSize;        
+	protected $maxBufferSize;
 	protected $master;
 	protected $sockets                              = array();
 	protected $users                                = array();
@@ -46,21 +46,21 @@ abstract class WebSocketServer {
 						if (!$user->handshake) {
 							$this->doHandshake($user,$buffer);
 						} else {
-              if ($message = $this->deframe($buffer, $user)) {
-                $this->process($user, utf8_encode($message));
-                if($user->hasSentClose) {
-                  $this->disconnect($user->socket);
-                }
-              } else {
+							if ($message = $this->deframe($buffer, $user)) {
+								$this->process($user, utf8_encode($message));
+								if($user->hasSentClose) {
+									$this->disconnect($user->socket);
+								}
+							} else {
 								do {
 									$numByte = @socket_recv($socket,$buffer,$this->maxBufferSize,MSG_PEEK);
 									if ($numByte > 0) {
 										$numByte = @socket_recv($socket,$buffer,$this->maxBufferSize,0);
 										if ($message = $this->deframe($buffer,$user)) {
 											$this->process($user,$message);
-                      if($user->hasSentClose) {
-                        $this->disconnect($user->socket);
-                      }
+											if($user->hasSentClose) {
+												$this->disconnect($user->socket);
+											}
 										}
 									}
 								} while($numByte > 0);
@@ -72,16 +72,17 @@ abstract class WebSocketServer {
 		}
 	}
 
-	abstract protected function process($user,$message); // Calked immediately when the data is recieved. 
+	abstract protected function process($user,$message); // Calked immediately when the data is recieved.
 	abstract protected function connected($user);        // Called after the handshake response is sent to the client.
 	abstract protected function closed($user);           // Called after the connection is closed.
+	abstract protected function traiterBalReiv();
 
 	protected function connecting($user) {
-    // Override to handle a connecting user, after the instance of the User is created, but before
-    // the handshake has completed.
-  }
-  
-  protected function send($user,$message) {
+		// Override to handle a connecting user, after the instance of the User is created, but before
+		// the handshake has completed.
+	}
+
+	protected function send($user,$message) {
 		$this->stdout("> $message");
 		$message = $this->frame($message,$user);
 		socket_write($user->socket,$message,strlen($message));
@@ -140,14 +141,14 @@ abstract class WebSocketServer {
 			$user->requestedResource = $headers['get'];
 		} else {
 			// todo: fail the connection
-			$handshakeResponse = "HTTP/1.1 405 Method Not Allowed\r\n\r\n";			
+			$handshakeResponse = "HTTP/1.1 405 Method Not Allowed\r\n\r\n";
 		}
 		if (!isset($headers['host']) || !$this->checkHost($headers['host'])) {
 			$handshakeResponse = "HTTP/1.1 400 Bad Request";
 		}
 		if (!isset($headers['upgrade']) || strtolower($headers['upgrade']) != 'websocket') {
 			$handshakeResponse = "HTTP/1.1 400 Bad Request";
-		} 
+		}
 		if (!isset($headers['connection']) || strpos(strtolower($headers['connection']), 'upgrade') === FALSE) {
 			$handshakeResponse = "HTTP/1.1 400 Bad Request";
 		}
@@ -193,13 +194,13 @@ abstract class WebSocketServer {
 
 		$handshakeResponse = "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: $handshakeToken$subProtocol$extensions\r\n";
 		socket_write($user->socket,$handshakeResponse,strlen($handshakeResponse));
-    $this->connected($user);
+		$this->connected($user);
 	}
 
 	protected function checkHost($hostName) {
 		return true; // Override and return false if the host is not one that you would expect.
-				     // Ex: You only want to accept hosts from the my-domain.com domain,
-					 // but you receive a host from malicious-site.com instead.
+		// Ex: You only want to accept hosts from the my-domain.com domain,
+		// but you receive a host from malicious-site.com instead.
 	}
 
 	protected function checkOrigin($origin) {
@@ -215,10 +216,10 @@ abstract class WebSocketServer {
 	}
 
 	protected function processProtocol($protocol) {
-		return ""; // return either "Sec-WebSocket-Protocol: SelectedProtocolFromClientList\r\n" or return an empty string.  
-				   // The carriage return/newline combo must appear at the end of a non-empty string, and must not
-				   // appear at the beginning of the string nor in an otherwise empty string, or it will be considered part of 
-				   // the response body, which will trigger an error in the client as it will not be formatted correctly.
+		return ""; // return either "Sec-WebSocket-Protocol: SelectedProtocolFromClientList\r\n" or return an empty string.
+		// The carriage return/newline combo must appear at the end of a non-empty string, and must not
+		// appear at the beginning of the string nor in an otherwise empty string, or it will be considered part of
+		// the response body, which will trigger an error in the client as it will not be formatted correctly.
 	}
 
 	protected function processExtensions($extensions) {
@@ -284,7 +285,7 @@ abstract class WebSocketServer {
 			//$this->stdout("Hex Length: $hexLength");
 			if (strlen($hexLength)%2 == 1) {
 				$hexLength = '0' . $hexLength;
-			} 
+			}
 			$n = strlen($hexLength) - 2;
 
 			for ($i = $n; $i >= 0; $i=$i-2) {
@@ -298,7 +299,7 @@ abstract class WebSocketServer {
 			$hexLength = dechex($length);
 			if (strlen($hexLength)%2 == 1) {
 				$hexLength = '0' . $hexLength;
-			} 
+			}
 			$n = strlen($hexLength) - 2;
 
 			for ($i = $n; $i >= 0; $i=$i-2) {
@@ -384,33 +385,33 @@ abstract class WebSocketServer {
 
 	protected function extractHeaders($message) {
 		$header = array('fin'     => $message[0] & chr(128),
-						'rsv1'    => $message[0] & chr(64),
-						'rsv2'    => $message[0] & chr(32),
-						'rsv3'    => $message[0] & chr(16),
-						'opcode'  => ord($message[0]) & 15,
-						'hasmask' => $message[1] & chr(128),
-						'length'  => 0,
-						'mask'    => "");
+				'rsv1'    => $message[0] & chr(64),
+				'rsv2'    => $message[0] & chr(32),
+				'rsv3'    => $message[0] & chr(16),
+				'opcode'  => ord($message[0]) & 15,
+				'hasmask' => $message[1] & chr(128),
+				'length'  => 0,
+				'mask'    => "");
 		$header['length'] = (ord($message[1]) >= 128) ? ord($message[1]) - 128 : ord($message[1]);
 
 		if ($header['length'] == 126) {
 			if ($header['hasmask']) {
 				$header['mask'] = $message[4] . $message[5] . $message[6] . $message[7];
 			}
-			$header['length'] = ord($message[2]) * 256 
-							  + ord($message[3]);
+			$header['length'] = ord($message[2]) * 256
+			+ ord($message[3]);
 		} elseif ($header['length'] == 127) {
 			if ($header['hasmask']) {
 				$header['mask'] = $message[10] . $message[11] . $message[12] . $message[13];
 			}
-			$header['length'] = ord($message[2]) * 65536 * 65536 * 65536 * 256 
-							  + ord($message[3]) * 65536 * 65536 * 65536
-							  + ord($message[4]) * 65536 * 65536 * 256
-							  + ord($message[5]) * 65536 * 65536
-							  + ord($message[6]) * 65536 * 256
-							  + ord($message[7]) * 65536 
-							  + ord($message[8]) * 256
-							  + ord($message[9]);
+			$header['length'] = ord($message[2]) * 65536 * 65536 * 65536 * 256
+			+ ord($message[3]) * 65536 * 65536 * 65536
+			+ ord($message[4]) * 65536 * 65536 * 256
+			+ ord($message[5]) * 65536 * 65536
+			+ ord($message[6]) * 65536 * 256
+			+ ord($message[7]) * 65536
+			+ ord($message[8]) * 256
+			+ ord($message[9]);
 		} elseif ($header['hasmask']) {
 			$header['mask'] = $message[2] . $message[3] . $message[4] . $message[5];
 		}
@@ -495,8 +496,9 @@ abstract class WebSocketServer {
 	{
 		foreach ($this->users as $u)
 			if ($u->id == $id)
-				return $u;
+			return $u;
 		return null;
 	}
+
 }
 
