@@ -103,6 +103,6 @@ class BalReception extends Bal
 	public function sendPlayer($numPlayer, $username, $socket)
 	{
 		Logger::logBal("BalRecepetion.player($username, $socket)");
-		$this->write("$socket-onAppPlayer!$numPlayer!$username");
+		$this->write("$socket-onAddPlayer!$numPlayer!$username");
 	}
 }
