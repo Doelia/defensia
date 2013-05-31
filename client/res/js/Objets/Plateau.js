@@ -115,46 +115,45 @@ function Plateau()
 	this.playAnimatationFire = function(x, y)
 	{
 		$('animations').append('<animation></animation>');
-		$('animations :last-child').append('<c></c>')
+
+		$('animations animation:last-child')
+			.css("top", y * 33)
+			.css("left", x * 33)
+
+		$('animations animation:last-child').append('<c></c>');
 
 		for (var i=1; i<=7; i++)
 		{
-			$('animations')
+			$('animations animation:last-child c')
 				.queue(
 					( function(i, elem) {
 						return function() {
 
-							$(elem).children().last()
-								.append('<step></step>')
-							;
-
-							$(elem).children().last().children().last()
+							$('<step></step').appendTo(elem)
 								.hide()
 								.attr('class', 's'+i)
 								.fadeIn(100)
+								.fadeOut(100)
 							;
 
-							$(elem).children().last().children()
-								.fadeOut(100);
-
-							$('animations')
+							elem
 								.dequeue();
 						};
-					} ) (i, $('animations :last-child'))
+					} ) (i, $('animations animation:last-child c'))
 				)
 				.delay(100)
 		}
 
-		$('animation')
+		$('animations')
 			.delay(100)
 			.queue(
-				function() {
-					$('animation c step').remove();
-				}
+				( function(elem) {
+						return function() {
+							elem.remove();
+						};
+					} ) ( $('animations animation:last-child'))
 			)
 
-		$('animation')
-			.dequeue();
 	}
 
 }
