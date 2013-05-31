@@ -6,6 +6,7 @@ var socket;
 function boucle_send()
 {
 	console.log('test');
+	socket.send(".");
 	setTimeout('boucle_send()', 1000);
 }
 
@@ -30,7 +31,7 @@ $(function() {
 		if (packet.length == 2)
 			parametres = packet[1];
 		else if (packet.length == 3)
-			parametres = packet[1]+', '+packet[2];
+			parametres = "'"+packet[1]+"'"+', '+"'"+packet[2]+"'";
 
 		eval(nameFunction+'('+parametres+')');
 	}
