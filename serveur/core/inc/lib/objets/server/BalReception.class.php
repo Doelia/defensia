@@ -100,7 +100,7 @@ class BalReception extends Bal
 		$this->write("$socket-onMapRecu!$map");
 	}
 	
-	public function sendPlayer($username, $numPlayer, $socket)
+	public function sendPlayer($numPlayer, $username, $socket)
 	{
 		Logger::logBal("BalRecepetion.player($username, $socket)");
 		$this->write("$socket-onAppPlayer!$numPlayer!$username");
