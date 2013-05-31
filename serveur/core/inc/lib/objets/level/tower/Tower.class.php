@@ -14,7 +14,7 @@ class Tower
 
 	public function __construct($type, $player)
 	{	
-		Logger::logTower("new $type");
+// 		Logger::logTower("new $type");
 		switch ($type) {
 			case TowerTemplate::$FAST_TOWER_TYPE : $array = TowerTemplate::$FAST_TOWER_TEMPLATE;
 				break;

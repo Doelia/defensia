@@ -13,7 +13,7 @@ class Monster
 
 	public function __construct($type, $x, $y)
 	{
-		Logger::logMonster("new $type");
+// 		Logger::logMonster("new $type");
 		switch ($type) {
 			case MonsterTemplate::$FAST_MONSTER_TYPE : $array = MonsterTemplate::$FAST_MONSTER_TEMPLATE;
 			break;
