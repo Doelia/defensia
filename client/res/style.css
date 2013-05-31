@@ -39,13 +39,22 @@ html, body, p, h1, table, tr, td {
 	width: 251px;
 	height: 12px;
 	position: relative;
-	margin-bottom: 150px;
+	margin-bottom: 10px;
 	background-image: url('img/interface/title-players.png');
+}
+
+.game .infos .details .titleShop {
+	width: 251px;
+	height: 12px;
+	position: relative;
+	margin-bottom: 10px;
+	background-image: url('img/interface/title-shop.png');
 }
 
 .game .infos .details .player {
 	width: 269px;
 	height: 49px;
+	margin-left: -8px;
 	position: relative;
 	background-image: url('img/interface/fond-player.png');
 }
