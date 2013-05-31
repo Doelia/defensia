@@ -3,9 +3,11 @@
 class Monster
 {
 	private $_life;
-	private $_speed;
+	private $_speed; //un mouvement tous les x cycles d'actualisation
 	private $_damage;
 	private $_type;
+	
+	private $_numberOfUpdateCycles;
 	
 	public function __construct($type)
 	{
@@ -24,6 +26,8 @@ class Monster
 		$this->_speed = $array["speed"];
 		$this->_damage = $array["damage"];
 		$this->_type = $type;
+		
+		$this->_numberOfUpdateCycles = 0;
 	}
 	
 	public function getLife()
@@ -44,5 +48,23 @@ class Monster
 	public function getDamage()
 	{
 		
+	}
+
+	public function moved()
+	{
+		$this->_numberOfUpdateCycles++;
+		
+		if ($this->_numberOfUpdateCycles < $this->_speed)
+		{
+// 			print "did not move : ".$this->_numberOfUpdateCycles."\n";
+			return false;
+		}
+		
+		else 
+		{
+			$this->_numberOfUpdateCycles = 0;
+// 			print "moved : ".$this->_numberOfUpdateCycles."\n";
+			return true;
+		}
 	}
 }
