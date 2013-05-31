@@ -187,6 +187,18 @@
 		},
 		{
 			"x": "9",
+			"y": "9",
+			"texture": "gauche-haut",
+			"direction": "NORTH"
+		},
+		{
+			"x": "9",
+			"y": "10",
+			"texture": "gauche-bas",
+			"direction": "NORTH"
+		},
+		{
+			"x": "9",
 			"y": "11",
 			"texture": "bas-haut",
 			"direction": "SOUTH"
@@ -291,6 +303,18 @@
 			"x": "10",
 			"y": "8",
 			"texture": "bas-haut",
+			"direction": "NORTH"
+		},
+		{
+			"x": "10",
+			"y": "9",
+			"texture": "haut-droite",
+			"direction": "NORTH"
+		},
+		{
+			"x": "10",
+			"y": "10",
+			"texture": "bas-droite",
 			"direction": "NORTH"
 		},
 		{
