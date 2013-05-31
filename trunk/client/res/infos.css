@@ -1,0 +1,68 @@
+.game .infos {
+	width: 298px;
+	height: 678px;
+	position: absolute;
+	right: -10px;
+	top: -9px;
+	background-image: url('img/interface/fond.png');
+}
+
+.game .infos .details {
+	position: absolute;
+	top: 90px;
+	left: 20px;
+}
+
+
+
+.game .infos .details .title {
+	width: 251px;
+	height: 12px;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.game .infos .details .cadre {
+	width: 269px;
+	position: relative;
+	margin-left: -8px;
+}
+
+
+
+.game .infos .details .titlePlayer {
+	background-image: url('img/interface/title-players.png');
+}
+
+.game .infos .details .titleShop {
+	margin-top: 20px;
+	background-image: url('img/interface/title-shop.png');
+}
+
+.game .infos .details .titleInfos {
+	margin-top: 20px;
+	background-image: url('img/interface/title-infos.png');
+}
+
+
+
+
+.game .infos .details .cadrePlayer {
+	height: 49px;
+	background-image: url('img/interface/fond-player.png');
+}
+
+.game .infos .details .cadreShop {
+	height: 112px;
+	background-image: url('img/interface/cadre-shop.png');
+}
+
+.game .infos .details .cadreInfos {
+	height: 112px;
+	background-image: url('img/interface/sous-cadre.png');
+}
+
+
+
+
+
