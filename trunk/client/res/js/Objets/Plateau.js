@@ -49,7 +49,6 @@ function Plateau()
 					.attr("type", obj.texture);
 		});
 	
-	
 		// Création sockets
 		$.each(json.map.sockets, function(id, obj) { 
 	
@@ -64,14 +63,18 @@ function Plateau()
 					.attr("direction", obj.direction);
 		});
 
-		
-		// Placement du centre
-		$('.map').append('<centre></centre>');
-		$('centre:last-child')
+		// Création du centre
+		$.each(json.map.centre, function(id, obj) { 
+	
+			//g.plateau.cellules[obj.y][obj.x].setIsCenter();
+			
+			$('map').append('<centre></centre>');
+			$('map centre:last-child')
 					.css("top", json.map.centre.y * 33)
 					.css("left", json.map.centre.x * 33)
 					.attr("life", json.map.centre.life);
-
+		});
+		
 	}
 
 	/*
