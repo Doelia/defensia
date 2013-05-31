@@ -99,4 +99,10 @@ class BalReception extends Bal
 		Logger::logBal("BalRecepetion.sendMap(map en xml, $socket)");
 		$this->write("$socket-onMapRecu!$map");
 	}
+	
+	public function sendPlayer($username, $numPlayer, $socket)
+	{
+		Logger::logBal("BalRecepetion.player($username, $socket)");
+		$this->write("$socket-onAppPlayer!$numPlayer!$username");
+	}
 }
