@@ -16,8 +16,8 @@ $(function() {
 
 
 	socket.onmessage = function(e){
-		var packet = e.split('!');
 		console.log("Message reçu : "+e.data);
+		var packet = e.data.split('!');
 		eval(packet[0]+'('+packet[1]+')');
 	}
 
