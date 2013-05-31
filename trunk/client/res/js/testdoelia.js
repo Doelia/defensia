@@ -45,14 +45,6 @@ function animate()
 							.append('<step></step>')
 						;
 
-						/*
-						$('animation c')
-							.animate({
-								'left': i*3
-							}, 50)
-						;
-						*/
-
 						$('animation c :last-child')
 							.hide()
 							.attr('class', 's'+i)
