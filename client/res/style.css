@@ -35,28 +35,46 @@ html, body, p, h1, table, tr, td {
 	left: 20px;
 }
 
-.game .infos .details .titlePlayer {
+.game .infos .details .title {
 	width: 251px;
 	height: 12px;
 	position: relative;
 	margin-bottom: 10px;
+}
+
+.game .infos .details .cadre {
+	width: 269px;
+	position: relative;
+	margin-left: -8px;
+}
+
+.game .infos .details .titlePlayer {
 	background-image: url('img/interface/title-players.png');
 }
 
 .game .infos .details .titleShop {
-	width: 251px;
-	height: 12px;
-	position: relative;
-	margin-bottom: 10px;
+	margin-top: 20px;
 	background-image: url('img/interface/title-shop.png');
 }
 
-.game .infos .details .player {
-	width: 269px;
+.game .infos .details .titleInfos {
+	margin-top: 20px;
+	background-image: url('img/interface/title-infos.png');
+}
+
+.game .infos .details .cadrePlayer {
 	height: 49px;
-	margin-left: -8px;
-	position: relative;
 	background-image: url('img/interface/fond-player.png');
+}
+
+.game .infos .details .cadreShop {
+	height: 112px;
+	background-image: url('img/interface/cadre-shop.png');
+}
+
+.game .infos .details .cadreInfos {
+	height: 112px;
+	background-image: url('img/interface/sous-cadre.png');
 }
 
 body {
