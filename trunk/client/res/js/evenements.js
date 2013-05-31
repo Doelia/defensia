@@ -46,12 +46,7 @@ function onMapRecu(json)
 
 function onAddPlayer(idJoueur, pseudo)
 {
-
-}
-
-function onPlayerConnect()
-{
-
+	g.infos.addPlayer(idJoueur, pseudo);
 }
 
 
