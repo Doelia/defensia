@@ -47,12 +47,12 @@ class Game
 
 	public function createPlayer($pseudo, $u)
 	{
+		Logger::logGame("Game.createPlayer($u)");
+		$this->_players[] = new Player($pseudo, $u);
+		
 		foreach ($this->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->sendPlayer(count($this->_players), $pseudo, $p->getNumSocket());
 		}
-		
-		Logger::logGame("Game.createPlayer($u)");
-		$this->_players[] = new Player($pseudo, $u);
 	}
 
 	public function getPlayers()
