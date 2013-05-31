@@ -3,17 +3,21 @@
 class CenterCase extends AbstractCase
 {	
 
-	private $_life;
+	private static $_life;
 
-	public function __construct($x, $y, $life)
+	public function __construct($x, $y)
 	{
-		parent::__construct($x, $y, ACase::$CENTER_CASE_TYPE);
-		$this->_life = $life;
+		parent::__construct($x, $y, AbstractCase::$CENTER_CASE_TYPE);
+	}
+	
+	public static function setLife($life)
+	{
+		self::$_life = $life;
 	}
 
 	public function getLife()
 	{
-		return $this->_life;
+		return self::$_life;
 	}
 
 	/**
@@ -22,7 +26,7 @@ class CenterCase extends AbstractCase
 	*/
 	public function takeDamage($damage)
 	{
-		$this->_life -= $damage;
+		self::$_life -= $damage;
 	}
 
 
@@ -31,6 +35,6 @@ class CenterCase extends AbstractCase
 	*/
 	public function isDead()
 	{
-		return $this->_life <= 0;
+		return self::_life <= 0;
 	}
 }

@@ -9,10 +9,11 @@ class PathCase extends AbstractCase
 	public static $WEST = "W";
 
 	private $_direction;
+	private $_monster;
 
 	public function __construct($x, $y, $direction)
 	{
-		parent::__construct($x, $y, ACase::$PATH_CASE_TYPE);
+		parent::__construct($x, $y, AbstractCase::$PATH_CASE_TYPE);
 		$this->_direction = $direction;
 	}
 
@@ -44,5 +45,14 @@ class PathCase extends AbstractCase
 		else 
 			return 0;
 	}
+	
+	public function setMonster($monster)
+	{
+		$this->_monster = $monster;
+	}
 
+	public function getMonster()
+	{
+		return $this->_monster;
+	}
 }

@@ -39,4 +39,14 @@ class Logger
 	{
 		self::display("[Case] : ". $message);
 	}
+	
+	public static function logJson($message)
+	{
+		self::display("[Json] : ". $message);
+	}
+	
+	public static function logMonster($message)
+	{
+		self::display("[Monster] : ". $message);
+	}
 }

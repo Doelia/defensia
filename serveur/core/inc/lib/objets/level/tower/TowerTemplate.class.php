@@ -28,5 +28,5 @@ class TowerTemplate
 											"fireRate" => 10,
 											"range" => 10,
 											"radius" => 5
-				);																	
+										);																	
 }
