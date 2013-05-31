@@ -97,6 +97,6 @@ class BalReception extends Bal
 	public function sendMap($map, $socket)
 	{
 		Logger::logBal("BalRecepetion.sendMap(map en xml, $socket)");
-		$this->write("$socket-SM:$map");
+		$this->write("$socket-onMapRecu!$map");
 	}
 }
