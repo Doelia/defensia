@@ -128,6 +128,7 @@ animation {
 	width: 33px;
 }
 
+/* Conteneur de l'animation */
 animation c {
 	position: absolute;
 	left: 0;
