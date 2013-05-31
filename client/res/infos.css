@@ -7,6 +7,17 @@
 	background-image: url('img/interface/fond.png');
 }
 
+.game .infos .vague {
+	top: 24px;
+	left: 80px;
+	position: absolute;
+	font-family: Eras;
+	font-size: 30px;
+	color: #00BFFF;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	
+}
+
 .game .infos .details {
 	position: absolute;
 	top: 90px;
@@ -89,6 +100,23 @@
 }
 
 
+.game .infos .details .cadrePlayer .pseudo {
+	position: absolute;
+	margin-top: 17px;
+	margin-left: 60px;
+	font-family: harabara;
+}
+
+
+.game .infos .details .cadrePlayer .money {
+	position: absolute;
+	margin-top: 16px;
+	margin-left: 195px;
+	font-family: Eras;
+	font-size: 15px;
+}
+
+
 
 /* Tourelles */
 
@@ -145,6 +173,36 @@
 	margin-left: 66px;
 	background-image: url('img/interface/tour7.png');
 }
+
+
+/* Informations */
+
+
+.game .infos .details .cadreInfos .centerLife {
+	width: 200px;
+	height: 70px;
+	margin-top: 5px;
+	margin-left: 10px;
+	position: absolute;
+}
+
+.game .infos .details .cadreInfos .centerLife .avatarCentre {
+	width: 33px;
+	height: 33px;
+	position: absolute;
+	background-image: url('img/centre.png');
+}
+
+.game .infos .details .cadreInfos .centerLife .infosCentre {
+	top: 5px;	
+	left: 40px;
+	position: absolute;
+	font-family: caviar;
+}
+
+
+
+
 
 
 
