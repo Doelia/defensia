@@ -12,22 +12,22 @@ class Logger
 
 	public static function logGame($message)
 	{
-// 		self::display("[GAME] : ". $message);
+		self::display("[GAME] : ". $message);
 	}
 
 	public static function logSocket($message)
 	{
-// 		self::display("[SOCKET] : ". $message);
+		self::display("[SOCKET] : ". $message);
 	}
 
 	public static function logBal($message)
 	{
-// 		self::display("[BAL] : ". $message);
+		self::display("[BAL] : ". $message);
 	}
 
 	public static function logState($message)
 	{
-// 		self::display("[State] : ". $message);
+		self::display("[State] : ". $message);
 	}
 
 	public static function logTower($message)
@@ -42,7 +42,7 @@ class Logger
 	
 	public static function logJson($message)
 	{
-// 		self::display("[Json] : ". $message);
+		self::display("[Json] : ". $message);
 	}
 	
 	public static function logMonster($message)
