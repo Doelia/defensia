@@ -3,13 +3,13 @@
 class PathCase extends AbstractCase
 {	
 
-	public static $NORTH = "N";
-	public static $SOUTH = "S";
-	public static $EAST = "E";
-	public static $WEST = "W";
+	public static $NORTH = "NORTH";
+	public static $SOUTH = "SOUTH";
+	public static $EAST = "EAST";
+	public static $WEST = "WEST";
 
 	private $_direction;
-	private $_monster;
+	private $_monsters; //array
 
 	public function __construct($x, $y, $direction)
 	{
@@ -24,11 +24,11 @@ class PathCase extends AbstractCase
 
 	public function getXModifier()
 	{
-		if($_direction == $EAST)
-			return 1;
-
-		else if($_direction == $WEST)
+		if($this->_direction == self::$EAST)
 			return -1;
+
+		else if($this->_direction == self::$WEST)
+			return 1;
 
 		else 
 			return 0;
@@ -36,10 +36,10 @@ class PathCase extends AbstractCase
 
 	public function getYModifier()
 	{
-		if($_direction == $NORTH)
+		if($this->_direction == self::$NORTH)
 			return 1;
 
-		else if($_direction == $SOUTH)
+		else if($this->_direction == self::$SOUTH)
 			return -1;
 
 		else 
@@ -48,11 +48,26 @@ class PathCase extends AbstractCase
 	
 	public function setMonster($monster)
 	{
-		$this->_monster = $monster;
+		$this->_monsters = $monster;
 	}
 
 	public function getMonster()
 	{
-		return $this->_monster;
+		return $this->_monsters;
+	}
+	
+	public function hasMonster()
+	{
+		return $this->_monsters != null;
+	}
+	
+	public function removeMonster()
+	{
+		$monster = $this->_monsters;
+		$this->_monsters = null;
+		
+		return $monster;
 	}
 }
+
+

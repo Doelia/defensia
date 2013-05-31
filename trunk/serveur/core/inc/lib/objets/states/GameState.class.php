@@ -4,22 +4,31 @@ class GameState implements State
 {
 
 	private $_game;
+	private $_map;
 
 	public function __construct($game)
 	{
 		$this->_game = $game;
+		$this->_map = array();
 	}
 
 	public function update($detla)
 	{
-// 		if(!isset($socket))
-// 		{
-// 			print "trying to connect\n";
-// 			$socket=socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-
-// 			if(socket_connect($socket, "localhost", "8080"))
-// 				print "connected\n";
-// 		}
+		foreach ($this->_map->getMap() as $i => $val )
+		{
+			foreach ($val as $j => $cell)
+			{
+				if ($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
+				{
+					$this->_map->moveMonsters($j, $i);					
+				}
+				
+				if($cell->getType() == AbstractCase::$TOWERSOCKET_CASE_TYPE)
+				{
+// 					$this->hitMonsters();
+				}
+			}
+		}
 	}
 
 	public function show()
@@ -30,12 +39,16 @@ class GameState implements State
 		}
 
 		$jsonString = file_get_contents("../../res/level1_server");
-		$map = new Map(MapBuilder::build($jsonString));
+		$this->_map = new Map(MapBuilder::build($jsonString));
 
 
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->sendMap($jsonString, $p->getNumSocket());
 		}
-
+// 		print_r($this->_map);
+		
+		$this->_map->getCell(10, 0)->setMonster(new Monster(MonsterTemplate::$FAST_MONSTER_TYPE));
+		
 	}
+	
 }
