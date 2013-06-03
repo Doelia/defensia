@@ -4,9 +4,9 @@ class BalEnvoi extends Bal
 {
 
 	/**
-	boite aux lettres dans laquelle le Game lira et que laquelle le serveur WebSocket écrira ↑ ↘ ↙ ← → ↖ ↗ ↔
-	c'est ici que sont traités les paquets pour le Game
-	*/
+	 boite aux lettres dans laquelle le Game lira et que laquelle le serveur WebSocket écrira ↑ ↘ ↙ ← → ↖ ↗ ↔
+	 c'est ici que sont traités les paquets pour le Game
+	 */
 
 	public function writeWithNumSocket($msg, $numSocket)
 	{
@@ -16,10 +16,10 @@ class BalEnvoi extends Bal
 	}
 
 	/**
-	Actions possibles envoyées par le client
-	AT : addTower - params : type, x, y, idJoueur
-	RT : removeTower - params : x, y, idJoueur
-	*/
+	 Actions possibles envoyées par le client
+	 AT : addTower - params : type, x, y, idJoueur
+	 RT : removeTower - params : x, y, idJoueur
+	 */
 	public function read()
 	{
 		$msg = parent::read();
@@ -34,12 +34,8 @@ class BalEnvoi extends Bal
 			$msg = explode("-", $msg);
 			$socket = $msg[0];
 			$msg = explode(":", $msg[1]);
-			
 
-// 			if($msg[0] == ".")
-// 			{
-// 			}
-			
+				
 			if($msg[0] == "LOGIN")
 			{
 				Logger::logBal("new player added : ".$msg[1]);
@@ -47,27 +43,36 @@ class BalEnvoi extends Bal
 			}
 
 			else if($msg[0] == "AT" || $msg[0] == "RT")
-			{	
+			{
 				Logger::logBal("new action added : ".$msg[1]);
 
 				$g = GameManager::getInstance()->getGameBySocketId($socket);
 
 				$g->addAction($msg);
 			}
-			
+				
 			else if($msg[0] == "PT")
 			{
-// 				print "msg[1] ".$msg[1]."\n";
-// 				print "msg[2] ".$msg[2]."\n";
-// // 				print TowerTemplate::$TYPES[1];
+
 				Logger::logBal("new tower added : type = ".TowerTemplate::$TYPES[$msg[1]]."x = ".$msg[2]."y = ".$msg[3]);
+
 				$g = GameManager::getInstance()->getGameBySocketId($socket);
-				$g->getState()->getMap()->getCell($msg[2], $msg[3])->addTower(new Tower(TowerTemplate::$TYPES[$msg[1]], null));
-// 				print_r (GameManager::getInstance()->getGameById(1)->getCurrentState()->getMap());
-// 				GameManager::getInstance()->getGameById(1)->getCurrentState()->getMap()->getCell($msg[2], $msg[3])->addTower(new Tower(TowerTemplate::$TYPES[$msg[1]], null));
+				$p = $g->getPlayerFromSocketId($socket);
+
+				if($p->canSpend(TowerTemplate::$PRICES[TowerTemplate::$TYPES[$msg[1]]]))
+				{
+					if($g->getState()->getMap()->getCell($msg[2], $msg[3])->setTower(new Tower(TowerTemplate::$TYPES[$msg[1]], $p)))
+					{
+						$p->spend(TowerTemplate::$PRICES[TowerTemplate::$TYPES[$msg[1]]]);
+						
+						foreach ($g->getPlayers() as $player) {
+							GameManager::getInstance()->balReiv->updateMoney($p->getUsername(), $p->getCash(), $player->getNumSocket());
+						}
+					}
+				}
 			}
 
-			return true;	
+			return true;
 		}
 	}
 

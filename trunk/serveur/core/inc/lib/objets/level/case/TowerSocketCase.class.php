@@ -17,7 +17,7 @@ class TowerSocketCase extends AbstractCase
 	*/
 	public function setTower($tower)
 	{
-		if($_tower == null)
+		if($this->_tower == null)
 		{
 			$this->_tower = $tower;
 			return true;
