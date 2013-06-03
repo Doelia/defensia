@@ -25,7 +25,7 @@ class Server extends WebSocketServer
 
 	protected function traiterBalReiv()
 	{
-		Logger::logsocket("Server.traiterBalReiv()");
+// 		Logger::logsocket("Server.traiterBalReiv()");
 		while ($msg = $this->balReiv->read())
 		{
 			Logger::logsocket("Server.traiterBalReiv() : Message trouvé : $msg");
@@ -36,12 +36,13 @@ class Server extends WebSocketServer
 				$this->send($tab[0], $tab[1]);
 			}
 		}
-		Logger::logsocket("FIN Server.traiterBalReiv()");
+// 		Logger::logsocket("FIN Server.traiterBalReiv()");
 	}
 
 	protected function process ($socket, $message)
 	{
-		Logger::logSocket("[WS] recu : $message par ".$socket->id);
+		if($message != ".")
+			Logger::logSocket("[WS] recu : $message par ".$socket->id);
 		$this->balSend->writeWithNumSocket($message, $socket->id);
 		$this->traiterBalReiv();
 	}

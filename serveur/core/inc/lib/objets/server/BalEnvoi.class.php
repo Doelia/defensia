@@ -11,7 +11,8 @@ class BalEnvoi extends Bal
 	public function writeWithNumSocket($msg, $numSocket)
 	{
 		parent::write($numSocket."-".$msg);
-		Logger::logBal("BalEnvoi.writeWithNumSocket($msg, $numSocket)");
+		if($msg != ".")
+			Logger::logBal("BalEnvoi.writeWithNumSocket($msg, $numSocket)");
 	}
 
 	/**
@@ -22,7 +23,6 @@ class BalEnvoi extends Bal
 	public function read()
 	{
 		$msg = parent::read();
-
 
 		if($msg == null)
 		{
@@ -36,10 +36,9 @@ class BalEnvoi extends Bal
 			$msg = explode(":", $msg[1]);
 			
 
-			if($msg[0] == ".")
-			{
-				Logger::logBal("acknowledge");
-			}
+// 			if($msg[0] == ".")
+// 			{
+// 			}
 			
 			if($msg[0] == "LOGIN")
 			{
@@ -58,7 +57,14 @@ class BalEnvoi extends Bal
 			
 			else if($msg[0] == "PT")
 			{
-				Logger::logBal("new tower added : type = ".$msg[1]."x = ".$msg[2]."y = ".$msg[3]);
+// 				print "msg[1] ".$msg[1]."\n";
+// 				print "msg[2] ".$msg[2]."\n";
+// // 				print TowerTemplate::$TYPES[1];
+				Logger::logBal("new tower added : type = ".TowerTemplate::$TYPES[$msg[1]]."x = ".$msg[2]."y = ".$msg[3]);
+				$g = GameManager::getInstance()->getGameBySocketId($socket);
+				$g->getState()->getMap()->getCell($msg[2], $msg[3])->addTower(new Tower(TowerTemplate::$TYPES[$msg[1]], null));
+// 				print_r (GameManager::getInstance()->getGameById(1)->getCurrentState()->getMap());
+// 				GameManager::getInstance()->getGameById(1)->getCurrentState()->getMap()->getCell($msg[2], $msg[3])->addTower(new Tower(TowerTemplate::$TYPES[$msg[1]], null));
 			}
 
 			return true;	

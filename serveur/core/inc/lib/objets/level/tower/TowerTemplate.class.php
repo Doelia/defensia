@@ -2,6 +2,8 @@
 
 class TowerTemplate
 {	
+	
+	public static $TYPES = array("", "fastTower", "slowTower", "AOETower");
 
 	public static $FAST_TOWER_TYPE = "fastTower";
 	public static $FAST_TOWER_PRICE = 50;

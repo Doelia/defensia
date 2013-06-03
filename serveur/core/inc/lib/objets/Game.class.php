@@ -37,12 +37,12 @@ class Game
 
 	public function getState()
 	{
-		return $this->_currentGame;
+		return $this->_currentState;
 	}
 
 	public function getID()
 	{
-		return $_this->_ID;
+		return $this->_ID;
 	}
 
 	public function createPlayer($pseudo, $u)

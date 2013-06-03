@@ -5,13 +5,13 @@
 	</wave>
 	
 	<wave number="2">
-		<monster type="1" time="20" x="1" y="20"></monster>
+		<monster type="fastMonster" time="20" x="1" y="20"></monster>
 		<monster type="1" time="20" x="20" y="2"></monster>
 	</wave>
 	
 	<wave number="3">
-		<monster type="1" time="20" x="1" y="20"></monster>
-		<monster type="1" time="20" x="20" y="2"></monster>
+		<monster type="fastMonster" time="20" x="1" y="20"></monster>
+		<monster type="fastMonster" time="20" x="20" y="2"></monster>
 	</wave>
 	
 </level>
