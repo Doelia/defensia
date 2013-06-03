@@ -9,12 +9,13 @@ class Monster
 	private $_x;
 	private $_y;
 	private $_isAlive;
+	
 
 	private $_numberOfUpdateCycles;
 
 	public function __construct($type, $x, $y)
 	{
-		Logger::logMonster("new $type");
+		Logger::logMonster("new $type in $x, $y");
 		switch ($type) {
 			case MonsterTemplate::$FAST_MONSTER_TYPE : $array = MonsterTemplate::$FAST_MONSTER_TEMPLATE;
 			break;
