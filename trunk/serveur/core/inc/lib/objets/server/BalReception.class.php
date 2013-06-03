@@ -109,7 +109,10 @@ class BalReception extends Bal
 	
 	public function addMonster(Monster $monster, $idMonster, $socket)
 	{
-		Logger::logBal("BalRecepetion.addMonster,($monster, $idMonster, $socket)");
-		$this->write("$socket-onPopMonster!$monster->getType()!$idMonster, $monster->getX(), $monster->getY()");
+		$type = $monster->getType();
+		$x = $monster->getX();
+		$y = $monster->getY();
+		Logger::logBal("BalRecepetion.addMonster,($type, $idMonster, $socket)");
+		$this->write("$socket-onMonsterPop!$type!$idMonster!$x!$y");
 	}
 }

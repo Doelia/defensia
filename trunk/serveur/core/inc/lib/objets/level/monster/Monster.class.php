@@ -9,7 +9,7 @@ class Monster
 	private $_x;
 	private $_y;
 	private $_isAlive;
-	
+
 
 	private $_numberOfUpdateCycles;
 
@@ -32,6 +32,7 @@ class Monster
 		$this->_type = $type;
 		$this->_x = $x;
 		$this->_y = $y;
+		$this->_isAlive = true;
 
 		$this->_numberOfUpdateCycles = 0;
 
@@ -39,17 +40,17 @@ class Monster
 
 	public function getLife()
 	{
-		return $_life;
+		return $this->_life;
 	}
 
 	public function getSpeed()
 	{
-		return $_speed;
+		return $this->_speed;
 	}
 
 	public function getType()
 	{
-		return $_type;
+		return $this->_type;
 	}
 
 	public function getDamage()
@@ -86,33 +87,43 @@ class Monster
 
 	public function updatePosition($direction)
 	{
-		print $direction."\n";
-		if($direction == PathCase::$EAST)
-			$this->_x--;
 
-		else if($direction == PathCase::$WEST)
-			$this->_x++;
+		if($this->_isAlive)
+		{
+			print $direction."\n";
+			if($direction == PathCase::$EAST)
+				$this->_x--;
 
-		else if($direction == PathCase::$SOUTH)
-			$this->_y--;
-			
-		else if($direction == PathCase::$NORTH)
-			$this->_y++;
-		
-		print "x : ".$this->_x."\n";
-		print "y : ".$this->_y."\n";
+			else if($direction == PathCase::$WEST)
+				$this->_x++;
+
+			else if($direction == PathCase::$SOUTH)
+				$this->_y--;
+				
+			else if($direction == PathCase::$NORTH)
+				$this->_y++;
+
+			print "x : ".$this->_x."\n";
+			print "y : ".$this->_y."\n";
+		}
 	}
-	
+
 	public function takeDamages($damages)
 	{
 		$this->_life -= $damages;
-		
+
 		if($this->_life < 0)
 			$this->_isAlive = false;
 	}
-	
+
 	public function isAlive()
 	{
 		return $this->_isAlive;
+	}
+	
+	public function kill()
+	{
+		$this->_isAlive = false;
+		$this->_life = 0;
 	}
 }

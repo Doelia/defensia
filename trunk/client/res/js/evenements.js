@@ -19,7 +19,7 @@ function onWaveStart(num)
 
 }
 
-function onMonsterPop(idType, idMonstre, x, y)
+function onMonsterPop(idTypeMonstre, idMonstre, x, y)
 {
 	g.plateau.spawnMonstre(x, y, idMonstre, idTypeMonstre)
 }
