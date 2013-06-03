@@ -12,6 +12,8 @@ function Cellule(x, y)
 	this.isRoute = false; // false par defaut
 	this.isSocket = false; // false par défauat
 
+	this.stepWithoutFire = 0;
+
 	this.onconstruct = function()
 	{
 		
@@ -41,7 +43,10 @@ function Cellule(x, y)
 	*/
 	this.haveAMonstre = function()
 	{
-		
+		if (this.objectOn == null)
+			return false;
+
+		return (this.objectOn.tagName == 'monstre')
 	}
 
 	/*
@@ -50,15 +55,40 @@ function Cellule(x, y)
 	*/
 	this.haveTower = function()
 	{
+		if (this.objectOn == null)
+			return false;
 
+		return (this.objectOn.tagName == 'tour')
 	}
 
-	this.playAnimation = function()
+
+	/*play
+		A jouer à un changement de step
+	*/
+	this.playStep = function()
 	{
-		// TODO : Jouer une animation sur la case
+		this.stepWithoutFire++;
+
+		if (this.haveTower())
+		{
+			var idTower = this.objectOn.attr('idType');
+			var candence = tm.getCandence(idTower);
+			if (stepWithoutFire >= candence)
+			{
+				this.fire();
+				stepWithoutFire = 0;
+			}
+		}
 	}
 
-
+	/*
+		Fait tirer la tourelle
+		Prérequis : C'est une tourelle
+	*/
+	this.fire = function()
+	{
+		this.objectOn;
+	}
 
 	this.onconstruct();
 	
