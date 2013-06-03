@@ -91,7 +91,7 @@ function Plateau()
 					.click(function() {
 						if (g.inMove != null) // Si une tourelle est séléctionnée
 						{
-							var packet = 'PT-'+g.inMove.attr('idType')+':'+obj.x+':'+obj.y;
+							var packet = 'PT:'+g.inMove.attr('idType')+':'+obj.x+':'+obj.y;
 							socket.send(packet);
 							console.log("Packet = "+packet);
 

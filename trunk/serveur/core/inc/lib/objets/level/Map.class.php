@@ -10,7 +10,7 @@ class Map
 	public function __construct($map, $game)
 	{
 		$this->_map = $map;
-		$this->_monsters = array();
+		$this->_monsters;
 		$this->_currentWave = 0;
 		$this->_game = $game;
 	}
@@ -21,7 +21,7 @@ class Map
 	}
 
 	public function getCell($x, $y)
-	{
+	{	
 		return $this->_map[$y][$x];
 	}
 
@@ -44,7 +44,7 @@ class Map
 
 	public function newWave()
 	{
-		$this->_monsters = array();
+// 		$this->_monsters = array();
 		$this->parseMap("../../res/level.xml");
 		$this->_currentWave++;
 
@@ -63,13 +63,13 @@ class Map
 		}
 	}
 	
-	private function addMonster($type, $x, $y)
+	public function addMonster($type, $x, $y)
 	{
-		$monster = new Monster($type, $x, $y);
+		$monster = new Monster($type, trim($x), trim($y));
 		$this->_monsters[] = $monster;
 		
-		foreach ($this->_game->getPlayers() as $p) {
-			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());
-		}
+// 		foreach ($this->_game->getPlayers() as $p) {
+// 			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());
+// 		}
 	}
 }

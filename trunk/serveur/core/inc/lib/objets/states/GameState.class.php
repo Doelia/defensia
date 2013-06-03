@@ -14,7 +14,7 @@ class GameState implements State
 
 	public function update($detla)
 	{
-		$this->_map->moveMonsters();					
+// 		$this->_map->moveMonsters();
 	}
 
 	public function show()
@@ -33,7 +33,11 @@ class GameState implements State
 		}
 		
 		$this->_map->newWave();
-		
+	}
+	
+	public function getMap()
+	{
+		return $this->_map;
 	}
 	
 }
