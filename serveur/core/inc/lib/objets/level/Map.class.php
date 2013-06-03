@@ -46,7 +46,7 @@ class Map
 	public function newWave()
 	{
 		$this->_monsters = array();
-		$this->parseMap("/home/noe/defensia/res/level.xml");
+		$this->parseMap("../../res/level.xml");
 		$this->_currentWave++;
 
 	}
