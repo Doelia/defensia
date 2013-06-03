@@ -5,12 +5,14 @@ class Map
 	private $_map; // Array of Case
 	private $_monsters; // Array of Monster
 	private $_currentWave;
+	private $_game;
 
-	public function __construct($map)
+	public function __construct($map, $game)
 	{
 		$this->_map = $map;
 		$this->_monsters = array();
 		$this->_currentWave = 0;
+		$this->_game = $game;
 	}
 
 	public function getMap()
@@ -20,6 +22,7 @@ class Map
 
 	public function getCell($x, $y)
 	{
+		print_r ($this->_map[$y][$y]);
 		return $this->_map[$y][$x];
 	}
 
@@ -63,8 +66,8 @@ class Map
 	
 	private function addMonster($type, $x, $y)
 	{
-		$this->_monsters = new Monster($type, $x, $y);
-		$_monsters[] = $monster;
+		$monster = new Monster($type, $x, $y);
+		$this->_monsters[] = $monster;
 		
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());

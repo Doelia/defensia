@@ -25,14 +25,12 @@ class GameState implements State
 		}
 
 		$jsonString = file_get_contents("../../res/level1_server");
-		$this->_map = new Map(MapBuilder::build($jsonString));
+		$this->_map = new Map(MapBuilder::build($jsonString), $this->_game);
 
 
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->sendMap($jsonString, $p->getNumSocket());
 		}
-		
-// 		$this->_map->addMonster(new Monster(MonsterTemplate::$FAST_MONSTER_TYPE, 0, 9));
 		
 		$this->_map->newWave();
 		
