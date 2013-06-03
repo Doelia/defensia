@@ -71,6 +71,16 @@ class Game
 		}
 		return false;
 	}
+	
+	public function getPlayerFromSocketId($idSocket)
+	{
+		foreach ($this->_players as $p)
+		{
+			if ($p->getNumSocket() == $idSocket)
+				return $p;
+		}
+		return null;
+	}
 
 	public function addAction($msg)
 	{
