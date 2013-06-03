@@ -14,7 +14,7 @@ class GameState implements State
 
 	public function update($detla)
 	{
-// 		$this->_map->moveMonsters();					
+		$this->_map->moveMonsters();					
 	}
 
 	public function show()
@@ -32,7 +32,9 @@ class GameState implements State
 			GameManager::getInstance()->balReiv->sendMap($jsonString, $p->getNumSocket());
 		}
 		
-		$this->_map->addMonster(new Monster(MonsterTemplate::$FAST_MONSTER_TYPE, 0, 9));
+// 		$this->_map->addMonster(new Monster(MonsterTemplate::$FAST_MONSTER_TYPE, 0, 9));
+		
+		$this->_map->newWave();
 		
 	}
 	

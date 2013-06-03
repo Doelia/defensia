@@ -8,12 +8,13 @@ class Monster
 	private $_type;
 	private $_x;
 	private $_y;
+	private $_isAlive;
 
 	private $_numberOfUpdateCycles;
 
 	public function __construct($type, $x, $y)
 	{
-// 		Logger::logMonster("new $type");
+		Logger::logMonster("new $type");
 		switch ($type) {
 			case MonsterTemplate::$FAST_MONSTER_TYPE : $array = MonsterTemplate::$FAST_MONSTER_TEMPLATE;
 			break;
@@ -99,5 +100,18 @@ class Monster
 		
 		print "x : ".$this->_x."\n";
 		print "y : ".$this->_y."\n";
+	}
+	
+	public function takeDamages($damages)
+	{
+		$this->_life -= $damages;
+		
+		if($this->_life < 0)
+			$this->_isAlive = false;
+	}
+	
+	public function isAlive()
+	{
+		return $this->_isAlive;
 	}
 }

@@ -55,6 +55,11 @@ class BalEnvoi extends Bal
 
 				$g->addAction($msg);
 			}
+			
+			else if($msg[0] == "PT")
+			{
+				Logger::logBal("new tower added : type = ".$msg[1]."x = ".$msg[2]."y = ".$msg[3]);
+			}
 
 			return true;	
 		}
