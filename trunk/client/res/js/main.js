@@ -5,7 +5,6 @@ var socket;
 
 function boucle_send()
 {
-	console.log('test');
 	socket.send(".");
 	setTimeout('boucle_send()', 1000);
 }

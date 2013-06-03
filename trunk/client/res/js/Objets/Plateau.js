@@ -158,8 +158,6 @@ function Plateau()
 					.attr("id", idTower)
 					.attr("type", idTypeTower)
 					.attr("placedby", idPlayer);
-
-
 					
 		g.plateau.cellules[x][y].setObjectOn($('tower#'+idTower));
 	}
