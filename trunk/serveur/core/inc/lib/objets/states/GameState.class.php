@@ -14,7 +14,7 @@ class GameState implements State
 
 	public function update($detla)
 	{
-// 		$this->_map->moveMonsters();					
+		$this->_map->moveMonsters();					
 	}
 
 	public function show()

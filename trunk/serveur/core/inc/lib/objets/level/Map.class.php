@@ -22,7 +22,6 @@ class Map
 
 	public function getCell($x, $y)
 	{
-		print_r ($this->_map[$y][$y]);
 		return $this->_map[$y][$x];
 	}
 

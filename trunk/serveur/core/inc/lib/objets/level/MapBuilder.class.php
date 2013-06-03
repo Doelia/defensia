@@ -10,7 +10,7 @@ class MapBuilder
 		$json = json_decode($jsonString, TRUE);
 		$json = $json["map"];
 
-		$sockets = $json["ockets"];
+		$sockets = $json["sockets"];
 		$center = $json["centre"];
 		$paths = $json["routes"];
 		
