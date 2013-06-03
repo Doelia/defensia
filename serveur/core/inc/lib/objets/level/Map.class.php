@@ -32,7 +32,18 @@ class Map
 		{
 			if($monster->moved())
 			{
-				$monster->updatePosition($this->getCell($monster->getX(), $monster->getY())->getDirection());
+				$cell = $this->getCell($monster->getX(), $monster->getY());
+				
+				
+				if($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
+				{
+					$monster->updatePosition($cell->getDirection());
+				}
+				
+				else if($cell->getType() == AbstractCase::$CENTER_CASE_TYPE)
+				{
+					$monster->kill();
+				}
 			}
 		}
 	}
@@ -68,8 +79,9 @@ class Map
 		$monster = new Monster($type, trim($x), trim($y));
 		$this->_monsters[] = $monster;
 		
-// 		foreach ($this->_game->getPlayers() as $p) {
-// 			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());
-// 		}
+		foreach ($this->_game->getPlayers() as $p) {
+			print "i am here";
+			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());
+		}
 	}
 }
