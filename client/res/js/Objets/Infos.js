@@ -14,7 +14,7 @@ function Infos()
 		$('.infos .name').html(username);
 	}
 
-	this.setmoney = function(money)
+	this.setmoney = function(money, num)
 	{
 		$('.infos .money').html(money);
 	}
@@ -29,6 +29,15 @@ function Infos()
 		$('.vieCenterBlock').show(200);
 	}
 
-	// Todo : faire toutes les méthodes d'update des infos
+	this.setPlayerMoney = function(money, num, username)
+	{
+		this.setmoney(money);
+//		$('<div class="cadrePlayer cadre"></div>').appendTo('div[class="listPlayers"]')
+//		.append('<div class="avatar'+num+' avatar"></div>')
+//		.append('<div class="pseudo">'+username+'</div>')
+//		.append('<div class="money">$'+money+'</div>');
+	}
+
+	//TODO : faire toutes les méthodes d'update des infos
 
 }

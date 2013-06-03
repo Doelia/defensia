@@ -1,7 +1,7 @@
 
-function onTowerPlacer(x, y, type)
+function onTowerPlacer(x, y, idTower, idTypeTower, idPlayer)
 {
-
+	g.plateau.poserTower(x, y, idTower, idTypeTower, idPlayer)
 }
 
 function onTowerFire(id, x, y)
@@ -47,6 +47,11 @@ function onMapRecu(json)
 function onAddPlayer(idJoueur, pseudo)
 {
 	g.infos.addPlayer(idJoueur, pseudo);
+}
+
+function onMoneyRecue(money, idPlayer, pseudo)
+{
+	g.infos.setPlayerMoney(money, idPlayer, pseudo);
 }
 
 

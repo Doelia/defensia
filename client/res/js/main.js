@@ -27,10 +27,37 @@ $(function() {
 		var nameFunction = packet[0];
 		var parametres = '';
 
+		var i = 0;
+
+
 		if (packet.length == 2)
 			parametres = packet[1];
-		else if (packet.length == 3)
-			parametres = "'"+packet[1]+"'"+', '+"'"+packet[2]+"'";
+		else
+		{
+			parametres = "'";
+
+			for ( var int = 1; int < packet.length; int++) {
+				if(int + 1 == packet.length)
+				{
+					parametres = parametres+packet[int]+"'";
+				}
+				else
+				{
+					parametres = parametres+packet[int]+"', '";
+				}
+			}
+
+			console.log('a executer : ' + nameFunction+'('+parametres+')');
+		}
+
+//		if (packet.length == 2)
+//		parametres = packet[1];
+
+//		else if (packet.length == 3)
+//		{
+//		parametres = "'"+packet[1]+"'"+', '+"'"+packet[2]+"'";
+//		console.log(parametres);
+//		}
 
 		eval(nameFunction+'('+parametres+')');
 	}
@@ -44,5 +71,5 @@ $(function() {
 		console.log("Erreur : "+e);
 
 	} 
-  
+
 });

@@ -66,7 +66,8 @@ class BalEnvoi extends Bal
 						$p->spend(TowerTemplate::$PRICES[TowerTemplate::$TYPES[$msg[1]]]);
 						
 						foreach ($g->getPlayers() as $player) {
-							GameManager::getInstance()->balReiv->updateMoney($p->getUsername(), $p->getCash(), $player->getNumSocket());
+							GameManager::getInstance()->balReiv->updateMoney($p->getCash(), $p->getId(), $p->getUsername(), $player->getNumSocket());
+							GameManager::getInstance()->balReiv->addTower($msg[2], $msg[3], $msg[2].$msg[3], $msg[1], $p->getId(), $player->getNumSocket());
 						}
 					}
 				}

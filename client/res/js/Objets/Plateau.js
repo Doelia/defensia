@@ -62,7 +62,6 @@ function Plateau()
 	{
 		console.log("plateau.drawnBackground");
 		
-		
 		// Création routes
 		$.each(json.map.routes, function(id, obj) { 
 	
@@ -151,6 +150,7 @@ function Plateau()
 
 	this.poserTower = function(x, y, idTower, idTypeTower, idPlayer)
 	{
+		
 		$('socket[x='+x+'][y='+y+']')
 			.css('opacity', 1)
 			.html('<tour></tour>');
