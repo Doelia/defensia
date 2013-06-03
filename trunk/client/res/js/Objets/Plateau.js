@@ -4,8 +4,9 @@ function Plateau()
 	this.cellules = new Array();
 	console.log("Plateau.construct()");
 
-	this.preparePlateau = function(json)
+	this.preparePlateau = function()
 	{
+		console.log("Plateau.preparePlateau()");
 		/* Création des celulles */
 		for (var i = 0; i < 20; i++)
 		{
@@ -17,7 +18,32 @@ function Plateau()
 			}
 		}
 
-		this.drawBackground(json);
+		// Création des onclick sur le shop
+		$('.tour').each(function(i){
+			$(this).click(
+				( function(elem) {
+					return function() {
+						if ($(this).hasClass('dispo'))
+						{
+							g.inMove = $(this);	
+							$('.game').css('cursor', 'crosshair');
+
+							$('socket:empty') 
+								.css('opacity', 0.6)
+								.mouseenter(function() {
+									$(this).css('opacity', 1);
+								})
+								.mouseleave(function() {
+									$(this).css('opacity', 0.6);
+								})
+							;
+						}
+					};
+				} ) (this)
+			);	
+		});
+
+
 	}
 
 	/************** GETTERS **************************/
@@ -60,22 +86,39 @@ function Plateau()
 					.css("left", obj.x * 33)
 					.attr("x", obj.x)
 					.attr("y", obj.y)
-					.attr("direction", obj.direction);
+					.attr("direction", obj.direction)
+					.attr("class", "socket")
+					.click(function() {
+						if (g.inMove != null) // Si une tourelle est séléctionnée
+						{
+							var packet = 'PT-'+g.inMove.attr('idType')+':'+obj.x+':'+obj.y;
+							socket.send(packet);
+							console.log("Packet = "+packet);
+
+							$('.game').css('cursor', 'default');
+							g.inMove = null;
+
+							$('socket:empty')
+								.css('opacity', 0.4)
+								.off('mouseenter')
+								.off('mouseleave')
+							;
+						}
+					})
+				;
 		});
 
 		// Création du centre
 		$.each(json.map.centre, function(id, obj) { 
 	
-			console.log("test");
-			//g.plateau.cellules[obj.y][obj.x].setIsCenter();
-			
 			$('.map').append('<centre></centre>');
 			$('.map centre:last-child')
 					.css("top", obj.y * 33)
 					.css("left", obj.x * 33)
 					.attr("life", obj.life);
 		});
-		
+
+
 	}
 
 	/*
@@ -91,25 +134,34 @@ function Plateau()
 					.attr("id", idMonstre)
 					.attr("type", idTypeMonstre);
 					
-		this.cellule[x][y].setObjectOn($('monstre#'+idMonstre));
+		this.cellules[x][y].setObjectOn($('monstre#'+idMonstre));
 	}
 
 	this.deplaceMonstre = function(x, y, idMonster)
 	{
-		// TODO : Changer le left et le right du <monster id="idmonstre">
-		this.getCelulleFromMonster(idMonster).setObjectOn(null);
-		this.cellule[x][y].setObjectOn($('monstre#'+idMonstre));
+		$('monstre#'+idMonster)
+			.css("top", y * 33)
+			.css("left", x * 33)
+			;
+
+		// TODO
+		//this.getCelulleFromMonster(idMonster).setObjectOn(null);
+		this.cellules[x][y].setObjectOn($('monstre#'+idMonster));
 	}
 
 	this.poserTower = function(x, y, idTower, idTypeTower, idPlayer)
 	{
-		$('socket[x='+x+'][y='+y+']').html('<tour></tour>');
+		$('socket[x='+x+'][y='+y+']')
+			.css('opacity', 1)
+			.html('<tour></tour>');
 		$('socket[x='+x+'][y='+y+'] tour:last-child')
 					.attr("id", idTower)
 					.attr("type", idTypeTower)
 					.attr("placedby", idPlayer);
+
+
 					
-		g.plateau.cellule[x][y].setObjectOn($('tower#'+idTower));
+		g.plateau.cellules[x][y].setObjectOn($('tower#'+idTower));
 	}
 
 	this.playAnimatationFire = function(x, y)
