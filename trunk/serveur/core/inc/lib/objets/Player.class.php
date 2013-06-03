@@ -5,11 +5,13 @@ class Player
 	private $_numSocket; // Id socket
 	private $_username;
 	private $_cash;
+	private $_id;
 
-	public function __construct($pseudo, $numSocket)
+	public function __construct($pseudo, $numSocket, $id)
 	{
 		$this->_username = $pseudo;
 		$this->_numSocket = $numSocket;
+		$this->_id = $id;
 		$this->_cash = 250;
 	}
 
@@ -25,7 +27,7 @@ class Player
 	
 	public function canSpend($amount)
 	{
-		if($this->_cash - $amount > 0)
+		if($this->_cash - $amount >= 0)
 		{
 			return true;
 		}
@@ -41,6 +43,11 @@ class Player
 	public function getCash()
 	{
 		return $this->_cash;
+	}
+	
+	public function getId()
+	{
+		return $this->_id;
 	}
 
 }

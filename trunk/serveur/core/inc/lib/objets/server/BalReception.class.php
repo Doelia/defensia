@@ -25,10 +25,11 @@ class BalReception extends Bal
 	  * param3 : y position en y de la tour
 	  * param4 : socket du joueur
 	***/
-	public function addTower($type, $x, $y, $socket)
+
+	public function addTower($x, $y, $idTower, $idTypeTower, $idPlayer, $socket)
 	{	
-		Logger::logBal("BalRecepetion.addTower($type, $x, $y, $socket)");
-		$this->write("$socket-AT:$type:$x:$y");
+		Logger::logBal("BalRecepetion.addTower($x, $y, $idTower, $idTypeTower, $idPlayer, $socket)");
+		$this->write("$socket-onTowerPlacer!$x!$y!$idTower!$idTypeTower!$idPlayer");
 	}
 
 	/**
@@ -49,10 +50,10 @@ class BalReception extends Bal
 	  * param1 : amount montant courant d'argent du joueur
 	  * param2 : socket du joueur
 	***/
-	public function updateMoney($user, $amount, $socket)
+	public function updateMoney($amount, $playerId, $username, $socket)
 	{	
-		Logger::logBal("BalRecepetion.updateMoney($user, $amount, $socket)");
-		$this->write("$socket-UM:$user:$amount");
+		Logger::logBal("BalRecepetion.updateMoney($amount, $playerId, $username, $socket)");
+		$this->write("$socket-onMoneyRecue!$amount!$playerId!$username");
 	}
 
 	/**
@@ -88,7 +89,7 @@ class BalReception extends Bal
 		Logger::logBal("BalRecepetion.changeState($state, $socket)");
 		$this->write("$socket-CS:$state");
 	}
-
+	
 	/**
 	  * IDaction : SM
 	  * param1 : map en xml

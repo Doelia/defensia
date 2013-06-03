@@ -48,7 +48,7 @@ class Game
 	public function createPlayer($pseudo, $u)
 	{
 		Logger::logGame("Game.createPlayer($u)");
-		$this->_players[] = new Player($pseudo, $u);
+		$this->_players[] = new Player($pseudo, $u, count($this->_players) + 1);
 		
 		foreach ($this->getPlayers() as $p) {
 			foreach ($this->getPlayers() as $i => $d) {
