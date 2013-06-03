@@ -105,4 +105,10 @@ class BalReception extends Bal
 		Logger::logBal("BalRecepetion.player($username, $socket)");
 		$this->write("$socket-onAddPlayer!$numPlayer!$username");
 	}
+	
+	public function addMonster(Monster $monster, $idMonster, $socket)
+	{
+		Logger::logBal("BalRecepetion.addMonster,($monster, $idMonster, $socket)");
+		$this->write("$socket-onPopMonster!$monster->getType()!$idMonster, $monster->getX(), $monster->getY()");
+	}
 }

@@ -1,15 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<chat xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="level.dtd" numero="1">
+<level>
+	<wave number="1">
+		<monster type="fastMonster" time="20" x="1" y="20"></monster>
+		<monster type="fastMonster" time="20" x="20" y="2"></monster>
+	</wave>
 	
-<connectes>
-	<connecte>
-		<id>1</id>
-		<pseudo></pseudo>
-		<age></age>
-		<ville></ville>
-		<description></description>
-		<photo></photo>
-	</connecte>
-</connectes>
-
-
+	<wave number="2">
+		<monster type="1" time="20" x="1" y="20"></monster>
+		<monster type="1" time="20" x="20" y="2"></monster>
+	</wave>
+	
+	<wave number="3">
+		<monster type="1" time="20" x="1" y="20"></monster>
+		<monster type="1" time="20" x="20" y="2"></monster>
+	</wave>
+	
+</level>
