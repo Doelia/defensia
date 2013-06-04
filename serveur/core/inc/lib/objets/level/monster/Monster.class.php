@@ -113,7 +113,10 @@ class Monster
 		$this->_life -= $damages;
 
 		if($this->_life < 0)
+		{
 			$this->_isAlive = false;
+			print "i am dead ! \n\n";
+		}
 	}
 
 	public function isAlive()

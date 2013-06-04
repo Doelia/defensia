@@ -60,4 +60,26 @@ class TowerSocketCase extends AbstractCase
 			return true;
 		}
 	}
+	
+	public function hasTower()
+	{
+		return $this->_tower != null;
+	}
+	
+	public function canHit($monster, $delta)
+	{
+		$this->_tower->addTimeSinceLastHit($delta);
+		
+		if(sqrt(pow(($monster->getX() - $this->getX()), 2) + pow($monster->getY() - $this->getY(), 2)) < $this->_tower->getRange())
+		{
+			if($this->_tower->canHit())
+			{
+				return true;
+			}
+			else
+				return false;
+		}
+		else
+			return false;
+	}
 }

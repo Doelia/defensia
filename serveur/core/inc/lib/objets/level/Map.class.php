@@ -28,7 +28,7 @@ class Map
 
 	public function moveMonsters()
 	{
-		foreach ($this->_monsters as $monster)
+		foreach ($this->_monsters as $id => $monster)
 		{
 			if($monster->moved())
 			{
@@ -38,6 +38,11 @@ class Map
 				if($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
 				{
 					$monster->updatePosition($cell->getDirection());
+					
+					foreach ($this->_game->getPlayers() as $p) {
+						GameManager::getInstance()->balReiv->moveMonster($monster, $id+1, $p->getNumSocket());
+					}
+					
 				}
 				
 				else if($cell->getType() == AbstractCase::$CENTER_CASE_TYPE)
@@ -48,9 +53,32 @@ class Map
 		}
 	}
 
-	public function hitMonsters()
+	public function hitMonsters($delta)
 	{
-
+		foreach ($this->_map as $i => $value)
+		{
+			foreach ($value as $j => $cell)
+			{
+				if($cell->getType() == AbstractCase::$TOWERSOCKET_CASE_TYPE)
+				{
+					if($cell->hasTower())
+					{
+						foreach ($this->_monsters as $id => $monster)
+						{
+							if($monster->isAlive() && $cell->canHit($monster, $delta))
+							{
+								$monster->takeDamages($cell->getTower()->getDamage());
+								
+								$idTower = $cell->getX().$cell->getY();
+								foreach ($this->_game->getPlayers() as $p) {
+									GameManager::getInstance()->balReiv->hitMonster($idTower, $id+1, $p->getNumSocket());
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	public function newWave()
@@ -80,7 +108,6 @@ class Map
 		$this->_monsters[] = $monster;
 		
 		foreach ($this->_game->getPlayers() as $p) {
-			print "i am here";
 			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());
 		}
 	}

@@ -4,9 +4,9 @@ function onTowerPlacer(x, y, idTower, idTypeTower, idPlayer)
 	g.plateau.poserTower(x, y, idTower, idTypeTower, idPlayer)
 }
 
-function onTowerFire(id, x, y)
+function onTowerFire(idTower, idMonster, xMonster, yMonster, xTower, yTower)
 {
-		
+	g.animate()
 }
 
 function onTowerLevelUp(id)
