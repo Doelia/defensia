@@ -15,7 +15,7 @@ class TowerTemplate
 	public static $FAST_TOWER_TEMPLATE = array(
 											"damage" => 10,
 											"fireRate" => 3,
-											"range" => 3,
+											"range" => 2,
 											"radius" => 1
 										);
 
@@ -24,7 +24,7 @@ class TowerTemplate
 	public static $SLOW_TOWER_TEMPLATE = array(
 											"damage" => 25,
 											"fireRate" => 3,
-											"range" => 5,
+											"range" => 3,
 											"radius" => 1
 										);	
 
