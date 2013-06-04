@@ -31,7 +31,7 @@ class Game
 		{
 			while (GameManager::getInstance()->balSend->read()) { }
 			usleep(self::$SLEEPTIME);
-			$this->_currentState->update(self::$SLEEPTIME);
+			$this->_currentState->update(self::$SLEEPTIME/self::$SLEEPTIME);
 		}
 	}
 

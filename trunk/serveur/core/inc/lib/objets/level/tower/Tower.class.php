@@ -11,6 +11,7 @@ class Tower
 	private $_attackRadius;
 	private $_type;
 	private $_player;
+	private $_timeSinceLastHit;
 
 	public function __construct($type, $player)
 	{	
@@ -34,10 +35,12 @@ class Tower
 		$this->_attackRadius = $array["radius"];
 		$this->_type = $type;
 		$this->_player = $player;
+		$this->_timeSinceLastHit = $this->_fireRate;
 	}
 
 	public function getDamage()
 	{
+		$this->_timeSinceLastHit = 0;
 		return $this->_damage;
 	}
 
@@ -54,5 +57,16 @@ class Tower
 	public function getType()
 	{
 		return $this->_type;
+	}
+	
+	public function canHit()
+	{
+		return $this->_timeSinceLastHit > $this->_fireRate;
+	}
+	
+	public function addTimeSinceLastHit($delta)
+	{
+		print $this->_timeSinceLastHit."\n";
+		$this->_timeSinceLastHit += $delta;
 	}
 }

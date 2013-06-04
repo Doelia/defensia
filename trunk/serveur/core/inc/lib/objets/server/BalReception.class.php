@@ -39,10 +39,13 @@ class BalReception extends Bal
 	  * param3 : y position en y du monstre
 	  * param4 : socket du joueur
 	***/
-	public function moveMonster($monster, $x, $y, $socket)
+	public function moveMonster($monster, $idMonstre, $socket)
 	{	
-		Logger::logBal("BalRecepetion.moveMonster($monster, $x, $y, $socket)");
-		$this->write("$socket-MM:$monster,$x:$y");
+		$x = $monster->getX();
+		$y = $monster->getY();
+		
+		Logger::logBal("BalRecepetion.moveMonster($x, $y, $idMonstre, $socket)");
+		$this->write("$socket-onMonsterMove!$idMonstre!$x!$y");
 	}
 
 	/**
@@ -114,5 +117,11 @@ class BalReception extends Bal
 		$y = $monster->getY();
 		Logger::logBal("BalRecepetion.addMonster,($type, $idMonster, $socket)");
 		$this->write("$socket-onMonsterPop!$type!$idMonster!$x!$y");
+	}
+	
+	public function hitMonster($idTower, $idMonster, $socket)
+	{
+		Logger::logBal("BalRecepetion.addMonster,($idTower, $idMonster, $xMonster, $yMonster, $xTower, $yTower, $socket)");
+		$this->write("$socket-onTowerFire!$idTower!$idMonster!$xMonster");
 	}
 }

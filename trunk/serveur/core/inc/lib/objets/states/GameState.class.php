@@ -12,9 +12,10 @@ class GameState implements State
 		$this->_map = array();
 	}
 
-	public function update($detla)
+	public function update($delta)
 	{
 		$this->_map->moveMonsters();
+		$this->_map->hitMonsters($delta);
 	}
 
 	public function show()
