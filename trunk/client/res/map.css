@@ -77,6 +77,8 @@ socket tour {
 	width: 33px;
 	top: -2px;
 	left: -2px;
+	/*-webkit-transition: rotating 0.5s, -webkit-transform ease 0.5s;*/	
+	-webkit-animation: rotating 0.5s linear infinite;
 }
 
 socket tour[type="1"] {
@@ -89,24 +91,12 @@ socket tour[type="4"] {
 	background-image: url('img/towers/4.png');
 }
 
-socket[direction="N"] tour {
-	-webkit-transform:rotate(90deg);
-}
-socket[direction="S"] tour {
-	-webkit-transform:rotate(270deg);
-}
-socket[direction="W"] tour {
-	-webkit-transform:rotate(180deg);
-}
-socket[direction="E"] tour {
-	-webkit-transform:rotate(0deg);
-}
 
 monstre {
 	position: absolute;
 	width: 33px;
 	height: 33px;
-	/*-webkit-transition: left 0.5s, top 0.5s, -webkit-transform ease 0.5s;*/
+	-webkit-transition: left 0.5s, top 0.5s, -webkit-transform ease 0.5s;
 }
 
 monstre[type="1"] {
