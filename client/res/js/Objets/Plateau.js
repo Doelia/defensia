@@ -218,7 +218,18 @@ function Plateau()
 		x2 = $('monstre#id'+idMonstre).attr('x');
 		y2 = $('monstre#id'+idMonstre).attr('y');
 		var degree = ((Math.atan2(y2-y1, x2-x1) * 180.0/Math.PI)) + 180.0;
-		$('tour#id'+idTower).css({ WebkitTransform: 'rotate(' + degree + 'deg)'});
+		
+		
+		$('tour#id'+idTower).stop().animate(
+		  {rotation: degree},
+		  {
+		    duration: 500,
+		    step: function(now, fx) {
+		      $(this).css({ WebkitTransform: 'rotate(' + degree + 'deg)'});
+		    }
+		  }
+		);
+
 	}
 
 }

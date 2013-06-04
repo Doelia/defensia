@@ -7,6 +7,7 @@ function onTowerPlacer(x, y, idTower, idTypeTower, idPlayer)
 function onTowerFire(idTower, idMonster)
 {
 	g.plateau.playAnimatationFire($('monstre#id'+idMonster).attr('x'), $('monstre#id'+idMonster).attr('y'));
+	g.plateau.orienteTower(idTower, idMonster);
 }
 
 function onTowerLevelUp(id)
