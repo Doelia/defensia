@@ -121,7 +121,13 @@ class BalReception extends Bal
 	
 	public function hitMonster($idTower, $idMonster, $socket)
 	{
-		Logger::logBal("BalRecepetion.addMonster,($idTower, $idMonster, $socket)");
+		Logger::logBal("BalRecepetion.hitMonster,($idTower, $idMonster, $socket)");
 		$this->write("$socket-onTowerFire!$idTower!$idMonster");
+	}
+	
+	public function killMonster($idMonster, $socket)
+	{
+		Logger::logBal("BalRecepetion.killMonster,( $idMonster, $socket)");
+		$this->write("$socket-onMonsterDie!$idMonster");
 	}
 }

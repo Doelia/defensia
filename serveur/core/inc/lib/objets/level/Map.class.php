@@ -70,8 +70,13 @@ class Map
 								$monster->takeDamages($cell->getTower()->getDamage());
 								
 								$idTower = $cell->getX().$cell->getY();
+								
 								foreach ($this->_game->getPlayers() as $p) {
 									GameManager::getInstance()->balReiv->hitMonster($idTower, $id+1, $p->getNumSocket());
+									if(!$monster->isAlive())
+									{
+										GameManager::getInstance()->balReiv->killMonster($id+1, $p->getNumSocket());
+									}
 								}
 							}
 						}
