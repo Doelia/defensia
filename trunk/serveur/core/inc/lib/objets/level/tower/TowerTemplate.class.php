@@ -20,11 +20,11 @@ class TowerTemplate
 										);
 
 	public static $SLOW_TOWER_TYPE = "slowTower";
-	public static $SLOW_TOWER_PRICE = 50;
+	public static $SLOW_TOWER_PRICE = 80;
 	public static $SLOW_TOWER_TEMPLATE = array(
-											"damage" => 50,
+											"damage" => 25,
 											"fireRate" => 3,
-											"range" => 3,
+											"range" => 5,
 											"radius" => 1
 										);	
 
