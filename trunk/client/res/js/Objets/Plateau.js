@@ -65,7 +65,7 @@ function Plateau()
 		// Création routes
 		$.each(json.map.routes, function(id, obj) { 
 	
-			g.plateau.cellules[obj.y][obj.x].setIsRoute();
+			//g.plateau.cellules[obj.y][obj.x].setIsRoute();
 			
 			$('routes').append('<route></route>');
 			$('routes route:last-child')
@@ -77,7 +77,7 @@ function Plateau()
 		// Création sockets
 		$.each(json.map.sockets, function(id, obj) { 
 	
-			g.plateau.cellules[obj.y][obj.x].setIsSocket();
+			//g.plateau.cellules[obj.y][obj.x].setIsSocket();
 			
 			$('sockets').append('<socket></socket>');
 			$('sockets socket:last-child')
@@ -130,22 +130,26 @@ function Plateau()
 		$('monstres monstre:last-child')
 			.css("top", y * 33)
 			.css("left", x * 33)
-			.attr("id", idMonstre)
+			.attr("id", "id"+idMonstre)
+			.attr("x", x)
+			.attr("y", y)
 			.attr("type", idTypeMonstre);
 					
-		this.cellules[x][y].setObjectOn($('monstre#'+idMonstre));
+		//this.cellules[x][y].setObjectOn($('monstre#'+idMonstre));
 	}
 
 	this.deplaceMonstre = function(x, y, idMonster)
 	{
-		$('monstre#'+idMonster)
+		$('monstre#id'+idMonster)
+			.attr("x", x)
+			.attr("y", y)
 			.css("top", y * 33)
 			.css("left", x * 33)
 			;
 
 		// TODO
 		//this.getCelulleFromMonster(idMonster).setObjectOn(null);
-		this.cellules[x][y].setObjectOn($('monstre#'+idMonster));
+		//this.cellules[x][y].setObjectOn($('monstre#'+idMonster));
 	}
 
 	this.poserTower = function(x, y, idTower, idTypeTower, idPlayer)
@@ -164,6 +168,7 @@ function Plateau()
 
 	this.playAnimatationFire = function(x, y)
 	{
+		console.log("fire @ "+x+","+y);
 		$('animations').append('<animation></animation>');
 
 		$('animations animation:last-child')
@@ -182,8 +187,8 @@ function Plateau()
 							$('<step></step').appendTo(elem)
 								.hide()
 								.attr('class', 's'+i)
-								.fadeIn(100)
-								.fadeOut(100)
+								.fadeIn(20)
+								.fadeOut(20)
 							;
 
 							elem
@@ -191,11 +196,11 @@ function Plateau()
 						};
 					} ) (i, $('animations animation:last-child c'))
 				)
-				.delay(100)
+				.delay(20)
 		}
 
 		$('animations animation:last-child c')
-			.delay(100)
+			.delay(20)
 			.queue(
 				( function(elem) {
 						return function() {
