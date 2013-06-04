@@ -19,9 +19,9 @@ function onWaveStart(num)
 
 }
 
-function onMonsterPop(idTypeMonstre, idMonstre, x, y)
+function onMonsterPop(nameMonstre, idMonstre, x, y)
 {
-	g.plateau.spawnMonstre(x, y, idMonstre, idTypeMonstre)
+	g.plateau.spawnMonstre(x, y, idMonstre, getIdTypeMonstreFromName(nameMonstre));
 }
 
 function onMonsterMove(idMonstre, x, y)
@@ -51,7 +51,7 @@ function onAddPlayer(idJoueur, pseudo)
 
 function onMoneyRecue(money, idPlayer, pseudo)
 {
-	g.infos.setPlayerMoney(money, idPlayer, pseudo);
+	g.infos.setPlayerMoney(money, idPlayer);
 }
 
 

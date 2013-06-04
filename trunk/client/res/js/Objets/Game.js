@@ -17,3 +17,13 @@ function Game()
 	}
 
 }
+
+function getIdTypeMonstreFromName(name)
+{
+	switch (name)
+	{
+		case 'fastMonster':
+			return 1;
+	}
+
+}
