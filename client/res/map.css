@@ -106,7 +106,7 @@ monstre {
 	position: absolute;
 	width: 33px;
 	height: 33px;
-	-webkit-transition: left 0.5s, top 0.5s, -webkit-transform ease 0.5s;
+	/*-webkit-transition: left 0.5s, top 0.5s, -webkit-transform ease 0.5s;*/
 }
 
 monstre[type="1"] {

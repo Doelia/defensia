@@ -159,11 +159,11 @@ function Plateau()
 			.css('opacity', 1)
 			.html('<tour></tour>');
 		$('socket[x='+x+'][y='+y+'] tour:last-child')
-			.attr("id", idTower)
+			.attr("id", "id"+idTower)
 			.attr("type", idTypeTower)
 			.attr("placedby", idPlayer);
 
-		g.plateau.cellules[x][y].setObjectOn($('tower#'+idTower));
+		//g.plateau.cellules[x][y].setObjectOn($('tower#'+idTower));
 	}
 
 	this.playAnimatationFire = function(x, y)
@@ -209,6 +209,12 @@ function Plateau()
 					} ) ( $('animations animation:last-child'))
 			)
 
+	}
+	
+	this.orienteTower(idTower, idMonstre)
+	{
+		var degree = 0; // TODO
+		$('tour#id'+idTower).css({ WebkitTransform: 'rotate(' + degree + 'deg)'});
 	}
 
 }

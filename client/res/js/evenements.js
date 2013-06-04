@@ -31,7 +31,7 @@ function onMonsterMove(idMonstre, x, y)
 
 function onMonsterDie(idMonster)
 {
-	$('monstre#id'+idMonster).delete();
+	$('monstre#id'+idMonster).remove();
 }
 
 function onCenterAttacked(idMonster, damage)
