@@ -128,10 +128,10 @@ function Plateau()
 	{
 		$('monstres').append('<monstre></monstre>');
 		$('monstres monstre:last-child')
-					.css("top", y * 33)
-					.css("left", x * 33)
-					.attr("id", idMonstre)
-					.attr("type", idTypeMonstre);
+			.css("top", y * 33)
+			.css("left", x * 33)
+			.attr("id", idMonstre)
+			.attr("type", idTypeMonstre);
 					
 		this.cellules[x][y].setObjectOn($('monstre#'+idMonstre));
 	}
@@ -155,10 +155,10 @@ function Plateau()
 			.css('opacity', 1)
 			.html('<tour></tour>');
 		$('socket[x='+x+'][y='+y+'] tour:last-child')
-					.attr("id", idTower)
-					.attr("type", idTypeTower)
-					.attr("placedby", idPlayer);
-					
+			.attr("id", idTower)
+			.attr("type", idTypeTower)
+			.attr("placedby", idPlayer);
+
 		g.plateau.cellules[x][y].setObjectOn($('tower#'+idTower));
 	}
 
