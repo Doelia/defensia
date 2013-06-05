@@ -53,6 +53,7 @@
 	width: 32px;
 	border-radius: 3px;
 	opacity: 0.4;
+	-webkit-transition: opacity 0.5s, -webkit-transform ease 0.5s;
 }
 
 socket tour {
