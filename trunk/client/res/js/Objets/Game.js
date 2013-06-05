@@ -41,7 +41,7 @@ function Game()
 
 	this.setStateGame = function()
 	{
-		$('.salon').hide(400);
+		$('.salon').fadeOut(1000);
 	}
 
 }
