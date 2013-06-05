@@ -6,8 +6,10 @@ function onTowerPlacer(x, y, idTower, idTypeTower, idPlayer)
 
 function onTowerFire(idTower, idMonster)
 {
-	g.plateau.playAnimatationFire($('monstre#id'+idMonster).attr('x'), $('monstre#id'+idMonster).attr('y'));
 	g.plateau.orienteTower(idTower, idMonster);
+	setTimeout(function() {
+		g.plateau.playAnimatationFire($('monstre#id'+idMonster).attr('x'), $('monstre#id'+idMonster).attr('y'));
+	}, 200);
 }
 
 function onTowerLevelUp(id)
@@ -55,6 +57,8 @@ function onMoneyRecue(money, idPlayer, pseudo)
 	g.infos.setPlayerMoney(money, idPlayer);
 }
 
-
-
+function onGameState()
+{
+	g.setStateGame();
+}
 
