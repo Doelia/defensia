@@ -46,12 +46,6 @@ function Plateau()
 
 	}
 
-	/************** GETTERS **************************/
-	this.getCelluleFromMonster = function(idMonster)
-	{
-		// TODO : Boucler sur les divs
-	}
-
 
 	/************** FONCTION AFFICHAGE ***************/
 
@@ -147,7 +141,6 @@ function Plateau()
 			.css("left", x * 33)
 			;
 
-		// TODO
 		//this.getCelulleFromMonster(idMonster).setObjectOn(null);
 		//this.cellules[x][y].setObjectOn($('monstre#'+idMonster));
 	}
