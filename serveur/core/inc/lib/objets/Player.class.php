@@ -52,8 +52,7 @@ class Player
 	
 	public function giveMoney($amount)
 	{
-		$this->_money += $amount;
-		print "new money : $amount\n\n\n";
+		$this->_cash += $amount;
 	}
 
 }

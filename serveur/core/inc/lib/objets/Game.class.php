@@ -91,4 +91,5 @@ class Game
 	{
 		return count($this->getPlayers());
 	}
+	
 }

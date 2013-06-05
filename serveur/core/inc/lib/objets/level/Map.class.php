@@ -21,7 +21,7 @@ class Map
 	}
 
 	public function getCell($x, $y)
-	{	
+	{
 		return $this->_map[$y][$x];
 	}
 
@@ -30,24 +30,34 @@ class Map
 	{
 		foreach ($this->_monsters as $id => $monster)
 		{
-			if($monster->moved())
+			if($monster->isAlive() && $monster->moved())
 			{
 				$cell = $this->getCell($monster->getX(), $monster->getY());
-				
-				
+
+				print "\n\n\ntype de la case : ".$cell->getType()."\n\n\n";
+
+
 				if($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
 				{
 					$monster->updatePosition($cell->getDirection());
-					
+						
 					foreach ($this->_game->getPlayers() as $p) {
 						GameManager::getInstance()->balReiv->moveMonster($monster, $id+1, $p->getNumSocket());
 					}
-					
+						
 				}
-				
+
 				else if($cell->getType() == AbstractCase::$CENTER_CASE_TYPE)
 				{
 					$monster->kill();
+						
+					$this->_game->getState()->removeLifeToCenter($monster->getDamage());
+						
+					$life = $this->_game->getState()->getCenterLife();
+						
+					foreach ($this->_game->getPlayers() as $p) {
+						GameManager::getInstance()->balReiv->updateCenterLife($life, $p->getNumSocket());
+					}
 				}
 			}
 		}
@@ -68,15 +78,22 @@ class Map
 							if($monster->isAlive() && $cell->canHit($monster, $delta))
 							{
 								$monster->takeDamages($cell->getTower()->getDamage());
-								
+
 								$idTower = $cell->getX().$cell->getY();
-								
+
+								$player = $cell->getTower()->getPlayer();
+
+								if(!$monster->isAlive())
+									$player->giveMoney($monster->getMoneyOnDeath());
+
 								foreach ($this->_game->getPlayers() as $p) {
+										
 									GameManager::getInstance()->balReiv->hitMonster($idTower, $id+1, $p->getNumSocket());
+										
 									if(!$monster->isAlive())
 									{
 										GameManager::getInstance()->balReiv->killMonster($id+1, $p->getNumSocket());
-										print $cell->getTower()->getPlayer()->giveMoney($monster->getMoneyOnDeath());
+										GameManager::getInstance()->balReiv->updateMoney($player->getCash(), $player->getId(), $player->getUsername(), $p->getNumSocket());
 									}
 								}
 							}
@@ -107,12 +124,12 @@ class Map
 			$this->addMonster($monster['type'], $monster['x'], $monster['y']);
 		}
 	}
-	
+
 	public function addMonster($type, $x, $y)
 	{
 		$monster = new Monster($type, trim($x), trim($y));
 		$this->_monsters[] = $monster;
-		
+
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());
 		}

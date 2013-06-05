@@ -67,7 +67,7 @@ class BalReception extends Bal
 	public function updateCenterLife($amount, $socket)
 	{	
 		Logger::logBal("BalRecepetion.updateCenterLife($amount, $socket)");
-		$this->write("$socket-UCL:$amount");
+		$this->write("$socket-updateCenterLife:$amount");
 	}
 
 	/**
