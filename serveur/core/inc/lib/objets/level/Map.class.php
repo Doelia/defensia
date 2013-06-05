@@ -76,6 +76,7 @@ class Map
 									if(!$monster->isAlive())
 									{
 										GameManager::getInstance()->balReiv->killMonster($id+1, $p->getNumSocket());
+										print $cell->getTower()->getPlayer()->giveMoney($monster->getMoneyOnDeath());
 									}
 								}
 							}

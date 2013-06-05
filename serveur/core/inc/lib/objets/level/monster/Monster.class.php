@@ -9,6 +9,7 @@ class Monster
 	private $_x;
 	private $_y;
 	private $_isAlive;
+	private $_moneyOnDeath;
 
 
 	private $_numberOfUpdateCycles;
@@ -29,6 +30,7 @@ class Monster
 		$this->_life = $array["life"];
 		$this->_speed = $array["speed"];
 		$this->_damage = $array["damage"];
+		$this->_moneyOnDeath = $array["moneyOnDeath"];
 		$this->_type = $type;
 		$this->_x = $x;
 		$this->_y = $y;
@@ -128,5 +130,10 @@ class Monster
 	{
 		$this->_isAlive = false;
 		$this->_life = 0;
+	}
+	
+	public function getMoneyOnDeath()
+	{
+		return $this->_moneyOnDeath;
 	}
 }

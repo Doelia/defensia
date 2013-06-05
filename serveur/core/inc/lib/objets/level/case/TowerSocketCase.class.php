@@ -3,7 +3,7 @@
 class TowerSocketCase extends AbstractCase
 {	
 
-	public $_tower;
+	private $_tower;
 
 	public function __construct($x, $y)
 	{

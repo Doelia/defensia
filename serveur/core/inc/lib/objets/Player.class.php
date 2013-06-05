@@ -49,5 +49,11 @@ class Player
 	{
 		return $this->_id;
 	}
+	
+	public function giveMoney($amount)
+	{
+		$this->_money += $amount;
+		print "new money : $amount\n\n\n";
+	}
 
 }

@@ -7,6 +7,7 @@ class MonsterTemplate
 												"life" => 100,
 												"speed" => 10,
 												"damage" => 1,
+												"moneyOnDeath" => 25,
 										);
 	
 	public static $SLOW_MONSTER_TYPE = "slowMonster";
@@ -14,5 +15,6 @@ class MonsterTemplate
 												"life" => 100,
 												"speed" => 10,
 												"damage" => 1,
+												"moneyOnDeath" => 20,
 										);
 }
