@@ -57,7 +57,7 @@ class Monster
 
 	public function getDamage()
 	{
-
+		return $this->_damage;
 	}
 
 	public function getX()
@@ -114,15 +114,17 @@ class Monster
 	{
 		$this->_life -= $damages;
 
-		if($this->_life < 0)
+		if($this->_life <= 0)
 		{
 			$this->_isAlive = false;
-			print "i am dead ! \n\n";
 		}
 	}
 
 	public function isAlive()
 	{
+		if($this->_life <= 0)
+			$this->_isAlive = false;
+		
 		return $this->_isAlive;
 	}
 	

@@ -66,7 +66,6 @@ class Tower
 	
 	public function addTimeSinceLastHit($delta)
 	{
-		print $this->_timeSinceLastHit."\n";
 		$this->_timeSinceLastHit += $delta;
 	}
 	

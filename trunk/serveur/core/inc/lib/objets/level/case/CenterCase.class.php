@@ -15,7 +15,7 @@ class CenterCase extends AbstractCase
 		self::$_life = $life;
 	}
 
-	public function getLife()
+	public static function getLife()
 	{
 		return self::$_life;
 	}
