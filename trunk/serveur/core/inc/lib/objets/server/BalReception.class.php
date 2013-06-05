@@ -90,7 +90,7 @@ class BalReception extends Bal
 	public function changeState($state, $socket)
 	{	
 		Logger::logBal("BalRecepetion.changeState($state, $socket)");
-		$this->write("$socket-CS:$state");
+		$this->write("$socket-on$state");
 	}
 	
 	/**

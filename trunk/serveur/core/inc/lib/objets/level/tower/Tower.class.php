@@ -69,4 +69,9 @@ class Tower
 		print $this->_timeSinceLastHit."\n";
 		$this->_timeSinceLastHit += $delta;
 	}
+	
+	public function getPlayer()
+	{
+		return $this->_player;
+	}
 }
