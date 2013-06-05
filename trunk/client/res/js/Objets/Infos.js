@@ -9,6 +9,8 @@ function Infos()
 			$('<div class="cadrePlayer cadre"></div>')
 				.appendTo('div[class="listPlayers"]')
 				.attr('id', 'num'+num)
+				.attr('idPlayer', num)
+				.attr('username', username)
 				.append('<div class="avatar'+num+' avatar"></div>')
 				.append('<div class="pseudo">'+username+'</div>')
 				.append('<div class="money">$0</div>');
@@ -22,7 +24,7 @@ function Infos()
 
 	this.setVieCenter = function(vie)
 	{
-		this.vieCenter = vie;
+		
 	}
 
 	this.displayVieCenter = function()
@@ -35,19 +37,25 @@ function Infos()
 		console.log('setplayermoney');
 		$('.cadrePlayer#num'+num+' .money').html('$'+money);
 
-		this.refreshShop(num);
+		if (num == this.getMyNumber())
+			this.refreshShop();
 	}
 
-	this.refreshShop = function(num)
+	this.refreshShop = function()
 	{
-		money = $('.cadrePlayer#num'+num+' .money').html();
-		money = money.substr(1, money.length);
-		$('.tour').each(function(id,obj){
-			if(money >= tm.getPrice(obj.attr('idType')))
-				obj.addClass('dispo');			
+		money = $('.cadrePlayer#num'+this.getMyNumber()+' .money').html();
+		money = parseInt(money.substr(1, money.length));
+		$('.tour').each(function(){
+			if(money >= tm.getPrice(parseInt($(this).attr('idType'))))
+				$(this).addClass('dispo');			
 			else
-				obj.removeClass('dispo');
+				$(this).removeClass('dispo');
 		});
+	}
+
+	this.getMyNumber = function()
+	{
+		return parseInt($(".cadrePlayer[username='"+this.myPseudo+"']").attr('idPlayer'));
 	}
 
 	this.setMyPseudo = function(pseudo)

@@ -26,7 +26,7 @@ function Game()
 			if ($('#in_username').val != '')
 			{
 				socket.send("LOGIN:"+$('#in_username').val());
-				//g.infos.setMyPseudo($('#in_username').val());
+				g.infos.setMyPseudo($('#in_username').val());
 				g.setStateInWait();
 			}
 		});
