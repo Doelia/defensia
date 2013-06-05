@@ -33,3 +33,33 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+.salon {
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.9;
+}
+
+.salon .titre {
+	position: absolute;
+	text-align: center;
+	top: 40%;
+	width: 100%;
+	font-size: 30px;
+	color: white;
+	font-family: "Caviar"; 	
+}
+
+input#in_username {
+	width: 150px;
+	height: 20px;
+	background: rgb(50,50,50);
+	color: white;
+	border: 1px solid rgb(20,20,20);
+	border-radius: 5px;
+	font-size: 16px;
+	text-align: center;
+}
+

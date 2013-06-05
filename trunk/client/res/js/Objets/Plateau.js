@@ -168,15 +168,18 @@ function Plateau()
 
 	this.playAnimatationFire = function(x, y)
 	{
+		if (!x || !y)
+			return;
+
 		console.log("fire @ "+x+","+y);
 		$('animations').append('<animation></animation>');
 
 		$('animations animation:last-child')
 			.css("top", y * 33)
 			.css("left", x * 33)
-
+		
 		$('animations animation:last-child').append('<c></c>');
-
+		
 		for (var i=1; i<=7; i++)
 		{
 			$('animations animation:last-child c')

@@ -6,7 +6,7 @@ var socket;
 function boucle_send()
 {
 	socket.send(".");
-	setTimeout('boucle_send()', 1000);
+	setTimeout('boucle_send()', 400);
 }
 
 $(function() {
@@ -17,8 +17,7 @@ $(function() {
 	socket.onopen = function(e)
 	{
 		console.log("onopen");
-		socket.send("LOGIN:Doelia");
-		boucle_send();
+		g.setStateSetUsername();
 	}
 
 	socket.onmessage = function(e){
@@ -29,12 +28,14 @@ $(function() {
 
 		var i = 0;
 
-
 		if (packet.length == 2)
 			parametres = packet[1];
 		else
 		{
-			parametres = "'";
+			if (packet.length > 1)
+				parametres = "'";
+			else
+				parametres = "";
 
 			for ( var int = 1; int < packet.length; int++) {
 				if(int + 1 == packet.length)
