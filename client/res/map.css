@@ -82,9 +82,22 @@ socket tour[type="1"] {
 socket tour[type="2"] {
 	background-image: url('img/towers/2.png');
 }
+socket tour[type="3"] {
+	background-image: url('img/towers/3.png');
+}
 socket tour[type="4"] {
 	background-image: url('img/towers/4.png');
 }
+socket tour[type="5"] {
+	background-image: url('img/towers/5.png');
+}
+socket tour[type="6"] {
+	background-image: url('img/towers/6.png');
+}
+socket tour[type="7"] {
+	background-image: url('img/towers/7.png');
+}
+
 
 
 monstre {

@@ -12,11 +12,6 @@ function onTowerFire(idTower, idMonster)
 	}, 200);
 }
 
-function onTowerLevelUp(id)
-{
-
-}
-
 function onWaveStart(num)
 {
 
@@ -37,9 +32,9 @@ function onMonsterDie(idMonster)
 	$('monstre#id'+idMonster).remove();
 }
 
-function onCenterAttacked(idMonster, damage)
+function updateCenterLife(newlife)
 {
-
+	g.infos.setVieCenter(newlife);
 }
 
 function onMapRecu(json)
