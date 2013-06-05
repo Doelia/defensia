@@ -1,5 +1,7 @@
 function Infos()
 {
+	this.myPseudo;
+
 	this.addPlayer = function(num, username)
 	{
 		if(!$('.cadrePlayer#num'+num).length)
@@ -32,7 +34,24 @@ function Infos()
 	{
 		console.log('setplayermoney');
 		$('.cadrePlayer#num'+num+' .money').html('$'+money);
+
+		this.refreshShop(num);
 	}
 
+	this.refreshShop = function(num)
+	{
+		money = $('.cadrePlayer#num'+num+' .money').html();
+		money = money.substr(1, money.length);
+		$('.tour').each(function(id,obj){
+			if(money >= tm.getPrice(obj.attr('idType')))
+				obj.addClass('dispo');			
+			else
+				obj.removeClass('dispo');
+		});
+	}
 
+	this.setMyPseudo = function(pseudo)
+	{
+		this.myPseudo = pseudo;
+	}
 }
