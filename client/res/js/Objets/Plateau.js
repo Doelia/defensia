@@ -61,7 +61,7 @@ function Plateau()
 	this.drawBackground = function(json)
 	{
 		console.log("plateau.drawnBackground");
-		
+
 		// Création routes
 		$.each(json.map.routes, function(id, obj) { 
 	
@@ -177,9 +177,9 @@ function Plateau()
 		$('animations animation:last-child')
 			.css("top", y * 33)
 			.css("left", x * 33)
-		
+
 		$('animations animation:last-child').append('<c></c>');
-		
+
 		for (var i=1; i<=7; i++)
 		{
 			$('animations animation:last-child c')

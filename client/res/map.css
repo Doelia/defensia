@@ -6,6 +6,7 @@
 	height: 660px;
 	background: rgb(184, 126, 81);
 	border-radius: 5px 0px 0px 5px;
+	background: url('img/textures/dirt.png');
 }
 
 .game .map routes route {
@@ -46,22 +47,24 @@
 }
 
 .game .map sockets socket {
+	background-image: url('img/textures/socket.png');
 	position: absolute;
-	height: 29px;
-	width: 29px;
-	margin-top: 2px;
-	margin-left: 2px;
+	height: 32px;
+	width: 32px;
 	border-radius: 3px;
 	opacity: 0.4;
-	-webkit-transition: opacity 0.2s, -webkit-transform ease 0.2s;
-	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0.5))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0.5) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#80ffffff',GradientType=0 ); /* IE6-9 */
 }
+
+socket tour {
+	position: absolute;
+	height: 33px;
+	width: 33px;
+	top: 0px;
+	left: 0px;
+	/*-webkit-transition: rotating 0.5s, -webkit-transform ease 0.5s;*/	
+	-webkit-animation: rotating 0.5s linear infinite;
+}
+
 
 .game .map centre {
 	position: absolute;
@@ -71,15 +74,6 @@
 	background-image: url('img/centre.png');
 }
 
-socket tour {
-	position: absolute;
-	height: 33px;
-	width: 33px;
-	top: -2px;
-	left: -2px;
-	/*-webkit-transition: rotating 0.5s, -webkit-transform ease 0.5s;*/	
-	-webkit-animation: rotating 0.5s linear infinite;
-}
 
 socket tour[type="1"] {
 	background-image: url('img/towers/1.png');
