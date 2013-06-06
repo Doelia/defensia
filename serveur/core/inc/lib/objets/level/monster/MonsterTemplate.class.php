@@ -13,7 +13,7 @@ class MonsterTemplate
 	public static $SLOW_MONSTER_TYPE = "slowMonster";
 	public static $SLOW_MONSTER_TEMPLATE = array(
 												"life" => 100,
-												"speed" => 10,
+												"speed" => 50,
 												"damage" => 1,
 												"moneyOnDeath" => 20,
 										);

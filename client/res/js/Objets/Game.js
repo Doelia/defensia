@@ -52,6 +52,8 @@ function getIdTypeMonstreFromName(name)
 	{
 		case 'fastMonster':
 			return 1;
+		case 'slowMonster':
+			return 2;
 	}
 
 }
