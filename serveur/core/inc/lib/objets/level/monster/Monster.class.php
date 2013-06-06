@@ -10,11 +10,12 @@ class Monster
 	private $_y;
 	private $_isAlive;
 	private $_moneyOnDeath;
+	private $_timeBeforeMoving;
 
 
 	private $_numberOfUpdateCycles;
 
-	public function __construct($type, $x, $y)
+	public function __construct($type, $x, $y, $time)
 	{
 		Logger::logMonster("new $type in $x, $y");
 		switch ($type) {
@@ -34,7 +35,8 @@ class Monster
 		$this->_type = $type;
 		$this->_x = $x;
 		$this->_y = $y;
-		$this->_isAlive = true;
+		$this->_isAlive = false;
+		$this->_timeBeforeMoving = $time;
 
 		$this->_numberOfUpdateCycles = 0;
 
@@ -92,7 +94,6 @@ class Monster
 
 		if($this->_isAlive)
 		{
-			print $direction."\n";
 			if($direction == PathCase::$EAST)
 				$this->_x--;
 
@@ -105,8 +106,6 @@ class Monster
 			else if($direction == PathCase::$NORTH)
 				$this->_y++;
 
-			print "x : ".$this->_x."\n";
-			print "y : ".$this->_y."\n";
 		}
 	}
 
@@ -137,5 +136,28 @@ class Monster
 	public function getMoneyOnDeath()
 	{
 		return $this->_moneyOnDeath;
+	}
+	
+	public function isAllowedToMove()
+	{
+		
+		if($this->_timeBeforeMoving > 1)
+		{
+			$this->_timeBeforeMoving--;
+			
+			return false;
+		}
+		else if($this->_timeBeforeMoving == 1)
+		{
+			$this->_isAlive = true;
+			$this->_timeBeforeMoving = 0;
+			
+			return false;
+		}
+		
+		else 
+		{
+			return true;
+		}
 	}
 }

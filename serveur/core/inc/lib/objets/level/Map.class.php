@@ -6,6 +6,8 @@ class Map
 	private $_monsters; // Array of Monster
 	private $_currentWave;
 	private $_game;
+	private $_monstersDead;
+	private $_numberOfWaves;
 
 	public function __construct($map, $game)
 	{
@@ -13,6 +15,8 @@ class Map
 		$this->_monsters;
 		$this->_currentWave = 0;
 		$this->_game = $game;
+		$this->_monstersDead = 0;
+		$this->_numberOfWaves = 3;
 	}
 
 	public function getMap()
@@ -30,31 +34,29 @@ class Map
 	{
 		foreach ($this->_monsters as $id => $monster)
 		{
-			if($monster->isAlive() && $monster->moved())
+			if($monster->isAllowedToMove() && $monster->isAlive() && $monster->moved())
 			{
 				$cell = $this->getCell($monster->getX(), $monster->getY());
-
-				print "\n\n\ntype de la case : ".$cell->getType()."\n\n\n";
-
 
 				if($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
 				{
 					$monster->updatePosition($cell->getDirection());
-						
+
 					foreach ($this->_game->getPlayers() as $p) {
 						GameManager::getInstance()->balReiv->moveMonster($monster, $id+1, $p->getNumSocket());
 					}
-						
+
 				}
 
 				else if($cell->getType() == AbstractCase::$CENTER_CASE_TYPE)
 				{
 					$monster->kill();
-						
+					$this->_monstersDead++;
+
 					$this->_game->getState()->removeLifeToCenter($monster->getDamage());
-						
+
 					$life = $this->_game->getState()->getCenterLife();
-						
+
 					foreach ($this->_game->getPlayers() as $p) {
 						GameManager::getInstance()->balReiv->updateCenterLife($life, $p->getNumSocket());
 					}
@@ -84,12 +86,15 @@ class Map
 								$player = $cell->getTower()->getPlayer();
 
 								if(!$monster->isAlive())
+								{
 									$player->giveMoney($monster->getMoneyOnDeath());
+									$this->_monstersDead++;
+								}
 
 								foreach ($this->_game->getPlayers() as $p) {
-										
+
 									GameManager::getInstance()->balReiv->hitMonster($idTower, $id+1, $p->getNumSocket());
-										
+
 									if(!$monster->isAlive())
 									{
 										GameManager::getInstance()->balReiv->killMonster($id+1, $p->getNumSocket());
@@ -106,10 +111,14 @@ class Map
 
 	public function newWave()
 	{
+		foreach ($this->_game->getPlayers() as $p) {
+			GameManager::getInstance()->balReiv->newWave($this->_currentWave, $p->getNumSocket());
+		}
+		
 		$this->_monsters = array();
 		$this->parseMap("../../res/level.xml");
 		$this->_currentWave++;
-
+		$this->_monstersDead = 0;
 	}
 
 
@@ -119,19 +128,40 @@ class Map
 		$level = new SimpleXMLElement($string,LIBXML_NOCDATA);
 		$ns=$level->getNamespaces(true);
 			
-			
 		foreach ($level->wave[$this->_currentWave]->monster as $monster) {
-			$this->addMonster($monster['type'], $monster['x'], $monster['y']);
+			$this->addMonster($monster['type'], $monster['x'], $monster['y'], $monster['time']);
 		}
 	}
 
-	public function addMonster($type, $x, $y)
+	public function addMonster($type, $x, $y, $time)
 	{
-		$monster = new Monster($type, trim($x), trim($y));
+		$monster = new Monster($type, trim($x), trim($y), trim($time));
 		$this->_monsters[] = $monster;
 
 		foreach ($this->_game->getPlayers() as $p) {
 			GameManager::getInstance()->balReiv->addMonster($monster, count($this->_monsters), $p->getNumSocket());
+		}
+	}
+
+	public function needsNewWave()
+	{
+		// 		print "monsters dead : ".$this->_monstersDead."\n";
+		// 		print "monsters : ".count($this->_monsters)."\n";
+
+		if($this->_currentWave < $this->_numberOfWaves)
+		{
+			if($this->_monstersDead == count($this->_monsters))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
 		}
 	}
 }

@@ -17,6 +17,11 @@ class GameState implements State
 	{
 		$this->_map->moveMonsters();
 		$this->_map->hitMonsters($delta);
+		
+		if($this->_map->needsNewWave())
+		{
+			$this->_map->newWave();
+		}
 	}
 
 	public function show()
