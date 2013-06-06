@@ -134,6 +134,6 @@ class BalReception extends Bal
 	public function newWave($waveNumber, $socket)
 	{
 		Logger::logBal("BalRecepetion.newWave,( $waveNumber, $socket)");
-		$this->write("$socket-onNewWave!$newWave");
+		$this->write("$socket-onNewWave!$waveNumber");
 	}
 }
