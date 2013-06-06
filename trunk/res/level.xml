@@ -1,17 +1,98 @@
 <level>
 	<wave number="1">
-		<monster type="fastMonster" time="20" x="0" y="9"></monster>
-		<monster type="fastMonster" time="20" x="0" y="10"></monster>
+<monster type="fastMonster" time="43" x="0" y="9"></monster>
+<monster type="fastMonster" time="86" x="0" y="9"></monster>
+<monster type="fastMonster" time="63" x="0" y="9"></monster>
+<monster type="fastMonster" time="84" x="0" y="9"></monster>
+<monster type="fastMonster" time="90" x="0" y="10"></monster>
+<monster type="fastMonster" time="90" x="0" y="10"></monster>
+<monster type="fastMonster" time="111" x="0" y="9"></monster>
+<monster type="fastMonster" time="109" x="0" y="10"></monster>
+<monster type="fastMonster" time="46" x="0" y="10"></monster>
+<monster type="fastMonster" time="40" x="0" y="9"></monster>
+<monster type="fastMonster" time="54" x="0" y="9"></monster>
+<monster type="fastMonster" time="20" x="0" y="10"></monster>
+<monster type="fastMonster" time="89" x="0" y="10"></monster>
+<monster type="fastMonster" time="72" x="0" y="10"></monster>
+<monster type="fastMonster" time="55" x="0" y="10"></monster>
+<monster type="fastMonster" time="82" x="0" y="10"></monster>
+<monster type="fastMonster" time="43" x="0" y="9"></monster>
+<monster type="fastMonster" time="42" x="0" y="9"></monster>
+<monster type="fastMonster" time="83" x="0" y="10"></monster>
+<monster type="fastMonster" time="92" x="0" y="10"></monster>
+<monster type="fastMonster" time="31" x="0" y="10"></monster>
+<monster type="fastMonster" time="116" x="0" y="10"></monster>
+<monster type="fastMonster" time="34" x="0" y="9"></monster>
+<monster type="fastMonster" time="43" x="0" y="10"></monster>
+<monster type="fastMonster" time="81" x="0" y="10"></monster>
+<monster type="fastMonster" time="65" x="0" y="9"></monster>
+<monster type="fastMonster" time="77" x="0" y="10"></monster>
+<monster type="fastMonster" time="79" x="0" y="9"></monster>
+<monster type="fastMonster" time="116" x="0" y="9"></monster>
+<monster type="fastMonster" time="53" x="0" y="10"></monster>
+<monster type="fastMonster" time="40" x="0" y="10"></monster>
+<monster type="fastMonster" time="48" x="0" y="10"></monster>
+<monster type="fastMonster" time="55" x="0" y="10"></monster>
+<monster type="fastMonster" time="63" x="0" y="10"></monster>
+<monster type="fastMonster" time="90" x="0" y="9"></monster>
+<monster type="fastMonster" time="93" x="0" y="10"></monster>
+<monster type="fastMonster" time="53" x="0" y="10"></monster>
+<monster type="fastMonster" time="113" x="0" y="9"></monster>
+<monster type="fastMonster" time="29" x="0" y="9"></monster>
+<monster type="fastMonster" time="54" x="0" y="10"></monster>
+<monster type="fastMonster" time="74" x="0" y="10"></monster>
+
+
+
+
+		
 	</wave>
 	
 	<wave number="2">
-		<monster type="fastMonster" time="20" x="1" y="20"></monster>
-		<monster type="1" time="20" x="20" y="2"></monster>
+	<monster type="fastMonster" time="43" x="0" y="9"></monster>
+<monster type="fastMonster" time="86" x="0" y="9"></monster>
+<monster type="fastMonster" time="63" x="0" y="9"></monster>
+<monster type="fastMonster" time="84" x="0" y="9"></monster>
+<monster type="fastMonster" time="90" x="0" y="10"></monster>
+<monster type="fastMonster" time="90" x="0" y="10"></monster>
+<monster type="fastMonster" time="111" x="0" y="9"></monster>
+<monster type="fastMonster" time="109" x="0" y="10"></monster>
+<monster type="fastMonster" time="46" x="0" y="10"></monster>
+<monster type="fastMonster" time="40" x="0" y="9"></monster>
+<monster type="fastMonster" time="54" x="0" y="9"></monster>
+<monster type="fastMonster" time="20" x="0" y="10"></monster>
+<monster type="fastMonster" time="89" x="0" y="10"></monster>
+<monster type="fastMonster" time="72" x="0" y="10"></monster>
+<monster type="fastMonster" time="55" x="0" y="10"></monster>
+<monster type="fastMonster" time="82" x="0" y="10"></monster>
+<monster type="fastMonster" time="43" x="0" y="9"></monster>
+<monster type="fastMonster" time="42" x="0" y="9"></monster>
+<monster type="fastMonster" time="83" x="0" y="10"></monster>
+<monster type="fastMonster" time="92" x="0" y="10"></monster>
+<monster type="fastMonster" time="31" x="0" y="10"></monster>
+<monster type="fastMonster" time="116" x="0" y="10"></monster>
+<monster type="fastMonster" time="34" x="0" y="9"></monster>
+<monster type="fastMonster" time="43" x="0" y="10"></monster>
+<monster type="fastMonster" time="81" x="0" y="10"></monster>
+<monster type="fastMonster" time="65" x="0" y="9"></monster>
+<monster type="fastMonster" time="77" x="0" y="10"></monster>
+<monster type="fastMonster" time="79" x="0" y="9"></monster>
+<monster type="fastMonster" time="116" x="0" y="9"></monster>
+<monster type="fastMonster" time="53" x="0" y="10"></monster>
+<monster type="fastMonster" time="40" x="0" y="10"></monster>
+<monster type="fastMonster" time="48" x="0" y="10"></monster>
+<monster type="fastMonster" time="55" x="0" y="10"></monster>
+<monster type="fastMonster" time="63" x="0" y="10"></monster>
+<monster type="fastMonster" time="90" x="0" y="9"></monster>
+<monster type="fastMonster" time="93" x="0" y="10"></monster>
+<monster type="fastMonster" time="53" x="0" y="10"></monster>
+<monster type="fastMonster" time="54" x="0" y="10"></monster>
+<monster type="fastMonster" time="74" x="0" y="10"></monster>
 	</wave>
 	
 	<wave number="3">
-		<monster type="fastMonster" time="20" x="1" y="20"></monster>
-		<monster type="fastMonster" time="20" x="20" y="2"></monster>
+		<monster type="fastMonster" time="54" x="0" y="10"></monster>
+		<monster type="fastMonster" time="74" x="0" y="10"></monster>
 	</wave>
 	
 </level>

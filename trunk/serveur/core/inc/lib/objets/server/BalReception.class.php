@@ -130,4 +130,10 @@ class BalReception extends Bal
 		Logger::logBal("BalRecepetion.killMonster,( $idMonster, $socket)");
 		$this->write("$socket-onMonsterDie!$idMonster");
 	}
+	
+	public function newWave($waveNumber, $socket)
+	{
+		Logger::logBal("BalRecepetion.newWave,( $waveNumber, $socket)");
+		$this->write("$socket-onNewWave!$newWave");
+	}
 }
