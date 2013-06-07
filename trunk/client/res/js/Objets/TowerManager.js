@@ -33,6 +33,9 @@ function TowerManager()
 		return 0;
 	}
 
+	/*
+		Retourne le prix du type de tour idTypeTower
+	*/
 	this.getPrice = function(idTypeTower)
 	{
 		switch(idTypeTower)
