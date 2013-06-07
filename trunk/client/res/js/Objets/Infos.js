@@ -44,7 +44,6 @@ function Infos()
 
 	this.setPlayerMoney = function(money, num)
 	{
-		console.log('setplayermoney');
 		$('.cadrePlayer#num'+num+' .money').html('$'+money);
 
 		if (num == this.getMyNumber())
