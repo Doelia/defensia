@@ -132,6 +132,9 @@ function Plateau()
 		//this.cellules[x][y].setObjectOn($('monstre#'+idMonstre));
 	}
 
+	/*
+		Modifie la position du monstre idMonster
+	*/
 	this.deplaceMonstre = function(x, y, idMonster)
 	{
 		$('monstre#id'+idMonster)
@@ -145,6 +148,9 @@ function Plateau()
 		//this.cellules[x][y].setObjectOn($('monstre#'+idMonster));
 	}
 
+	/*
+		Ajoute une tour sur le socket de coordonnées x y
+	*/
 	this.poserTower = function(x, y, idTower, idTypeTower, idPlayer)
 	{
 		
@@ -207,15 +213,21 @@ function Plateau()
 
 	}
 	
+	/*
+		Oriente la tour idTower selon l'angle de tir entre elle et le monstre idMonstre
+	*/
 	this.orienteTower = function(idTower, idMonstre)
 	{
+		// Récupération des coordonnées de la tour et du monstre
 		x1 = $('tour#id'+idTower).parent().attr('x');
 		y1 = $('tour#id'+idTower).parent().attr('y');
 		x2 = $('monstre#id'+idMonstre).attr('x');
 		y2 = $('monstre#id'+idMonstre).attr('y');
+
+		// Calcul de l'angle entre les deux points
 		var degree = ((Math.atan2(y2-y1, x2-x1) * 180.0/Math.PI)) + 180.0;
 		
-		
+		// Orientation de la tour
 		$('tour#id'+idTower).stop().animate(
 		  {rotation: degree},
 		  {
