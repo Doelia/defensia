@@ -67,7 +67,7 @@ class BalReception extends Bal
 	public function updateCenterLife($amount, $socket)
 	{	
 		Logger::logBal("BalRecepetion.updateCenterLife($amount, $socket)");
-		$this->write("$socket-updateCenterLife:$amount");
+		$this->write("$socket-updateCenterLife!$amount");
 	}
 
 	/**
@@ -135,5 +135,11 @@ class BalReception extends Bal
 	{
 		Logger::logBal("BalRecepetion.newWave,( $waveNumber, $socket)");
 		$this->write("$socket-onNewWave!$waveNumber");
+	}
+	
+	public function sendMaxCenterLife($amount, $socket)
+	{	
+		Logger::logBal("BalRecepetion.sendMaxCenterLife($amount, $socket)");
+		$this->write("$socket-onMaxCenterLife!$amount");
 	}
 }

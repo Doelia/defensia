@@ -45,6 +45,7 @@ class GameState implements State
 				GameManager::getInstance()->balReiv->updateMoney($player->getCash(), $player->getId(), $player->getUsername(), $p->getNumSocket());
 			}
 			GameManager::getInstance()->balReiv->updateCenterLife($this->_centerLife, $p->getNumSocket());
+			GameManager::getInstance()->balReiv->sendMaxCenterLife($this->_centerLife, $p->getNumSocket());
 		}
 
 		$this->_map->newWave();
