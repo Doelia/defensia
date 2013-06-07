@@ -40,6 +40,7 @@ class Map
 
 				if($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
 				{
+					print "monster moved !\n";
 					$monster->updatePosition($cell->getDirection());
 
 					foreach ($this->_game->getPlayers() as $p) {

@@ -19,9 +19,15 @@ class Monster
 	{
 		Logger::logMonster("new $type in $x, $y");
 		switch ($type) {
-			case MonsterTemplate::$FAST_MONSTER_TYPE : $array = MonsterTemplate::$FAST_MONSTER_TEMPLATE;
+			case MonsterTemplate::$BASE_BETTER_MONSTER_TYPE : $array = MonsterTemplate::$BASE_BETTER_MONSTER_TEMPLATE;
 			break;
 
+			case MonsterTemplate::$BASE_MONSTER_TYPE : $array = MonsterTemplate::$BASE_MONSTER_TEMPLATE;
+			break;
+			
+			case MonsterTemplate::$FAST_MONSTER_TYPE : $array = MonsterTemplate::$FAST_MONSTER_TEMPLATE;
+			break;
+			
 			case MonsterTemplate::$SLOW_MONSTER_TYPE : $array = MonsterTemplate::$SLOW_MONSTER_TEMPLATE;
 			break;
 
