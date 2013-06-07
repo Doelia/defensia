@@ -13,7 +13,7 @@ $(function() {
 
 	g = new Game();
 
-	socket = new WebSocket("ws://localhost:8080/serveur.php"); 
+	socket = new WebSocket("ws://10.20.118.7:8080/serveur.php"); 
 	socket.onopen = function(e)
 	{
 		console.log("onopen");
