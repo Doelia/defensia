@@ -112,7 +112,7 @@ class Map
 	public function newWave()
 	{
 		foreach ($this->_game->getPlayers() as $p) {
-			GameManager::getInstance()->balReiv->newWave($this->_currentWave, $p->getNumSocket());
+			GameManager::getInstance()->balReiv->newWave($this->_currentWave+1, $p->getNumSocket());
 		}
 		
 		$this->_monsters = array();
