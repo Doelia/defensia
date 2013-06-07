@@ -9,12 +9,7 @@ function onTowerFire(idTower, idMonster)
 	g.plateau.orienteTower(idTower, idMonster);
 	setTimeout(function() {
 		g.plateau.playAnimatationFire($('monstre#id'+idMonster).attr('x'), $('monstre#id'+idMonster).attr('y'));
-	}, 200);
-}
-
-function onWaveStart(num)
-{
-
+	}, 0);
 }
 
 function onMonsterPop(nameMonstre, idMonstre, x, y)
@@ -32,8 +27,14 @@ function onMonsterDie(idMonster)
 	$('monstre#id'+idMonster).remove();
 }
 
+function onMaxCenterLife(life)
+{
+	g.infos.setMaxVieCenter(life);
+}
+
 function updateCenterLife(newlife)
 {
+	console.log('updateCenterLife');
 	g.infos.setVieCenter(newlife);
 }
 
@@ -57,3 +58,7 @@ function onGameState()
 	g.setStateGame();
 }
 
+function onNewWave(numVague)
+{
+	g.infos.setWave(numVague);
+}
