@@ -111,6 +111,18 @@ monstre[type="1"] {
 	background-image: url('img/monstres/1.png');
 }
 
+monstre[type="2"] {
+	background-image: url('img/monstres/2.png');
+}
+
+monstre[type="3"] {
+	background-image: url('img/monstres/3.png');
+}
+
+monstre[type="4"] {
+	background-image: url('img/monstres/4.png');
+}
+
 
 /* INFOS */
 .vieCenterBlock {

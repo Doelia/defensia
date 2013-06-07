@@ -164,7 +164,7 @@ function Plateau()
 		if (!x || !y)
 			return;
 
-		console.log("fire @ "+x+","+y);
+		//console.log("fire @ "+x+","+y);
 		$('animations').append('<animation></animation>');
 
 		$('animations animation:last-child')

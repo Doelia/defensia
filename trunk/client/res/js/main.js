@@ -21,7 +21,7 @@ $(function() {
 	}
 
 	socket.onmessage = function(e){
-		console.log("Message reçu : "+e.data);
+		//console.log("Message reçu : "+e.data);
 		var packet = e.data.split('!');
 		var nameFunction = packet[0];
 		var parametres = '';
@@ -48,7 +48,7 @@ $(function() {
 				}
 			}
 
-			console.log('a executer : ' + nameFunction+'('+parametres+')');
+			//console.log('a executer : ' + nameFunction+'('+parametres+')');
 		}
 
 //		if (packet.length == 2)

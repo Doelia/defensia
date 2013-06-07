@@ -24,7 +24,17 @@ function Infos()
 
 	this.setVieCenter = function(vie)
 	{
-		
+		$('.infosCentre vie').html(vie);
+	}
+
+	this.setMaxVieCenter = function(vie)
+	{
+		$('.infosCentre viemax').html(vie);
+	}
+
+	this.setWave = function(num)
+	{
+		$('.vague vague').html(num);
 	}
 
 	this.displayVieCenter = function()
