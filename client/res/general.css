@@ -63,3 +63,17 @@ input#in_username {
 	text-align: center;
 }
 
+
+#announce {
+	font-family: "Eras"; 	
+	position: absolute;
+	left: 0px;
+	top: 500px;
+	width: 656px;
+	font-size: 50px;
+	background: rgb(10,10,10);
+	color: white;
+	text-align: center;
+	z-index: 50;
+}
+

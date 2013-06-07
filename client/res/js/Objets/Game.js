@@ -7,17 +7,6 @@ function Game()
 
 	this.inMove; // Tourelle cliquée
 
-	/*
-	this.nextStep = function()
-	{
-		for (var i = 0; i < 20; i++)
-			for (var j=0; j < 20; j++)
-			{
-				this.plateau.cellules[i][j].playStep();
-			}
-	}
-	*/
-
 	this.setStateSetUsername = function()
 	{
 		$('.connexion').hide();
@@ -42,6 +31,29 @@ function Game()
 	this.setStateGame = function()
 	{
 		$('.salon').fadeOut(1000);
+	}
+
+	this.passerAnnonce = function(texte)
+	{
+		$('#announce')
+
+			.css({
+				opacity: '0',
+				top: '0px',
+				display: 'block'
+			})
+
+			.html(texte)
+
+			.animate({
+			    opacity: '0.9',
+				top: '250px'
+			}, 1000 ,'swing')
+
+			.delay(1000)
+
+			.fadeOut(400)
+		;
 	}
 
 }

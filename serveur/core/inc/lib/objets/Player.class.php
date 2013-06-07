@@ -12,7 +12,7 @@ class Player
 		$this->_username = $pseudo;
 		$this->_numSocket = $numSocket;
 		$this->_id = $id;
-		$this->_cash = 250;
+		$this->_cash = 100;
 	}
 
 	public function getNumSocket()
