@@ -10,7 +10,7 @@ class SalonState implements State
 	}
 	public function update($detla)
 	{
-		if($this->_game->getNumberOfPlayers() >= 1)
+		if($this->_game->getNumberOfPlayers() >= 2)
 		{	
 			Logger::logState("changing SalonState to GameState");
 			$this->_game->setState(new GameState($this->_game));
