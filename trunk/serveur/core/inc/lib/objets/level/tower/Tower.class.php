@@ -1,7 +1,7 @@
 <?php
 
 class Tower
-{	
+{
 
 	public static $SLOW_TOWER_PRICE = 50;
 
@@ -14,17 +14,29 @@ class Tower
 	private $_timeSinceLastHit;
 
 	public function __construct($type, $player)
-	{	
-// 		Logger::logTower("new $type");
+	{
+		// 		Logger::logTower("new $type");
 		switch ($type) {
+			case TowerTemplate::$BASE_BETTER_LONG_RANGE_TOWER_TYPE : $array = TowerTemplate::$BASE_BETTER_LONG_RANGE_TOWER_TEMPLATE;
+			break;
+
+			case TowerTemplate::$BASE_LONG_RANGE_TOWER_TYPE : $array = TowerTemplate::$BASE_LONG_RANGE_TOWER_TEMPLATE;
+			break;
+			
+			case TowerTemplate::$BASE_TOWER_TYPE : $array = TowerTemplate::$BASE_TOWER_TEMPLATE;
+			break;
+			
+			case TowerTemplate::$BEST_TOWER_TYPE : $array = TowerTemplate::$BEST_TOWER_TEMPLATE;
+			break;
+			
 			case TowerTemplate::$FAST_TOWER_TYPE : $array = TowerTemplate::$FAST_TOWER_TEMPLATE;
-				break;
-
+			break;
+			
+			case TowerTemplate::$SLOW_LONG_RANGED_TOWER_TYPE : $array = TowerTemplate::$SLOW_LONG_RANGED_TOWER_TEMPLATE;
+			break;
+				
 			case TowerTemplate::$SLOW_TOWER_TYPE : $array = TowerTemplate::$SLOW_TOWER_TEMPLATE;
-				break;
-
-			case TowerTemplate::$AOE_TOWER_TYPE : $array = TowerTemplate::$AOE_TOWER_TEMPLATE;
-				break;
+			break;
 			
 			default: break;
 		}
@@ -58,17 +70,17 @@ class Tower
 	{
 		return $this->_type;
 	}
-	
+
 	public function canHit()
 	{
 		return $this->_timeSinceLastHit > $this->_fireRate;
 	}
-	
+
 	public function addTimeSinceLastHit($delta)
 	{
 		$this->_timeSinceLastHit += $delta;
 	}
-	
+
 	public function getPlayer()
 	{
 		return $this->_player;
