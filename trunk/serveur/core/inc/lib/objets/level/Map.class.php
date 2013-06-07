@@ -24,12 +24,21 @@ class Map
 		return $this->_map;
 	}
 
+	/**
+	 * 
+	 * @param number $x
+	 * @param number $y
+	 * @return AbstractCase
+	 */
 	public function getCell($x, $y)
 	{
 		return $this->_map[$y][$x];
 	}
 
 
+	/**
+	 * bouge les monstres
+	 */
 	public function moveMonsters()
 	{
 		foreach ($this->_monsters as $id => $monster)
@@ -40,7 +49,6 @@ class Map
 
 				if($cell->getType() == AbstractCase::$PATH_CASE_TYPE)
 				{
-					print "monster moved !\n";
 					$monster->updatePosition($cell->getDirection());
 
 					foreach ($this->_game->getPlayers() as $p) {
@@ -66,6 +74,10 @@ class Map
 		}
 	}
 
+	/**
+	 * fait taper les monstres par les tours
+	 * @param number $delta
+	 */
 	public function hitMonsters($delta)
 	{
 		foreach ($this->_map as $i => $value)
@@ -110,6 +122,9 @@ class Map
 		}
 	}
 
+	/**
+	 * parse le fichier de level pour charger la map suivante
+	 */
 	public function newWave()
 	{
 		foreach ($this->_game->getPlayers() as $p) {
@@ -117,13 +132,17 @@ class Map
 		}
 		
 		$this->_monsters = array();
-		$this->parseMap("../../res/level.xml");
+		$this->parseMonstersWave("../../res/level.xml");
 		$this->_currentWave++;
 		$this->_monstersDead = 0;
 	}
 
 
-	private function parseMap($file)
+	/**
+	 * parse la map
+	 * @param unknown_type $file
+	 */
+	private function parseMonstersWave($file)
 	{
 		$string = file_get_contents($file);
 		$level = new SimpleXMLElement($string,LIBXML_NOCDATA);
@@ -134,7 +153,14 @@ class Map
 		}
 	}
 
-	public function addMonster($type, $x, $y, $time)
+	/**
+	 * ajoute un monstre à la liste de monstres de la map
+	 * @param String $type
+	 * @param number $x
+	 * @param number $y
+	 * @param number $time
+	 */
+	private function addMonster($type, $x, $y, $time)
 	{
 		$monster = new Monster($type, trim($x), trim($y), trim($time));
 		$this->_monsters[] = $monster;
@@ -144,11 +170,13 @@ class Map
 		}
 	}
 
+	/**
+	 * true si on a besoin d'une nouvelle vague
+	 * si tous les monstres sont morts
+	 * @return boolean
+	 */
 	public function needsNewWave()
 	{
-		// 		print "monsters dead : ".$this->_monstersDead."\n";
-		// 		print "monsters : ".count($this->_monsters)."\n";
-
 		if($this->_currentWave < $this->_numberOfWaves)
 		{
 			if($this->_monstersDead == count($this->_monsters))

@@ -10,6 +10,10 @@ class CenterCase extends AbstractCase
 		parent::__construct($x, $y, AbstractCase::$CENTER_CASE_TYPE);
 	}
 	
+	/**
+	 * la vie de centre est calculée en fonction du nombre total de case de centre
+	 * @param $life
+	 */
 	public static function setLife($life)
 	{
 		self::$_life = $life;

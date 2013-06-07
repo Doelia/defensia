@@ -11,8 +11,6 @@ class Monster
 	private $_isAlive;
 	private $_moneyOnDeath;
 	private $_timeBeforeMoving;
-
-
 	private $_numberOfUpdateCycles;
 
 	public function __construct($type, $x, $y, $time)
@@ -48,21 +46,38 @@ class Monster
 
 	}
 
+	/**
+	 * la vie du monstre
+	 * @return number
+	 */
 	public function getLife()
 	{
 		return $this->_life;
 	}
 
+	/**
+	 * la vitesse du monstre
+	 * un mouvement tous les $vitesse cycles d'update
+	 * @return number
+	 */
 	public function getSpeed()
 	{
 		return $this->_speed;
 	}
-
+	
+	/**
+	 * type du monstre
+	 * @return number
+	 */
 	public function getType()
 	{
 		return $this->_type;
 	}
 
+	/**
+	 * damages du monstre
+	 * @return number
+	 */
 	public function getDamage()
 	{
 		return $this->_damage;
@@ -78,7 +93,11 @@ class Monster
 		return $this->_y;
 	}
 
-
+	/**
+	 * incrémente le temps depuis le dernier mouvement
+	 * vrai si le temps depuis le dernier mouvement est supérieur à $speed
+	 * @return boolean
+	 */
 	public function moved()
 	{
 		$this->_numberOfUpdateCycles++;
@@ -95,6 +114,10 @@ class Monster
 		}
 	}
 
+	/**
+	 * met à jour la position du monstre en fonction de la direction passée en parametre
+	 * @param String $direction
+	 */
 	public function updatePosition($direction)
 	{
 
@@ -115,6 +138,10 @@ class Monster
 		}
 	}
 
+	/**
+	 * soustrait les dommages en parametre à la vie du monstre
+	 * @param number $damages
+	 */
 	public function takeDamages($damages)
 	{
 		$this->_life -= $damages;
@@ -125,6 +152,10 @@ class Monster
 		}
 	}
 
+	/**
+	 * true si le monstre est en vie
+	 * @return boolean
+	 */
 	public function isAlive()
 	{
 		if($this->_life <= 0)
@@ -133,17 +164,28 @@ class Monster
 		return $this->_isAlive;
 	}
 	
+	/**
+	 * tue le monstre
+	 */
 	public function kill()
 	{
 		$this->_isAlive = false;
 		$this->_life = 0;
 	}
 	
+	/**
+	 * l'argent que donne le monstre en mousrant
+	 * @return number
+	 */
 	public function getMoneyOnDeath()
 	{
 		return $this->_moneyOnDeath;
 	}
 	
+	/**
+	 * true si le monstre est autorisé à bouger, si le temps avant son premier mouvement est écoulé
+	 * @return boolean
+	 */
 	public function isAllowedToMove()
 	{
 		

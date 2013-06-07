@@ -26,14 +26,20 @@ class TowerSocketCase extends AbstractCase
 			return false;
 	}
 
+	
+	/**
+	 * retourne la tour tenue par la socket
+	 * @return Tower tower
+	 */
 	public function getTower()
 	{
 		return $this->_tower;
 	}
 
 	/**
-	*	return le montant d'argent que vaut la tour lorsqu'elle est detruite
-	*/
+	 * retounrne le montant d'argent que donne la tour lorsqu'elle est détruite
+	 * @return int amount
+	 */
 	public function removeTower()
 	{
 		if($this->_tower == null)
@@ -61,16 +67,26 @@ class TowerSocketCase extends AbstractCase
 		}
 	}
 	
+	/**
+	 * true si la case a une tour
+	 * @return boolean
+	 */
 	public function hasTower()
 	{
 		return $this->_tower != null;
 	}
 	
+	/**
+	 * true si le monstre est à portée de la tour tenue par la case
+	 * @param Monster $monster
+	 * @param float $delta
+	 * @return boolean
+	 */
 	public function canHit($monster, $delta)
 	{
 		$this->_tower->addTimeSinceLastHit($delta);
 		
-		if(sqrt(pow(($monster->getX() - $this->getX()), 2) + pow($monster->getY() - $this->getY(), 2)) < $this->_tower->getRange())
+		if(ceil(sqrt(pow(($monster->getX() - $this->getX()), 2) + pow($monster->getY() - $this->getY(), 2))) < $this->_tower->getRange())
 		{
 			if($this->_tower->canHit())
 			{
