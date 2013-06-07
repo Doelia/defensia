@@ -7,7 +7,7 @@ class MonsterTemplate
 			"life" => 10,
 			"speed" => 15,
 			"damage" => 1,
-			"moneyOnDeath" => 10,
+			"moneyOnDeath" => 15,
 	);
 
 	public static $SLOW_MONSTER_TYPE = "slowMonster";
@@ -15,7 +15,7 @@ class MonsterTemplate
 			"life" => 40,
 			"speed" => 20,
 			"damage" => 1,
-			"moneyOnDeath" => 12,
+			"moneyOnDeath" => 20,
 	);
 
 	public static $FAST_MONSTER_TYPE = "fastMonster";
@@ -23,7 +23,7 @@ class MonsterTemplate
 			"life" => 20,
 			"speed" => 6,
 			"damage" => 1,
-			"moneyOnDeath" => 15,
+			"moneyOnDeath" => 30,
 	);
 
 	public static $BASE_BETTER_MONSTER_TYPE = "baseBetterMonster";
@@ -31,6 +31,6 @@ class MonsterTemplate
 			"life" => 40,
 			"speed" => 10,
 			"damage" => 1,
-			"moneyOnDeath" => 20,
+			"moneyOnDeath" => 50,
 	);
 }
