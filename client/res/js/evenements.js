@@ -58,6 +58,7 @@ function onMapRecu(json)
 // Connexion d'un joueur
 function onAddPlayer(idJoueur, pseudo)
 {
+	console.log("event addPlayer "+pseudo);
 	g.infos.addPlayer(idJoueur, pseudo);
 }
 
