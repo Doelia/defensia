@@ -16,6 +16,9 @@ class PathCase extends AbstractCase
 		$this->_direction = $direction;
 	}
 
+	/**
+	 * retourne la direction dans laquelle le monstre doit aller
+	 */
 	public function getDirection()
 	{
 		return $this->_direction;

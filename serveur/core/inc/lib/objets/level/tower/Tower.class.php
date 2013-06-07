@@ -15,7 +15,6 @@ class Tower
 
 	public function __construct($type, $player)
 	{
-		// 		Logger::logTower("new $type");
 		switch ($type) {
 			case TowerTemplate::$BASE_BETTER_LONG_RANGE_TOWER_TYPE : $array = TowerTemplate::$BASE_BETTER_LONG_RANGE_TOWER_TEMPLATE;
 			break;
@@ -43,7 +42,7 @@ class Tower
 
 		$this->_damage = $array["damage"];
 		$this->_fireRate = $array["fireRate"];
-		$this->_range = $array["range"];
+		$this->_range = $array["range"] + 1;
 		$this->_attackRadius = $array["radius"];
 		$this->_type = $type;
 		$this->_player = $player;
@@ -71,6 +70,10 @@ class Tower
 		return $this->_type;
 	}
 
+	/**
+	 * true is la temps depuis son dernier tir est supérieur à sa cadence de tir
+	 * @return boolean
+	 */
 	public function canHit()
 	{
 		return $this->_timeSinceLastHit > $this->_fireRate;
@@ -78,7 +81,7 @@ class Tower
 
 	public function addTimeSinceLastHit($delta)
 	{
-		$this->_timeSinceLastHit += $delta;
+		$this->_timeSinceLastHit++;
 	}
 
 	public function getPlayer()
