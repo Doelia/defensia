@@ -1,25 +1,18 @@
 <level>
 	<wave number="1">
-		<monster type="baseMonster" time="4" x="0" y="10"></monster>
-		<monster type="baseMonster" time="0" x="10" y="0"></monster>
-		<monster type="baseMonster" time="4" x="0" y="10"></monster>
-		<monster type="baseMonster" time="0" x="10" y="0"></monster>
-		<monster type="baseMonster" time="4" x="0" y="10"></monster>
-		<monster type="baseMonster" time="0" x="10" y="0"></monster>
-		<monster type="baseMonster" time="4" x="0" y="10"></monster>
-		<monster type="baseMonster" time="8" x="0" y="10"></monster>
-		<monster type="baseMonster" time="4" x="0" y="10"></monster>
-		<monster type="baseMonster" time="0" x="10" y="0"></monster>
-		<monster type="baseMonster" time="4" x="0" y="10"></monster>
-		<monster type="baseMonster" time="0" x="10" y="0"></monster>
-		<monster type="baseMonster" time="4" x="0" y="10"></monster>
+		<!-- Haut -->
+		<monster type="baseMonster" time="10" x="0" y="10"></monster>
+		<monster type="baseMonster" time="50" x="0" y="10"></monster>
+		<monster type="baseMonster" time="80" x="0" y="10"></monster>
 	</wave>
 	
 	<wave number="2">
+		<!--
 		<monster type="fastMonster" time="4" x="0" y="10"></monster>
 		<monster type="fastMonster" time="4" x="0" y="10"></monster>
 		<monster type="fastMonster" time="4" x="0" y="10"></monster>
 		<monster type="fastMonster" time="4" x="0" y="10"></monster>
+		-->
 	</wave>
 	
 </level>
