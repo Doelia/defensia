@@ -67,7 +67,7 @@ function onMoneyRecue(money, idPlayer, pseudo)
 	g.infos.setPlayerMoney(money, idPlayer);
 }
 
-// 
+// Préviens que le jeu est pret à démarrer
 function onGameState()
 {
 	g.setStateGame();
@@ -76,5 +76,6 @@ function onGameState()
 // Démarrage de la vague numVague
 function onNewWave(numVague)
 {
+	g.passerAnnonce('Vague '+numVague);
 	g.infos.setWave(numVague);
 }

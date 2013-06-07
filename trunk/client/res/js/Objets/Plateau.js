@@ -7,16 +7,6 @@ function Plateau()
 	this.preparePlateau = function()
 	{
 		console.log("Plateau.preparePlateau()");
-		/* Création des celulles */
-		for (var i = 0; i < 20; i++)
-		{
-			this.cellules.push(new Array());
-			for (var j=0; j < 20; j++)
-			{
-				this.cellules[i].push(new Array());
-				this.cellules[i][j] = new Cellule(i, j);
-			}
-		}
 
 		// Création des onclick sur le shop
 		$('.tour').each(function(i){
