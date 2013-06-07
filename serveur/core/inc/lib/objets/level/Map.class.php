@@ -68,6 +68,7 @@ class Map
 
 					foreach ($this->_game->getPlayers() as $p) {
 						GameManager::getInstance()->balReiv->updateCenterLife($life, $p->getNumSocket());
+						GameManager::getInstance()->balReiv->killMonster($id+1, $p->getNumSocket());
 					}
 				}
 			}
@@ -146,7 +147,7 @@ class Map
 	{
 		$string = file_get_contents($file);
 		$level = new SimpleXMLElement($string,LIBXML_NOCDATA);
-		$ns=$level->getNamespaces(true);
+		$level->getNamespaces(true);
 			
 		foreach ($level->wave[$this->_currentWave]->monster as $monster) {
 			$this->addMonster($monster['type'], $monster['x'], $monster['y'], $monster['time']);
