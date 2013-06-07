@@ -50,10 +50,14 @@ function getIdTypeMonstreFromName(name)
 {
 	switch (name)
 	{
-		case 'fastMonster':
+		case 'baseMonster':
 			return 1;
 		case 'slowMonster':
 			return 2;
+		case 'fastMonster':
+			return 3;
+		case 'baseBetterMonster':
+			return 4;
 	}
 
 }
