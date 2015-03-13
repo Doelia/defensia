@@ -1,4 +1,4 @@
-# defensia
+# Defensia
 
 Tower Defense Multijoueur en PHP/Javascript/Websockets
 
@@ -8,3 +8,4 @@ Fonctionnalités :
 * Communication par les websockets
 * Multijoueur, jusqu'à 4 joueurs par parties
 
+Aucune ambition particulière de mise en ligne
