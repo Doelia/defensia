@@ -2,7 +2,7 @@
 
 class Logger
 {
-	private static $log = false;
+	private static $log = true;
 	
 	public static function display($m)
 	{

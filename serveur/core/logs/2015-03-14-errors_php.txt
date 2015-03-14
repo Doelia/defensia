@@ -1,0 +1,1 @@
+[14-Mar-2015 22:58:42 Europe/Paris] PHP Parse error:  parse error, expecting `','' or `';'' in /Users/doelia/Documents/dev/defensia/serveur/core/inc/init.php on line 21
