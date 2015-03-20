@@ -7,7 +7,7 @@ class Server extends WebSocketServer
 	public static function getInstance($idBalReiv, $idBalSend)
 	{
 		if (self::$instance == null)
-			self::$instance = new Server("10.20.118.7", "8080", $idBalReiv, $idBalSend);
+			self::$instance = new Server("localhost", "8080", $idBalReiv, $idBalSend);
 
 		echo "test";
 		return self::$instance;
